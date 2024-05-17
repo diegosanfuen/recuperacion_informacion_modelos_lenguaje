@@ -56,7 +56,7 @@ class manejador_sesiones():
 
         return prompts
 
-    def aniadir_mensajes_por_sesion(self, id_session, prompt):
+    def add_mensajes_por_sesion(self, id_session, prompt):
         prompts = []
         try:
             conn = self.obtener_db_conexion()

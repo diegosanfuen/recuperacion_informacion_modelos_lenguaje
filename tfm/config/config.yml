@@ -1,0 +1,43 @@
+# Configuracion de los Logs
+ruta_salida_logs: "C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\logs"
+
+# Configuracion de la Base de Datos de Mensajes (Contexto)
+
+# Configuracion de Base de Datos Vectorial
+vectorial_database:
+  ruta: "C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\pruebas-faiss\\faiss"
+  file_indices: indices_faiss.index
+  file_json: metadata.json
+
+dataset_index:
+  campos_metadata:
+    - url
+    - tittle
+    - text_resume
+  campo_texto:
+    - text
+
+parameters_tokenizador:
+  name_model_llm: bert-base-uncased
+  name_model_tokenizador: bert-base-uncased
+  return_tensors: pt
+  max_length: 512
+  truncation: true
+  padding: max_length
+
+parameters_resume:
+  name_model_llm: "facebook/bart-large-cnn"
+  name_model_tokenizador: "facebook/bart-large-cnn"
+  return_tensors: pt
+  max_length: 1024
+  truncation: true
+  padding: max_length
+  resume:
+    max_length: 150
+    min_length: 40
+    length_penalty: 2.0
+    num_beams: 4
+    early_stopping: true
+    skip_special_tokens: true
+
+# Modelos:

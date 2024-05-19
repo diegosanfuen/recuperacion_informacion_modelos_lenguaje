@@ -7,29 +7,47 @@ from transformers import AutoModel, AutoTokenizer
 import faiss
 import json
 import warnings
-
+import yaml
+from pathlib import Path
+import logging
+from transformers import BartForConditionalGeneration, BartTokenizer
 
 # Ignorar warnings específicos de huggingface_hub
 warnings.filterwarnings("ignore", category=FutureWarning, module="huggingface_hub.file_download")
 warnings.filterwarnings("ignore", category=UserWarning, module="huggingface_hub.file_download")
 
+# Abrir y leer el archivo YAML
+with open('config/config.yml', 'r') as file:
+    config = yaml.safe_load(file)
 
-from transformers import BartForConditionalGeneration, BartTokenizer
+# Configuración básica del logger
+logging.basicConfig(filename= Path(config['ruta_salida_logs']) / 'mi_log.log',
+                    level=logging.DEBUG,
+                    format='%(asctime)s - %(levelname)s - %(message)s'
+                    )
 
 # Cargar el modelo y el tokenizador de BART
-tokenizer = BartTokenizer.from_pretrained('facebook/bart-large-cnn')
-model = BartForConditionalGeneration.from_pretrained('facebook/bart-large-cnn')
+tokenizer = BartTokenizer.from_pretrained(config['parameters_resume']['name_model_llm'])
+model = BartForConditionalGeneration.from_pretrained(config['parameters_resume']['name_model_tokenizador'])
 
 def generate_summary(text):
     # Codificar el texto para el modelo y asegurarse de que la entrada es un tensor
-    inputs = tokenizer.encode("summarize: " + text, return_tensors='pt', max_length=1024, truncation=True)
+    inputs = tokenizer.encode("summarize: " + text,
+                              return_tensors=config['parameters_resume']['return_tensors'],
+                              max_length=config['parameters_resume']['max_length'],
+                              truncation=config['parameters_resume']['truncation'])
 
     # Generar el resumen con parámetros adecuados
-    summary_ids = model.generate(inputs, max_length=150, min_length=40, length_penalty=2.0, num_beams=4,
-                                 early_stopping=True)
+    summary_ids = model.generate(inputs,
+                                 max_length=config['parameters_resume']['resume']['max_length'],
+                                 min_length=config['parameters_resume']['resume']['min_length'],
+                                 length_penalty=config['parameters_resume']['resume']['length_penalty'],
+                                 num_beams=config['parameters_resume']['resume']['num_beams'],
+                                 early_stopping=config['parameters_resume']['resume']['early_stopping'])
 
     # Decodificar el texto generado y devolverlo
-    summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+    summary = tokenizer.decode(summary_ids[0],
+                               skip_special_tokens=config['parameters_resume']['resume']['skip_special_tokens'])
     return str(summary)
 
 
@@ -37,9 +55,9 @@ def generate_summary(text):
 try:
     text = "Aquí va el contenido largo del texto que quieres resumir..."
     summary = generate_summary(text)
-    print(summary)
+    logging.info(summary)
 except Exception as e:
-    print(f"Error al generar el resumen: {e}")
+    logging.exception(f"Error al generar el resumen: {e}")
 
 # Suponemos que tu dataframe se llama df y tiene las columnas 'url', 'title', 'text'
 df = pd.DataFrame({
@@ -71,12 +89,18 @@ df = pd.DataFrame({
 df['text_resume'] = df['text'].apply(generate_summary)
 
 # Cargar un modelo de BERT y su tokenizador
-tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased', force_download=True)
-model = AutoModel.from_pretrained('bert-base-uncased', force_download=True)
+tokenizer = AutoTokenizer.from_pretrained(config['parameters_tokenizador']['name_model_llm'],
+                                          force_download=True)
+model = AutoModel.from_pretrained(config['parameters_tokenizador']['name_model_tokenizador'],
+                                  force_download=True)
 
 # Función para convertir texto en un vector usando BERT
 def text_to_vector(text):
-    inputs = tokenizer(text, return_tensors='pt', max_length=512, truncation=True, padding='max_length')
+    inputs = tokenizer(text,
+                       return_tensors=config['parameters_tokenizador']['return_tensors'],
+                       max_length=config['parameters_tokenizador']['max_length'],
+                       truncation=config['parameters_tokenizador']['truncation'],
+                       padding=config['parameters_tokenizador']['padding'])
     outputs = model(**inputs)
     return outputs.last_hidden_state[:, 0, :].detach().numpy()
 
@@ -94,10 +118,12 @@ index.add(vectors)
 metadata = df[['url', 'title', 'text_resume']].to_dict('records')
 
 # Guardar el índice de FAISS y los metadatos si es necesario
-faiss.write_index(index, r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\pruebas-faiss\faiss\indices.index')
+faiss.write_index(index,
+                  str(Path(config['vectorial_database']['ruta']) / config['vectorial_database']['file_indices'])
+                  )
 
 
-with open(r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\pruebas-faiss\faiss\metadata.json', 'w') as f:
+with open(str(Path(config['vectorial_database']['ruta']) / config['vectorial_database']['file_json']), 'w') as f:
     json.dump(metadata, f)
 
 

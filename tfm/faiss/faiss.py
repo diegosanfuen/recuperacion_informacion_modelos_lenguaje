@@ -1,20 +1,45 @@
 import pandas as pd
 import numpy as np
-from transformers import BertTokenizer, BertModel
+from transformers import AutoModel, AutoTokenizer
 import faiss
 import json
+import warnings
+import yaml
+from pathlib import Path
+import logging
+from transformers import BartForConditionalGeneration, BartTokenizer
+
+# Ignorar warnings específicos de huggingface_hub
+warnings.filterwarnings("ignore", category=FutureWarning, module="huggingface_hub.file_download")
+warnings.filterwarnings("ignore", category=UserWarning, module="huggingface_hub.file_download")
 
 class manejador_faiss():
 
     def __init__(self):
+        # Abrir y leer el archivo YAML
+        with open('config/config.yml', 'r') as file:
+            config = yaml.safe_load(file)
+
+        # Configuración básica del logger
+        logging.basicConfig(filename=Path(config['ruta_salida_logs']) / 'mi_log.log',
+                            level=logging.DEBUG,
+                            format='%(asctime)s - %(levelname)s - %(message)s')
+
         # Parametros externos configuracion
-        self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-        self.model = BertModel.from_pretrained('bert-base-uncased')
-        self.ruta_base_datos = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\pruebas-faiss\faiss\indices.index'
-        self.ruta_json_metadata = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\pruebas-faiss\faiss\metadata.json'
+        self.tokenizer = AutoTokenizer.from_pretrained(config['parameters_tokenizador']['name_model_llm'],
+                                                       force_download=True)
+        self.model = AutoModel.from_pretrained(config['parameters_tokenizador']['name_model_tokenizador'],
+                                               force_download=True)
+
+        self.ruta_base_datos = Path(config['vectorial_database']['ruta']) / config['vectorial_database']['file_indices']
+        self.ruta_json_metadata = Path(config['vectorial_database']['ruta']) / config['vectorial_database']['file_json']
 
     def text_to_vector(self, text):
-        inputs = self.tokenizer(text, return_tensors='pt', max_length=512, truncation=True, padding='max_length')
+        inputs = self.tokenizer(text,
+                                return_tensors=config['parameters_tokenizador']['return_tensors'],
+                                max_length=config['parameters_tokenizador']['max_length'],
+                                truncation=config['parameters_tokenizador']['truncation'],
+                                padding=config['parameters_tokenizador']['padding'])
         outputs = self.model(**inputs)
         return outputs.last_hidden_state[:, 0, :].detach().numpy()
 

@@ -54,6 +54,7 @@ class manejador_faiss():
         self.vectors = np.vstack(dataset[col_text].apply(self.text_to_vector))
         # Crear un índice FAISS para almacenar los vectores
         dimension = self.vectors.shape[1]  # Dimensión de los vectores
+        print(dimension)
         self.index = faiss.IndexFlatL2(dimension)
         # Añadir los vectores al índice de FAISS
         self.index.add(self.vectors)

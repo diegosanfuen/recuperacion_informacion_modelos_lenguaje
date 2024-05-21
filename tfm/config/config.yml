@@ -12,7 +12,7 @@ vectorial_database:
 dataset_index:
   campos_metadata:
     - url
-    - tittle
+    - titulo
     - text_resume
   campo_texto:
     - text

@@ -112,6 +112,6 @@ class manejador_faiss():
 
 
  if __name__ == '__main__':
-    BDVect = manejador_faiss()
-    BDVect.inicialize_db_vect()
+     BDVect = manejador_faiss()
+     BDVect.inicialize_db_vect()
 

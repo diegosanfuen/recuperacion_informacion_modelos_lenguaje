@@ -119,17 +119,18 @@ class manejador_faiss():
 
 if __name__ == '__main__':
     BDVect = manejador_faiss()
-    # df = pd.read_csv(r'/content/recuperacion_informacion_modelos_lenguaje/tfm/ObtencionDatos/datos/csv_boes_oferta_publica.csv', sep='|')
-    # df['embbeding'] = df['texto'].iloc[1:400].apply(BDVect.text_to_vector)
-    # BDVect.vectorizar(df, 'texto', ['url', 'titulo'])
-    # BDVect.persistir_bbdd_vectorial()
+    df = pd.read_csv(r'/content/recuperacion_informacion_modelos_lenguaje/tfm/ObtencionDatos/datos/csv_boes_oferta_publica.csv', sep='|')
+    df['embbeding'] = df['texto'].apply(BDVect.text_to_vector)
+    print(df.head(5))
+    BDVect.vectorizar(df, 'embbeding', ['url', 'titulo'])
+    BDVect.persistir_bbdd_vectorial()
     BDVect.cargar_bbdd_vectorial()
     print("Búsqueda Arquitecto")
-    print(BDVect.buscar_bbdd_vectorial("Arquitecto", 10))
-    print("Búsqueda Informático")
-    print(BDVect.buscar_bbdd_vectorial("Informático", 10))
-    print("Búsqueda Policía")
-    print(BDVect.buscar_bbdd_vectorial("Policía", 10))
+    print(BDVect.buscar_bbdd_vectorial("Cuerpo de Arquitectos", 10))
+    print("Búsqueda sanidad")
+    print(BDVect.buscar_bbdd_vectorial("Oposiciones sanidad", 10))
+    print("Búsqueda Economistas")
+    print(BDVect.buscar_bbdd_vectorial("Economistas", 10))
 
 
 

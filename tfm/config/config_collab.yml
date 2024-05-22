@@ -5,7 +5,7 @@ ruta_salida_logs: "/content/recuperacion_informacion_modelos_lenguaje/tfm/logs"
 
 # Configuracion de Base de Datos Vectorial
 vectorial_database:
-  ruta: "/content/recuperacion_informacion_modelos_lenguaje/ruebas-faiss/faiss"
+  ruta: "/content/recuperacion_informacion_modelos_lenguaje/pruebas-faiss/faiss"
   file_indices: indices_faiss.index
   file_json: metadata.json
 

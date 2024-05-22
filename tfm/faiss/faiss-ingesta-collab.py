@@ -1,4 +1,10 @@
+# Fuentes: https://api.python.langchain.com/en/latest/chains/langchain.chains.retrieval.create_retrieval_chain.html
+
 import pandas as pd
+from langchain_core.documents.base import Document
+from langchain_community.embeddings import OllamaEmbeddings
+from langchain_community.vectorstores import FAISS
+import pickle as pkl
 import numpy as np
 from transformers import AutoModel, AutoTokenizer
 import faiss
@@ -10,6 +16,7 @@ import logging
 from transformers import BartForConditionalGeneration, BartTokenizer
 import os
 import datetime
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 os.environ['HF_HUB_DISABLE_SYMLINKS_WARNING'] = '1'
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
@@ -34,6 +41,7 @@ class manejador_faiss():
                             format='%(asctime)s - %(levelname)s - %(message)s')
 
         # Parametros externos configuracion
+        self.embedding_llm = OllamaEmbeddings(model="llama3")
         self.tokenizer = AutoTokenizer.from_pretrained(config['parameters_tokenizador']['name_model_llm'],
                                                        force_download=True)
         self.model = AutoModel.from_pretrained(config['parameters_tokenizador']['name_model_tokenizador'],
@@ -42,6 +50,33 @@ class manejador_faiss():
         self.ruta_base_datos = Path(config['vectorial_database']['ruta']) / config['vectorial_database']['file_indices']
         self.ruta_json_metadata = Path(config['vectorial_database']['ruta']) / config['vectorial_database']['file_json']
         logging.debug(f'Leemos la configuracion Ruta de la Base de datos: {self.ruta_base_datos}')
+
+    def convertir_pandas_lista_documentos(self, dataframe, col_text, cols_metadata):
+        # Lista para almacenar los documentos
+        documentos = []
+
+        # Iterar sobre cada fila del DataFrame
+        for index, row in dataframe.iterrows():
+            # Crear un objeto Document
+            doc = Document(
+                page_content=row[col_text],  # El contenido principal del documento
+                metadata={
+                    campo: row[campo] for campo in cols_metadata
+                }
+            )
+            # Añadir el Documento a la lista
+            documentos.append(doc)
+
+        self.documentos = documentos
+
+    def generar_vecrtor_store(self):
+        text_splitter = RecursiveCharacterTextSplitter()
+        documents_embd = text_splitter.split_documents(self.documentos)
+        self.vector_index = FAISS.from_documents(documents_embd, self.embedding_llm)
+        self.retriever = self.vector_index.as_retriever()
+
+
+
 
     def text_to_vector(self, text):
         inputs = self.tokenizer(text,
@@ -69,12 +104,8 @@ class manejador_faiss():
 
     def persistir_bbdd_vectorial(self):
         try:
-            # Guardar el índice de FAISS y los metadatos si es necesario
-            faiss.write_index(self.index, str(self.ruta_base_datos))
-            with open(
-                    self.ruta_json_metadata,
-                    'w') as f:
-                json.dump(self.metadata, f)
+            with open(r'/content/retriever.pkl', 'wb') as archivo:
+                pkl.dump(self.vector_index, archivo)
         except Exception as e:
             logging.error(f'Un Error se produjo al intentar guardar la base de datos de embbedings: {e}')
 
@@ -106,6 +137,7 @@ class manejador_faiss():
         # Buscar los k vectores más cercanos
         _, indices = self.index.search(query_vector, k)
 
+
         # Recuperar y mostrar los resultados
         self.resultados = []
         for idx in indices[0]:
@@ -120,17 +152,16 @@ class manejador_faiss():
 if __name__ == '__main__':
     BDVect = manejador_faiss()
     df = pd.read_csv(r'/content/recuperacion_informacion_modelos_lenguaje/tfm/ObtencionDatos/datos/csv_boes_oferta_publica.csv', sep='|')
-    df['embbeding'] = df['texto'].apply(BDVect.text_to_vector)
-    print(df.head(5))
-    BDVect.vectorizar(df, 'embbeding', ['url', 'titulo'])
-    BDVect.persistir_bbdd_vectorial()
     BDVect.cargar_bbdd_vectorial()
-    print("Búsqueda Arquitecto")
-    print(BDVect.buscar_bbdd_vectorial("Cuerpo de Arquitectos", 10))
-    print("Búsqueda sanidad")
-    print(BDVect.buscar_bbdd_vectorial("Oposiciones sanidad", 10))
-    print("Búsqueda Economistas")
-    print(BDVect.buscar_bbdd_vectorial("Economistas", 10))
+    BDVect.convertir_pandas_lista_documentos(df, 'texto', ['url', 'titulo'])
+    BDVect.generar_vecrtor_store()
+    BDVect.persistir_bbdd_vectorial()
+    # print("Búsqueda Arquitecto")
+    # print(BDVect.buscar_bbdd_vectorial("Arquitecto", 10))
+    # print("Búsqueda Informático")
+    # print(BDVect.buscar_bbdd_vectorial("Informático", 10))
+    # print("Búsqueda Policía")
+    # print(BDVect.buscar_bbdd_vectorial("Policía", 10))
 
 
 

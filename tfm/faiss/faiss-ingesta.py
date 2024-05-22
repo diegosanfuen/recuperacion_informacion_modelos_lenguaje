@@ -4,7 +4,7 @@ import pandas as pd
 from langchain_core.documents.base import Document
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.vectorstores import FAISS
-import picke as pkl
+import pickle as pkl
 import numpy as np
 from transformers import AutoModel, AutoTokenizer
 import faiss
@@ -72,7 +72,7 @@ class manejador_faiss():
     def generar_vecrtor_store(self):
         text_splitter = RecursiveCharacterTextSplitter()
         documents_embd = text_splitter.split_documents(self.documentos)
-        self.vector_index = FAISS.from_documents(documents_embd, self.embeddings_llm)
+        self.vector_index = FAISS.from_documents(documents_embd, self.embedding_llm)
         self.retriever = self.vector_index.as_retriever()
 
 
@@ -151,17 +151,20 @@ class manejador_faiss():
 
 if __name__ == '__main__':
     BDVect = manejador_faiss()
-    # df = pd.read_csv(r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\ObtencionDatos\datos\csv_boes_oferta_publica.csv', sep='|')
+    df = pd.read_csv(r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\ObtencionDatos\datos\csv_boes_oferta_publica.csv', sep='|')
     # df['embbeding'] = df['texto'].iloc[1:400].apply(BDVect.text_to_vector)
     # BDVect.vectorizar(df, 'texto', ['url', 'titulo'])
     # BDVect.persistir_bbdd_vectorial()
     BDVect.cargar_bbdd_vectorial()
-    print("Búsqueda Arquitecto")
-    print(BDVect.buscar_bbdd_vectorial("Arquitecto", 10))
-    print("Búsqueda Informático")
-    print(BDVect.buscar_bbdd_vectorial("Informático", 10))
-    print("Búsqueda Policía")
-    print(BDVect.buscar_bbdd_vectorial("Policía", 10))
+    BDVect.convertir_pandas_lista_documentos(df, 'texto', ['url', 'titulo'])
+    BDVect.generar_vecrtor_store()
+    BDVect.persistir_bbdd_vectorial()
+    # print("Búsqueda Arquitecto")
+    # print(BDVect.buscar_bbdd_vectorial("Arquitecto", 10))
+    # print("Búsqueda Informático")
+    # print(BDVect.buscar_bbdd_vectorial("Informático", 10))
+    # print("Búsqueda Policía")
+    # print(BDVect.buscar_bbdd_vectorial("Policía", 10))
 
 
 

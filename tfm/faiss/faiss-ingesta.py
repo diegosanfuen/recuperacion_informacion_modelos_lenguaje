@@ -125,8 +125,11 @@ if __name__ == '__main__':
     # BDVect.vectorizar(df, 'texto', ['url', 'titulo'])
     # BDVect.persistir_bbdd_vectorial()
     BDVect.cargar_bbdd_vectorial()
+    print("Búsqueda Arquitecto")
     print(BDVect.buscar_bbdd_vectorial("Arquitecto", 10))
+    print("Búsqueda Informático")
     print(BDVect.buscar_bbdd_vectorial("Informático", 10))
+    print("Búsqueda Policía")
     print(BDVect.buscar_bbdd_vectorial("Policía", 10))
 
 

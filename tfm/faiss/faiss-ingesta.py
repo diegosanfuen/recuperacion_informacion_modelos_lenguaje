@@ -9,6 +9,7 @@ from pathlib import Path
 import logging
 from transformers import BartForConditionalGeneration, BartTokenizer
 import os
+import datetime
 
 os.environ['HF_HUB_DISABLE_SYMLINKS_WARNING'] = '1'
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
@@ -25,9 +26,10 @@ with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config.yml', 'r') as file:
 
 class manejador_faiss():
     def __init__(self):
-        print(config)
+        fecha_hoy = datetime.datetime.today().strftime("%Y_%m_%d")
+        logging.debug(f'Volcamos toda la informacion del fichero de configuracion: {config}')
         # Configuración básica del logger
-        logging.basicConfig(filename=Path(config['ruta_salida_logs']) / 'mi_log.log',
+        logging.basicConfig(filename=Path(config['ruta_salida_logs']) / f'logs_{fecha_hoy}.log',
                             level=logging.DEBUG,
                             format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -39,6 +41,7 @@ class manejador_faiss():
 
         self.ruta_base_datos = Path(config['vectorial_database']['ruta']) / config['vectorial_database']['file_indices']
         self.ruta_json_metadata = Path(config['vectorial_database']['ruta']) / config['vectorial_database']['file_json']
+        logging.debug(f'Leemos la configuracion Ruta de la Base de datos: {self.ruta_base_datos}')
 
     def text_to_vector(self, text):
         inputs = self.tokenizer(text,
@@ -50,36 +53,46 @@ class manejador_faiss():
         return outputs.last_hidden_state[:, 0, :].detach().numpy()
 
     def vectorizar(self, dataset, col_text, cols_metadata):
-        # Vectorizar el texto de cada fila en el dataframe
-        self.vectors = np.vstack(dataset[col_text].apply(self.text_to_vector))
-        # Crear un índice FAISS para almacenar los vectores
-        dimension = self.vectors.shape[1]  # Dimensión de los vectores
-        print(dimension)
-        self.index = faiss.IndexFlatL2(dimension)
-        # Añadir los vectores al índice de FAISS
-        self.index.add(self.vectors)
-        # Guardamos los metadatos
-        self.metadata = dataset[cols_metadata].to_dict('records')
+        try:
+            # Vectorizar el texto de cada fila en el dataframe
+            self.vectors = np.vstack(dataset[col_text].apply(self.text_to_vector))
+            # Crear un índice FAISS para almacenar los vectores
+            dimension = self.vectors.shape[1]  # Dimensión de los vectores
+            print(dimension)
+            self.index = faiss.IndexFlatL2(dimension)
+            # Añadir los vectores al índice de FAISS
+            self.index.add(self.vectors)
+            # Guardamos los metadatos
+            self.metadata = dataset[cols_metadata].to_dict('records')
+        except Exception as e:
+            logging.error(f'Un Error se produjo al intentar generar los embbedings: {e}')
 
     def persistir_bbdd_vectorial(self):
-        # Guardar el índice de FAISS y los metadatos si es necesario
-        faiss.write_index(self.index, self.ruta_base_datos)
-        with open(
-                self.ruta_json_metadata,
-                'w') as f:
-            json.dump(self.metadata, f)
+        try:
+            # Guardar el índice de FAISS y los metadatos si es necesario
+            faiss.write_index(self.index, str(self.ruta_base_datos))
+            with open(
+                    self.ruta_json_metadata,
+                    'w') as f:
+                json.dump(self.metadata, f)
+        except Exception as e:
+            logging.error(f'Un Error se produjo al intentar guardar la base de datos de embbedings: {e}')
 
     def cargar_bbdd_vectorial(self):
-        # Carga la base de datos vectorial configurada en el fichero de config.yml
-        # Cargar el índice de FAISS
-        self.index = None
-        self.metadata = None
-        self.index = faiss.read_index(self.ruta_base_datos)
+        try:
+            # Carga la base de datos vectorial configurada en el fichero de config.yml
+            # Cargar el índice de FAISS
+            self.index = None
+            self.metadata = None
+            self.index = faiss.read_index(str(self.ruta_base_datos))
 
-        # Cargar metadatos (opcional)
-        with open(self.ruta_json_metadata,
-                'r') as f:
-            self.metadata = json.load(f)
+            # Cargar metadatos (opcional)
+            with open(self.ruta_json_metadata,
+                    'r') as f:
+                self.metadata = json.load(f)
+        except Exception as e:
+            logging.error(f'Base de datos: {self.ruta_json_metadata} y {self.ruta_base_datos}')
+            logging.error(f'Un Error se produjo al intentar cargar la base de datos de embbedings: {e}')
 
     def buscar_bbdd_vectorial(self, q, k=3):
         # Consulta a la BBDD Vectorial y obientre k resultados más proximos
@@ -92,6 +105,7 @@ class manejador_faiss():
 
         # Buscar los k vectores más cercanos
         _, indices = self.index.search(query_vector, k)
+
 
         # Recuperar y mostrar los resultados
         self.resultados = []
@@ -106,10 +120,14 @@ class manejador_faiss():
 
 if __name__ == '__main__':
     BDVect = manejador_faiss()
-    df = pd.read_csv(r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\ObtencionDatos\datos\csv_boes_oferta_publica.csv', sep='|')
-    df['embbeding'] = df['texto'].apply(BDVect.text_to_vector)
-    BDVect.vectorizar(df, 'texto', ['url', 'tittle'])
-    BDVect.persistir_bbdd_vectorial()
+    # df = pd.read_csv(r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\ObtencionDatos\datos\csv_boes_oferta_publica.csv', sep='|')
+    # df['embbeding'] = df['texto'].iloc[1:400].apply(BDVect.text_to_vector)
+    # BDVect.vectorizar(df, 'texto', ['url', 'titulo'])
+    # BDVect.persistir_bbdd_vectorial()
+    BDVect.cargar_bbdd_vectorial()
+    print(BDVect.buscar_bbdd_vectorial("Arquitecto", 10))
+    print(BDVect.buscar_bbdd_vectorial("Informático", 10))
+    print(BDVect.buscar_bbdd_vectorial("Policía", 10))
 
 
 

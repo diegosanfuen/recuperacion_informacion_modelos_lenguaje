@@ -1979,3 +1979,370 @@
 2024-05-20 23:34:08,262 - DEBUG - handle_close[24e16757cde24f22a778ef007016ee03]({'header': {'date': datetime.datetime(2024, 5, 20, 21, 30, 36, 124000, tzinfo=tzutc()), 'msg_id': '18ea0d27-9804-4639-95ed-d25eaec4342b', 'msg_type': 'comm_close', 'session': 'b9031a31-18c5-4e81-b295-3ee62b50ec93', 'username': '', 'version': '5.2'}, 'msg_id': '18ea0d27-9804-4639-95ed-d25eaec4342b', 'msg_type': 'comm_close', 'parent_header': {}, 'metadata': {}, 'content': {'comm_id': '24e16757cde24f22a778ef007016ee03', 'data': {}}, 'buffers': []})
 2024-05-20 23:34:08,266 - DEBUG - handle_close[78ea5f895fb54d6b86459b52a797e824]({'header': {'date': datetime.datetime(2024, 5, 20, 21, 30, 36, 126000, tzinfo=tzutc()), 'msg_id': '993ebf7f-d3e4-4564-8ee2-604ded2fa21f', 'msg_type': 'comm_close', 'session': 'b9031a31-18c5-4e81-b295-3ee62b50ec93', 'username': '', 'version': '5.2'}, 'msg_id': '993ebf7f-d3e4-4564-8ee2-604ded2fa21f', 'msg_type': 'comm_close', 'parent_header': {}, 'metadata': {}, 'content': {'comm_id': '78ea5f895fb54d6b86459b52a797e824', 'data': {}}, 'buffers': []})
 2024-05-20 23:34:08,268 - DEBUG - handle_close[28b1e09d26494e29ae0e9b3e0f9a491e]({'header': {'date': datetime.datetime(2024, 5, 20, 21, 30, 36, 127000, tzinfo=tzutc()), 'msg_id': '0222f5c4-2446-48a0-96d3-fa3567cd9ca3', 'msg_type': 'comm_close', 'session': 'b9031a31-18c5-4e81-b295-3ee62b50ec93', 'username': '', 'version': '5.2'}, 'msg_id': '0222f5c4-2446-48a0-96d3-fa3567cd9ca3', 'msg_type': 'comm_close', 'parent_header': {}, 'metadata': {}, 'content': {'comm_id': '28b1e09d26494e29ae0e9b3e0f9a491e', 'data': {}}, 'buffers': []})
+2024-05-21 09:52:19,040 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-05-21 09:52:19,802 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 09:52:19,813 - DEBUG - Attempting to acquire lock 2366757816208 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:19,814 - DEBUG - Lock 2366757816208 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:20,007 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 09:52:20,024 - DEBUG - Attempting to release lock 2366757816208 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:20,025 - DEBUG - Lock 2366757816208 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:20,211 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 09:52:20,213 - DEBUG - Attempting to acquire lock 2366763658192 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:20,214 - DEBUG - Lock 2366763658192 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:20,416 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 09:52:20,422 - DEBUG - Attempting to release lock 2366763658192 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:20,422 - DEBUG - Lock 2366763658192 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:20,621 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 09:52:20,623 - DEBUG - Attempting to acquire lock 2366763761488 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:20,623 - DEBUG - Lock 2366763761488 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:20,826 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 09:52:20,833 - DEBUG - Attempting to release lock 2366763761488 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:20,834 - DEBUG - Lock 2366763761488 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:21,032 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2024-05-21 09:52:21,034 - DEBUG - Attempting to acquire lock 2366763749136 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 09:52:21,035 - DEBUG - Lock 2366763749136 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 09:52:21,240 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 231508
+2024-05-21 09:52:21,564 - DEBUG - Attempting to release lock 2366763749136 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 09:52:21,564 - DEBUG - Lock 2366763749136 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 09:52:21,740 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 0
+2024-05-21 09:52:21,741 - DEBUG - Attempting to acquire lock 2366763748496 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 09:52:21,742 - DEBUG - Lock 2366763748496 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 09:52:21,867 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 466062
+2024-05-21 09:52:22,190 - DEBUG - Attempting to release lock 2366763748496 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 09:52:22,190 - DEBUG - Lock 2366763748496 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 09:52:22,348 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/added_tokens.json HTTP/1.1" 404 0
+2024-05-21 09:52:22,474 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/special_tokens_map.json HTTP/1.1" 404 0
+2024-05-21 09:52:22,679 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 09:52:22,684 - DEBUG - Attempting to acquire lock 2366763616784 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:22,685 - DEBUG - Lock 2366763616784 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:22,814 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 09:52:22,820 - DEBUG - Attempting to release lock 2366763616784 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:22,821 - DEBUG - Lock 2366763616784 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:52:23,060 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 09:52:23,062 - DEBUG - Attempting to acquire lock 2366754582288 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:23,062 - DEBUG - Lock 2366754582288 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:23,240 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 09:52:23,247 - DEBUG - Attempting to release lock 2366754582288 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:23,248 - DEBUG - Lock 2366754582288 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:23,377 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 09:52:23,379 - DEBUG - Attempting to acquire lock 2366763798288 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:23,380 - DEBUG - Lock 2366763798288 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:23,566 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 09:52:23,570 - DEBUG - Attempting to release lock 2366763798288 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:23,571 - DEBUG - Lock 2366763798288 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:52:24,298 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/model.safetensors HTTP/1.1" 302 0
+2024-05-21 09:52:24,301 - DEBUG - Attempting to acquire lock 2366763808080 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 09:52:24,301 - DEBUG - Lock 2366763808080 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 09:52:24,306 - DEBUG - Starting new HTTPS connection (1): cdn-lfs.huggingface.co:443
+2024-05-21 09:52:24,853 - DEBUG - https://cdn-lfs.huggingface.co:443 "GET /bert-base-uncased/68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3?response-content-disposition=attachment%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&Expires=1716536560&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTcxNjUzNjU2MH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy5odWdnaW5nZmFjZS5jby9iZXJ0LWJhc2UtdW5jYXNlZC82OGQ0NWUyMzRlYjRhOTI4MDc0ZGZkODY4Y2VhZDAyMTlhYjg1MzU0Y2M1M2QyMGU3NzI3NTNjNmJiOTE2OWQzP3Jlc3BvbnNlLWNvbnRlbnQtZGlzcG9zaXRpb249KiJ9XX0_&Signature=louQ7H5BVEL2w6om~91pokQ4XysHh6G5Q1jbqxNgohPgr60eJLEUHfuYXX2QJge1MlKfSCJTP5mTwBHzoVnpMx7bE-Kp04g1rAeUkg1o9THD7dCUoIo3T~cMi9cVx9NqE~ceRkMX9I4QEKbU7VV~FwCbvruzsoXMcD95hQaejQrFwtjEa9b3wm4uBClNEIAKaLev5KXpIR8sE0y2hOi~vW5ZVfTW9S5c5pqbuJeg-2cJyUYX9nfz4IWTauvS-rY0WCb-3UkpJa4ra3rMsAYL3hmQsItGTLAESH66gJAbrSg5pvKddcc6LbntrdalRSuTr1123NxeTolRnnFisukN-g__&Key-Pair-Id=KVTP0A1DKRTAX HTTP/1.1" 200 440449768
+2024-05-21 09:53:06,563 - DEBUG - Attempting to release lock 2366763808080 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 09:53:06,564 - DEBUG - Lock 2366763808080 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 09:54:30,154 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-05-21 09:54:31,797 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 09:54:31,800 - DEBUG - Attempting to acquire lock 2577152349520 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:31,800 - DEBUG - Lock 2577152349520 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:32,308 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 09:54:32,326 - DEBUG - Attempting to release lock 2577152349520 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:32,327 - DEBUG - Lock 2577152349520 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:32,514 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 09:54:32,516 - DEBUG - Attempting to acquire lock 2577143938768 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:32,516 - DEBUG - Lock 2577143938768 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:32,718 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 09:54:32,724 - DEBUG - Attempting to release lock 2577143938768 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:32,724 - DEBUG - Lock 2577143938768 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:32,923 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 09:54:32,925 - DEBUG - Attempting to acquire lock 2577153113616 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:32,925 - DEBUG - Lock 2577153113616 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:33,128 - DEBUG - Attempting to release lock 2577153113616 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:33,128 - DEBUG - Lock 2577153113616 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:52,282 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-05-21 09:54:52,892 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 09:54:52,895 - DEBUG - Attempting to acquire lock 2746805793552 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:52,896 - DEBUG - Lock 2746805793552 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:53,036 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 09:54:53,049 - DEBUG - Attempting to release lock 2746805793552 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:53,050 - DEBUG - Lock 2746805793552 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:53,200 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 09:54:53,201 - DEBUG - Attempting to acquire lock 2746814220688 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:53,203 - DEBUG - Lock 2746814220688 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:53,398 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 09:54:53,404 - DEBUG - Attempting to release lock 2746814220688 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:53,404 - DEBUG - Lock 2746814220688 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:53,711 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 09:54:53,714 - DEBUG - Attempting to acquire lock 2746814348112 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:53,716 - DEBUG - Lock 2746814348112 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:53,917 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 09:54:53,922 - DEBUG - Attempting to release lock 2746814348112 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:53,923 - DEBUG - Lock 2746814348112 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:54,121 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2024-05-21 09:54:54,123 - DEBUG - Attempting to acquire lock 2746814346192 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 09:54:54,124 - DEBUG - Lock 2746814346192 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 09:54:54,307 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 231508
+2024-05-21 09:54:54,552 - DEBUG - Attempting to release lock 2746814346192 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 09:54:54,553 - DEBUG - Lock 2746814346192 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 09:54:54,735 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 0
+2024-05-21 09:54:54,737 - DEBUG - Attempting to acquire lock 2746814336912 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 09:54:54,738 - DEBUG - Lock 2746814336912 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 09:54:54,941 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 466062
+2024-05-21 09:54:55,184 - DEBUG - Attempting to release lock 2746814336912 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 09:54:55,185 - DEBUG - Lock 2746814336912 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 09:54:55,312 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/added_tokens.json HTTP/1.1" 404 0
+2024-05-21 09:54:55,445 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/special_tokens_map.json HTTP/1.1" 404 0
+2024-05-21 09:54:55,657 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 09:54:55,660 - DEBUG - Attempting to acquire lock 2746814279504 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:55,662 - DEBUG - Lock 2746814279504 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:55,862 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 09:54:55,868 - DEBUG - Attempting to release lock 2746814279504 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:55,868 - DEBUG - Lock 2746814279504 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 09:54:56,169 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 09:54:56,172 - DEBUG - Attempting to acquire lock 2746805821072 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:56,173 - DEBUG - Lock 2746805821072 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:56,304 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 09:54:56,309 - DEBUG - Attempting to release lock 2746805821072 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:56,310 - DEBUG - Lock 2746805821072 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:56,437 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 09:54:56,439 - DEBUG - Attempting to acquire lock 2746814414224 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:56,440 - DEBUG - Lock 2746814414224 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:56,573 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 09:54:56,580 - DEBUG - Attempting to release lock 2746814414224 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:56,581 - DEBUG - Lock 2746814414224 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 09:54:57,244 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/model.safetensors HTTP/1.1" 302 0
+2024-05-21 09:54:57,248 - DEBUG - Attempting to acquire lock 2746836110288 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 09:54:57,248 - DEBUG - Lock 2746836110288 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 09:54:57,253 - DEBUG - Starting new HTTPS connection (1): cdn-lfs.huggingface.co:443
+2024-05-21 09:54:58,092 - DEBUG - https://cdn-lfs.huggingface.co:443 "GET /bert-base-uncased/68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3?response-content-disposition=attachment%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&Expires=1716535938&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTcxNjUzNTkzOH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy5odWdnaW5nZmFjZS5jby9iZXJ0LWJhc2UtdW5jYXNlZC82OGQ0NWUyMzRlYjRhOTI4MDc0ZGZkODY4Y2VhZDAyMTlhYjg1MzU0Y2M1M2QyMGU3NzI3NTNjNmJiOTE2OWQzP3Jlc3BvbnNlLWNvbnRlbnQtZGlzcG9zaXRpb249KiJ9XX0_&Signature=QLTv3y9OWpVtxMckCsbSyi~3JjIi~wfTwEVmLK1iT2uFKqRZGwesM1r2IXKbwVEH-yvO65leeXJhAHSg~YgYwhrU-6F3rGN55D~XSAmxNWghFJK5OO3QpW910VhptVAzgdczt2nvNiOdQ0ycrvsdkMlZsqKWKsu67otGWdryT4Jrs2I0UgTv6MM3R~RyKF1P8OTqEHLonYywqY9-dmQ6AzL-Oea1RxAxg3Nh~NPjyOp9OugwAJlCohJOn0jEIN~OG05PgsP2SDFE4xrIvffMtOCNaTo2m~bDebFgY9z1cuh~LZev19RPajHqwkrcoC9HI4tMYF3C60uLRy-6pq-8sw__&Key-Pair-Id=KVTP0A1DKRTAX HTTP/1.1" 200 440449768
+2024-05-21 09:55:38,146 - DEBUG - Attempting to release lock 2746836110288 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 09:55:38,146 - DEBUG - Lock 2746836110288 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 10:01:00,080 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-05-21 10:01:00,622 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 10:01:00,623 - DEBUG - Attempting to acquire lock 2824189745232 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:00,624 - DEBUG - Lock 2824189745232 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:00,742 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 10:01:00,760 - DEBUG - Attempting to release lock 2824189745232 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:00,760 - DEBUG - Lock 2824189745232 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:00,890 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 10:01:00,891 - DEBUG - Attempting to acquire lock 2824189719440 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:00,892 - DEBUG - Lock 2824189719440 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:01,016 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 10:01:01,019 - DEBUG - Attempting to release lock 2824189719440 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:01,020 - DEBUG - Lock 2824189719440 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:01,154 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 10:01:01,156 - DEBUG - Attempting to acquire lock 2824214855056 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:01,156 - DEBUG - Lock 2824214855056 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:01,284 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 10:01:01,289 - DEBUG - Attempting to release lock 2824214855056 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:01,289 - DEBUG - Lock 2824214855056 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:01,424 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2024-05-21 10:01:01,426 - DEBUG - Attempting to acquire lock 2824214853776 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 10:01:01,426 - DEBUG - Lock 2824214853776 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 10:01:01,562 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 231508
+2024-05-21 10:01:01,781 - DEBUG - Attempting to release lock 2824214853776 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 10:01:01,781 - DEBUG - Lock 2824214853776 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 10:01:01,948 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 0
+2024-05-21 10:01:01,949 - DEBUG - Attempting to acquire lock 2824214854480 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 10:01:01,950 - DEBUG - Lock 2824214854480 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 10:01:02,151 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 466062
+2024-05-21 10:01:02,414 - DEBUG - Attempting to release lock 2824214854480 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 10:01:02,416 - DEBUG - Lock 2824214854480 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 10:01:02,561 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/added_tokens.json HTTP/1.1" 404 0
+2024-05-21 10:01:02,764 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/special_tokens_map.json HTTP/1.1" 404 0
+2024-05-21 10:01:02,972 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 10:01:02,974 - DEBUG - Attempting to acquire lock 2824214739984 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:02,975 - DEBUG - Lock 2824214739984 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:03,173 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 10:01:03,178 - DEBUG - Attempting to release lock 2824214739984 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:03,178 - DEBUG - Lock 2824214739984 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 10:01:03,481 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 10:01:03,482 - DEBUG - Attempting to acquire lock 2824189719440 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:03,484 - DEBUG - Lock 2824189719440 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:03,732 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 10:01:03,736 - DEBUG - Attempting to release lock 2824189719440 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:03,736 - DEBUG - Lock 2824189719440 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:03,893 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 10:01:03,895 - DEBUG - Attempting to acquire lock 2824214904976 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:03,895 - DEBUG - Lock 2824214904976 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:04,096 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 10:01:04,101 - DEBUG - Attempting to release lock 2824214904976 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:04,101 - DEBUG - Lock 2824214904976 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 10:01:04,710 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/model.safetensors HTTP/1.1" 302 0
+2024-05-21 10:01:04,712 - DEBUG - Attempting to acquire lock 2824214919248 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 10:01:04,713 - DEBUG - Lock 2824214919248 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 10:01:04,717 - DEBUG - Starting new HTTPS connection (1): cdn-lfs.huggingface.co:443
+2024-05-21 10:01:05,226 - DEBUG - https://cdn-lfs.huggingface.co:443 "GET /bert-base-uncased/68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3?response-content-disposition=attachment%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&Expires=1716536548&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTcxNjUzNjU0OH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy5odWdnaW5nZmFjZS5jby9iZXJ0LWJhc2UtdW5jYXNlZC82OGQ0NWUyMzRlYjRhOTI4MDc0ZGZkODY4Y2VhZDAyMTlhYjg1MzU0Y2M1M2QyMGU3NzI3NTNjNmJiOTE2OWQzP3Jlc3BvbnNlLWNvbnRlbnQtZGlzcG9zaXRpb249KiJ9XX0_&Signature=Sz1vvb9B1vdYlYbJ5c3tGia64QH9us1bRNFnEGLhq6MUafg3TTsBWRFaUIDMh7g3VGnC9M3rMmg4F684F66wBMZJnPSNTjAqKj61Hy-8UdeqB~IHWYUi2j73nl24LL7mwThoFgXhxDkegEKbP1d-~rJ4VFaFMScOcG~9hb98-FvwPJDKEqLUvaz8~Xl27TwhP5Mv3vwU~WfABtTz3~RK0VK9OszHa6~D2kFt-iexDCDgHhBHTm-kooLGlcq9e-CwH5v4tPUOrFwFmwSHgeFRXwt4jbFwmCMr7a33ovRud8iXbZBaussh~UwwC0DTHlyPCMZHMCI-aF27mKTZCq37QQ__&Key-Pair-Id=KVTP0A1DKRTAX HTTP/1.1" 200 440449768
+2024-05-21 10:01:40,219 - DEBUG - Attempting to release lock 2824214919248 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 10:01:40,219 - DEBUG - Lock 2824214919248 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 11:40:20,501 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-05-21 11:40:21,131 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 11:40:21,140 - DEBUG - Attempting to acquire lock 1849165494096 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:21,140 - DEBUG - Lock 1849165494096 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:21,504 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 11:40:21,517 - DEBUG - Attempting to release lock 1849165494096 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:21,517 - DEBUG - Lock 1849165494096 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:21,915 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 11:40:21,918 - DEBUG - Attempting to acquire lock 1849200549072 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:21,919 - DEBUG - Lock 1849200549072 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:22,327 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 11:40:22,334 - DEBUG - Attempting to release lock 1849200549072 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:22,336 - DEBUG - Lock 1849200549072 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:22,637 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 11:40:22,640 - DEBUG - Attempting to acquire lock 1849200655760 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:22,641 - DEBUG - Lock 1849200655760 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:22,837 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 11:40:22,843 - DEBUG - Attempting to release lock 1849200655760 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:22,843 - DEBUG - Lock 1849200655760 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:23,041 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2024-05-21 11:40:23,044 - DEBUG - Attempting to acquire lock 1849200656336 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 11:40:23,045 - DEBUG - Lock 1849200656336 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 11:40:23,189 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 231508
+2024-05-21 11:40:23,286 - DEBUG - Attempting to release lock 1849200656336 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 11:40:23,287 - DEBUG - Lock 1849200656336 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 11:40:23,420 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 0
+2024-05-21 11:40:23,423 - DEBUG - Attempting to acquire lock 1849200656336 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 11:40:23,424 - DEBUG - Lock 1849200656336 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 11:40:23,880 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 466062
+2024-05-21 11:40:24,215 - DEBUG - Attempting to release lock 1849200656336 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 11:40:24,215 - DEBUG - Lock 1849200656336 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 11:40:24,372 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/added_tokens.json HTTP/1.1" 404 0
+2024-05-21 11:40:24,538 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/special_tokens_map.json HTTP/1.1" 404 0
+2024-05-21 11:40:24,680 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 11:40:24,682 - DEBUG - Attempting to acquire lock 1849191997584 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:24,683 - DEBUG - Lock 1849191997584 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:25,498 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 11:40:25,505 - DEBUG - Attempting to release lock 1849191997584 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:25,506 - DEBUG - Lock 1849191997584 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 11:40:25,805 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 11:40:25,808 - DEBUG - Attempting to acquire lock 1849199873424 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:25,809 - DEBUG - Lock 1849199873424 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:26,010 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 11:40:26,016 - DEBUG - Attempting to release lock 1849199873424 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:26,017 - DEBUG - Lock 1849199873424 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:26,192 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 11:40:26,194 - DEBUG - Attempting to acquire lock 1849200721424 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:26,194 - DEBUG - Lock 1849200721424 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:26,421 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 11:40:26,428 - DEBUG - Attempting to release lock 1849200721424 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:26,429 - DEBUG - Lock 1849200721424 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 11:40:27,137 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/model.safetensors HTTP/1.1" 302 0
+2024-05-21 11:40:27,142 - DEBUG - Attempting to acquire lock 1849200718864 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 11:40:27,143 - DEBUG - Lock 1849200718864 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 11:40:27,150 - DEBUG - Starting new HTTPS connection (1): cdn-lfs.huggingface.co:443
+2024-05-21 11:40:27,685 - DEBUG - https://cdn-lfs.huggingface.co:443 "GET /bert-base-uncased/68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3?response-content-disposition=attachment%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&Expires=1716543342&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTcxNjU0MzM0Mn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy5odWdnaW5nZmFjZS5jby9iZXJ0LWJhc2UtdW5jYXNlZC82OGQ0NWUyMzRlYjRhOTI4MDc0ZGZkODY4Y2VhZDAyMTlhYjg1MzU0Y2M1M2QyMGU3NzI3NTNjNmJiOTE2OWQzP3Jlc3BvbnNlLWNvbnRlbnQtZGlzcG9zaXRpb249KiJ9XX0_&Signature=hqk23u8sRLzL5KLDE2070v47QlPn9QhsrlF9Iel4b2Tbau9qcznDuTW24G70GbA9IjvZTQyUiN3rtDs6-4kmeov5ITCnVL~zVnoe6ocsRxApiEKXXaXFdL2aD2-WkrdUb5iuqTkSJkdYd7MNBDEWg2pD1cN3S3uHVgO3EBPu9qff8JbSmmD6Hj0bU2J9nlg2kHh3dfxaMqg2ZF3olKNKFxsRI~H~Svl4AusApuQBVZr3VL4XTEDbTaMTljWS8CcYghUV4Qo5-eJ3mxCMJpkdYj~5cYpmxBt-5f-OoDxER~Qpq78IwwNcYAuT4H3qyGwizF8jDX5ZJwpqFUk4pzQGIA__&Key-Pair-Id=KVTP0A1DKRTAX HTTP/1.1" 200 440449768
+2024-05-21 11:41:04,407 - DEBUG - Attempting to release lock 1849200718864 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 11:41:04,408 - DEBUG - Lock 1849200718864 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 12:11:08,175 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-05-21 12:11:08,750 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 12:11:08,753 - DEBUG - Attempting to acquire lock 1709661571728 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:08,754 - DEBUG - Lock 1709661571728 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:08,879 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 12:11:08,889 - DEBUG - Attempting to release lock 1709661571728 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:08,889 - DEBUG - Lock 1709661571728 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:09,012 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 12:11:09,014 - DEBUG - Attempting to acquire lock 1709670061840 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:09,014 - DEBUG - Lock 1709670061840 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:09,197 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 12:11:09,202 - DEBUG - Attempting to release lock 1709670061840 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:09,203 - DEBUG - Lock 1709670061840 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:09,344 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 12:11:09,346 - DEBUG - Attempting to acquire lock 1709670185424 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:09,346 - DEBUG - Lock 1709670185424 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:09,469 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 12:11:09,474 - DEBUG - Attempting to release lock 1709670185424 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:09,474 - DEBUG - Lock 1709670185424 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:09,600 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2024-05-21 12:11:09,602 - DEBUG - Attempting to acquire lock 1709670184272 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 12:11:09,603 - DEBUG - Lock 1709670184272 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 12:11:09,738 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 231508
+2024-05-21 12:11:09,854 - DEBUG - Attempting to release lock 1709670184272 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 12:11:09,854 - DEBUG - Lock 1709670184272 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 12:11:09,972 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 0
+2024-05-21 12:11:09,974 - DEBUG - Attempting to acquire lock 1709670186448 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 12:11:09,974 - DEBUG - Lock 1709670186448 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 12:11:10,116 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 466062
+2024-05-21 12:11:10,231 - DEBUG - Attempting to release lock 1709670186448 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 12:11:10,231 - DEBUG - Lock 1709670186448 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 12:11:10,366 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/added_tokens.json HTTP/1.1" 404 0
+2024-05-21 12:11:10,495 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/special_tokens_map.json HTTP/1.1" 404 0
+2024-05-21 12:11:10,612 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 12:11:10,614 - DEBUG - Attempting to acquire lock 1709670109648 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:10,615 - DEBUG - Lock 1709670109648 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:10,737 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 12:11:10,741 - DEBUG - Attempting to release lock 1709670109648 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:10,741 - DEBUG - Lock 1709670109648 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:11:10,930 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 12:11:10,932 - DEBUG - Attempting to acquire lock 1709661632272 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:10,932 - DEBUG - Lock 1709661632272 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:11,062 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 12:11:11,067 - DEBUG - Attempting to release lock 1709661632272 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:11,067 - DEBUG - Lock 1709661632272 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:11,194 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 12:11:11,196 - DEBUG - Attempting to acquire lock 1709670239440 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:11,196 - DEBUG - Lock 1709670239440 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:11,322 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 12:11:11,327 - DEBUG - Attempting to release lock 1709670239440 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:11,327 - DEBUG - Lock 1709670239440 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:11:11,873 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/model.safetensors HTTP/1.1" 302 0
+2024-05-21 12:11:11,877 - DEBUG - Attempting to acquire lock 1709670249552 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 12:11:11,877 - DEBUG - Lock 1709670249552 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 12:11:11,881 - DEBUG - Starting new HTTPS connection (1): cdn-lfs.huggingface.co:443
+2024-05-21 12:11:12,357 - DEBUG - https://cdn-lfs.huggingface.co:443 "GET /bert-base-uncased/68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3?response-content-disposition=attachment%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&Expires=1716545306&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTcxNjU0NTMwNn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy5odWdnaW5nZmFjZS5jby9iZXJ0LWJhc2UtdW5jYXNlZC82OGQ0NWUyMzRlYjRhOTI4MDc0ZGZkODY4Y2VhZDAyMTlhYjg1MzU0Y2M1M2QyMGU3NzI3NTNjNmJiOTE2OWQzP3Jlc3BvbnNlLWNvbnRlbnQtZGlzcG9zaXRpb249KiJ9XX0_&Signature=fzn-ip39Op50L96XPNv6r1zkoBLW6LBokirgMntI6uozvNQdxvXd2KMh9nGVIKUa4iQQE0u~MPExueHpmtbmsHuersHOreDDLARqZUPLhC0EImeGYi7mCc98cwLy0o2EAyZVGaBMlgT2qdty-tX60HlNGCwbMfYKtx8qkhNgBxeIMGzpyP8-Bkaiyx9AUux5qgpRfNyWO3ChcYbafL0XZIKD9uC8brYEAYutKEp2qiob1z5yDdG-sl8JgcxBqeZ5iWMvPUgdnnz8nhaUNRqmq4eYnA2u9KHR2hAckoFtsUUCX4TGGiKC9EKuXQIWk8t74LN8~krSpWsur9pM20GNzw__&Key-Pair-Id=KVTP0A1DKRTAX HTTP/1.1" 200 440449768
+2024-05-21 12:11:44,317 - DEBUG - Attempting to release lock 1709670249552 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 12:11:44,317 - DEBUG - Lock 1709670249552 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 12:28:07,734 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-05-21 12:28:08,295 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 12:28:08,297 - DEBUG - Attempting to acquire lock 1396047809104 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:08,298 - DEBUG - Lock 1396047809104 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:08,449 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 12:28:08,460 - DEBUG - Attempting to release lock 1396047809104 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:08,461 - DEBUG - Lock 1396047809104 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:08,598 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 12:28:08,601 - DEBUG - Attempting to acquire lock 1396082581520 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:08,602 - DEBUG - Lock 1396082581520 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:08,720 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 12:28:08,725 - DEBUG - Attempting to release lock 1396082581520 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:08,725 - DEBUG - Lock 1396082581520 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:08,857 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 12:28:08,858 - DEBUG - Attempting to acquire lock 1396091255824 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:08,859 - DEBUG - Lock 1396091255824 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:08,986 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 12:28:08,992 - DEBUG - Attempting to release lock 1396091255824 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:08,992 - DEBUG - Lock 1396091255824 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:09,118 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2024-05-21 12:28:09,121 - DEBUG - Attempting to acquire lock 1396091252752 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 12:28:09,121 - DEBUG - Lock 1396091252752 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 12:28:09,255 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 231508
+2024-05-21 12:28:09,475 - DEBUG - Attempting to release lock 1396091252752 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 12:28:09,477 - DEBUG - Lock 1396091252752 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\fb140275c155a9c7c5a3b3e0e77a9e839594a938.lock
+2024-05-21 12:28:09,599 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 0
+2024-05-21 12:28:09,601 - DEBUG - Attempting to acquire lock 1396091244048 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 12:28:09,601 - DEBUG - Lock 1396091244048 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 12:28:09,723 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer.json HTTP/1.1" 200 466062
+2024-05-21 12:28:10,043 - DEBUG - Attempting to release lock 1396091244048 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 12:28:10,043 - DEBUG - Lock 1396091244048 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\949a6f013d67eb8a5b4b5b46026217b888021b88.lock
+2024-05-21 12:28:10,167 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/added_tokens.json HTTP/1.1" 404 0
+2024-05-21 12:28:10,295 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/special_tokens_map.json HTTP/1.1" 404 0
+2024-05-21 12:28:10,423 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-21 12:28:10,425 - DEBUG - Attempting to acquire lock 1396091254416 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:10,425 - DEBUG - Lock 1396091254416 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:10,631 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 200 48
+2024-05-21 12:28:10,636 - DEBUG - Attempting to release lock 1396091254416 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:10,637 - DEBUG - Lock 1396091254416 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb.lock
+2024-05-21 12:28:10,835 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 12:28:10,840 - DEBUG - Attempting to acquire lock 1396082711312 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:10,841 - DEBUG - Lock 1396082711312 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:10,975 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 12:28:10,981 - DEBUG - Attempting to release lock 1396082711312 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:10,981 - DEBUG - Lock 1396082711312 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:11,146 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-21 12:28:11,147 - DEBUG - Attempting to acquire lock 1396090253264 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:11,148 - DEBUG - Lock 1396090253264 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:11,276 - DEBUG - https://huggingface.co:443 "GET /bert-base-uncased/resolve/main/config.json HTTP/1.1" 200 570
+2024-05-21 12:28:11,280 - DEBUG - Attempting to release lock 1396090253264 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:11,280 - DEBUG - Lock 1396090253264 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d.lock
+2024-05-21 12:28:11,823 - DEBUG - https://huggingface.co:443 "HEAD /bert-base-uncased/resolve/main/model.safetensors HTTP/1.1" 302 0
+2024-05-21 12:28:11,826 - DEBUG - Attempting to acquire lock 1396091319312 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 12:28:11,826 - DEBUG - Lock 1396091319312 acquired on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 12:28:11,831 - DEBUG - Starting new HTTPS connection (1): cdn-lfs.huggingface.co:443
+2024-05-21 12:28:12,276 - DEBUG - https://cdn-lfs.huggingface.co:443 "GET /bert-base-uncased/68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3?response-content-disposition=attachment%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&Expires=1716545413&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTcxNjU0NTQxM319LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy5odWdnaW5nZmFjZS5jby9iZXJ0LWJhc2UtdW5jYXNlZC82OGQ0NWUyMzRlYjRhOTI4MDc0ZGZkODY4Y2VhZDAyMTlhYjg1MzU0Y2M1M2QyMGU3NzI3NTNjNmJiOTE2OWQzP3Jlc3BvbnNlLWNvbnRlbnQtZGlzcG9zaXRpb249KiJ9XX0_&Signature=aYWl0IKzHtXM8JTvoASqvprLmsN0emMfay7pGzpDGY1I8tXnCWUDmwk9qEO6o7hI~yz5KRXqZKGLk3UBRYpMRpnEiuappY0w5JlDTIkj9ODj071yDIS25a~DJSql1Wuz1MAQ84QNs1Vl4jhJ6kae8sA7AGpAAJBDc5ibvScnlRC3oeNIZ2JvYkUFkxX-FgpBP52cyaPo3tX1hWcGaR9jp~v7ro6lgLrel7oRwjX6G--ZNn4c7vYOGcP6vbNP4KNmiX7hSq-VJFpmgll02YmfN-mLw1ys8QWTOwk2BtBZJt1yHpkfli503kXfpyP0ipHFT3p5JvGkqOMQRgeClzeKrA__&Key-Pair-Id=KVTP0A1DKRTAX HTTP/1.1" 200 440449768
+2024-05-21 12:28:49,939 - DEBUG - Attempting to release lock 1396091319312 on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 12:28:49,940 - DEBUG - Lock 1396091319312 released on C:\Users\yeyos\.cache\huggingface\hub\.locks\models--bert-base-uncased\68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3.lock
+2024-05-21 12:28:50,263 - DEBUG - Leemos la configuracion Ruta de la Base de datos: C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\pruebas-faiss\faiss\indices_faiss.index

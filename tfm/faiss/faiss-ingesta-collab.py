@@ -106,7 +106,7 @@ class manejador_faiss():
 
         self.convertir_pandas_lista_documentos(self.dataset,
                                                config['scrapping']['campos_metadata'],
-                                               config['scrapping']['campos_metadata']])
+                                               config['scrapping']['campos_metadata'])
         self.generar_vector_store()
         self.persistir_bbdd_vectorial()
 

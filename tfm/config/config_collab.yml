@@ -32,7 +32,6 @@ scrapping:
     campos_metadata:
       - url
       - titulo
-      - text_resume
     campo_texto:
       - texto
   fuentes:

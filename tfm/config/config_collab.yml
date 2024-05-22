@@ -1,13 +1,29 @@
+# Ruta base
+ruta_base: "/content/recuperacion_informacion_modelos_lenguaje"
+
 # Configuracion de los Logs
-ruta_salida_logs: "/content/recuperacion_informacion_modelos_lenguaje/tfm/logs"
+ruta_salida_logs: "/tfm/logs"
 
 # Configuracion de la Base de Datos de Mensajes (Contexto)
 
 # Configuracion de Base de Datos Vectorial
 vectorial_database:
-  ruta: "/content/recuperacion_informacion_modelos_lenguaje/pruebas-faiss/faiss"
-  file_indices: indices_faiss.index
-  file_json: metadata.json
+  ruta: "/faiss"
+  file_retriever: "/db/retriever.pkl"
+  file_vector_index: "/db/vector_index.pkl"
+  parameters_tokenizador:
+    name_model_llm: llama3
+    name_model_tokenizador: llama3
+    return_tensors: pt
+    max_length: 512
+    truncation: true
+    padding: max_length
+    temperature: 0.0
+
+scrapping:
+  ruta: "/ObtencionDatos"
+
+
 
 dataset_index:
   campos_metadata:
@@ -15,7 +31,9 @@ dataset_index:
     - titulo
     - text_resume
   campo_texto:
-    - text
+    - texto
+
+ruta_csv_webscrapping: "/content/"
 
 parameters_tokenizador:
   name_model_llm: bert-base-uncased

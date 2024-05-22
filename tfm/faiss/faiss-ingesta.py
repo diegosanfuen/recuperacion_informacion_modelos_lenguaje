@@ -13,7 +13,6 @@ import warnings
 import yaml
 from pathlib import Path
 import logging
-from transformers import BartForConditionalGeneration, BartTokenizer
 import os
 import datetime
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -31,15 +30,19 @@ warnings.filterwarnings("ignore", category=UserWarning, module="huggingface_hub.
 with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config.yml', 'r') as file:
     config = yaml.safe_load(file)
 
+fecha_hoy = datetime.datetime.today().strftime("%Y_%m_%d")
+
+# Configuración básica del logger
+logging.basicConfig(filename=Path(config['ruta_salida_logs']) / f'logs_{fecha_hoy}.log',
+                    level=logging.DEBUG,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
+logger = logging.getLogger()
+
+
 class manejador_faiss():
     def __init__(self):
-        fecha_hoy = datetime.datetime.today().strftime("%Y_%m_%d")
-        logging.debug(f'Volcamos toda la informacion del fichero de configuracion: {config}')
-        # Configuración básica del logger
-        logging.basicConfig(filename=Path(config['ruta_salida_logs']) / f'logs_{fecha_hoy}.log',
-                            level=logging.DEBUG,
-                            format='%(asctime)s - %(levelname)s - %(message)s')
-
+        logger.debug(f'Volcamos toda la informacion del fichero de configuracion: {config}')
         # Parametros externos configuracion
         self.embedding_llm = OllamaEmbeddings(model="llama3")
         self.tokenizer = AutoTokenizer.from_pretrained(config['parameters_tokenizador']['name_model_llm'],
@@ -49,7 +52,7 @@ class manejador_faiss():
 
         self.ruta_base_datos = Path(config['vectorial_database']['ruta']) / config['vectorial_database']['file_indices']
         self.ruta_json_metadata = Path(config['vectorial_database']['ruta']) / config['vectorial_database']['file_json']
-        logging.debug(f'Leemos la configuracion Ruta de la Base de datos: {self.ruta_base_datos}')
+        logger.debug(f'Leemos la configuracion Ruta de la Base de datos: {self.ruta_base_datos}')
 
     def convertir_pandas_lista_documentos(self, dataframe, col_text, cols_metadata):
         # Lista para almacenar los documentos
@@ -100,14 +103,14 @@ class manejador_faiss():
             # Guardamos los metadatos
             self.metadata = dataset[cols_metadata].to_dict('records')
         except Exception as e:
-            logging.error(f'Un Error se produjo al intentar generar los embbedings: {e}')
+            logger.error(f'Un Error se produjo al intentar generar los embbedings: {e}')
 
     def persistir_bbdd_vectorial(self):
         try:
             with open(r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\faiss\db\retriever.pkl', 'wb') as archivo:
                 pkl.dump(self.vector_index, archivo)
         except Exception as e:
-            logging.error(f'Un Error se produjo al intentar guardar la base de datos de embbedings: {e}')
+            logger.error(f'Un Error se produjo al intentar guardar la base de datos de embbedings: {e}')
 
     def cargar_bbdd_vectorial(self):
         try:
@@ -122,8 +125,8 @@ class manejador_faiss():
                     'r') as f:
                 self.metadata = json.load(f)
         except Exception as e:
-            logging.error(f'Base de datos: {self.ruta_json_metadata} y {self.ruta_base_datos}')
-            logging.error(f'Un Error se produjo al intentar cargar la base de datos de embbedings: {e}')
+            logger.error(f'Base de datos: {self.ruta_json_metadata} y {self.ruta_base_datos}')
+            logger.error(f'Un Error se produjo al intentar cargar la base de datos de embbedings: {e}')
 
     def buscar_bbdd_vectorial(self, q, k=3):
         # Consulta a la BBDD Vectorial y obientre k resultados más proximos
@@ -155,7 +158,7 @@ if __name__ == '__main__':
     # df['embbeding'] = df['texto'].iloc[1:400].apply(BDVect.text_to_vector)
     # BDVect.vectorizar(df, 'texto', ['url', 'titulo'])
     # BDVect.persistir_bbdd_vectorial()
-    BDVect.cargar_bbdd_vectorial()
+    # BDVect.cargar_bbdd_vectorial()
     BDVect.convertir_pandas_lista_documentos(df, 'texto', ['url', 'titulo'])
     BDVect.generar_vecrtor_store()
     BDVect.persistir_bbdd_vectorial()

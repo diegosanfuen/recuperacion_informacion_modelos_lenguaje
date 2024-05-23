@@ -46,6 +46,9 @@ scrapping:
     limitacion_descargas: 200
     tiempo_entre_descargas: 1
     separador: "|"
+  headers:
+    accept: "application/xml;q=0.9, */*;q=0.8"
+  timeout: 10
 
 
 # Modelo LLM principal

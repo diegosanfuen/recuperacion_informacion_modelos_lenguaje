@@ -72,6 +72,8 @@ class DescargaBOE:
         self.separator_name = config["scrapping"]["fuentes"]["separador"]
         self.limit = config["scrapping"]["fuentes"]["limitacion_descargas"]
         self.time_wait = config["scrapping"]["fuentes"]["tiempo_entre_descargas"]
+        self.headers = config['scrapping']['headers']
+        self.timeout = config['scrapping']['timeout']
 
     def quitar_etiquetas_html(self, cadena_html: str) -> str:
         """
@@ -160,8 +162,11 @@ class DescargaBOE:
         lista_respuestas = []
         for url in self.lista_urls:
             # url = 'https://www.boe.es/diario_boe/xml.php?id=BOE-A-2021-10344'
-            headers = {'accept': 'application/xml;q=0.9, */*;q=0.8'}
-            response = requests.get(url, headers=headers)
+            try:
+                response = requests.get(url, headers=self.headers, timeout=self.timeout)
+            except requests.exceptions.ConnectTimeout:
+                print("La conexión ha excedido el tiempo máximo de espera.")
+
             lista_respuestas.append(response.text)
         self.lista_xmls = lista_respuestas
 

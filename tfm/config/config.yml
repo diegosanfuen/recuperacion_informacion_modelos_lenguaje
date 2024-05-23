@@ -11,7 +11,7 @@ logs_config:
 
 # Configuracion de Base de Datos Vectorial
 vectorial_database:
-  ruta: "Faiss"
+  ruta: "faiss"
   serialized_database: "db"
   file_retriever: "retriever.pkl"
   file_vector_index: "vector_index.pkl"
@@ -46,6 +46,9 @@ scrapping:
     limitacion_descargas: 10
     tiempo_entre_descargas: 1
     separador: "|"
+  headers:
+    accept: "application/xml;q=0.9, */*;q=0.8"
+  timeout: 10
 
 
 # Modelo LLM principal

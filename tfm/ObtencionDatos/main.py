@@ -12,7 +12,7 @@ BOE = DescargaBOE()
 i = 0
 while True:
     BOE.establecer_offset(i)
-    if(BOE.generar_dataset() > 100):
+    if(BOE.generar_dataset() > 1000):
         break
     i += 1
 BOE.obtener_dataset_final()
@@ -24,7 +24,7 @@ BOCyL = DescargaBOCyL()
 i = 0
 while True:
     BOCyL.establecer_offset(i)
-    if(BOCyL.generar_dataset() > 100):
+    if(BOCyL.generar_dataset() > 1000):
         break
     i += 1
 BOCyL.obtener_dataset_final()

@@ -80,6 +80,22 @@ class ingesta():
         self.retriever = self.vector_index.as_retriever()
 
     def persistir_bbdd_vectorial(self):
+        if os.path.exists(self.ruta_db):
+            # Si existe, borra su contenido
+            for filename in os.listdir(self.ruta_db):
+                file_path = os.path.join(self.ruta_db, filename)
+                try:
+                    if os.path.isfile(file_path) or os.path.islink(file_path):
+                        os.unlink(file_path)
+                    elif os.path.isdir(file_path):
+                        shutil.rmtree(file_path)
+                except Exception as e:
+                    print(f'Error al eliminar {file_path}. Razón: {e}')
+        else:
+            # Si no existe, crea el directorio
+            os.makedirs(self.ruta_db)
+
+
         try:
             with open(self.ruta_db / Path(config['vectorial_database']['file_vector_index']), 'wb') as archivo:
                 pkl.dump(self.vector_index, archivo)

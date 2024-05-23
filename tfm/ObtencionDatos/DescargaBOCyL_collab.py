@@ -294,6 +294,7 @@ class DescargaBOCyL:
                 break
             time.sleep(self.time_wait)
             i += 1
+        self.guardar_dataset_final()
 
 
 

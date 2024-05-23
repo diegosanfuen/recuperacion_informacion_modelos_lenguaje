@@ -1,6 +1,6 @@
 # Rutina principal
-from DescargaBOE import DescargaBOE
-from DescargaBOCyL import DescargaBOCyL
+from DescargaBOE_collab import DescargaBOE
+from DescargaBOCyL_collab import DescargaBOCyL
 import os, datetime
 import time, logging, yaml
 from pathlib import Path

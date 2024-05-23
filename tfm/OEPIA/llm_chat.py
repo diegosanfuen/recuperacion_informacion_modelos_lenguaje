@@ -140,5 +140,5 @@ iface = gr.Interface(
 iface.submit_button = "Consultar"
 
 # Inicia la interfaz
-iface.launch()
+iface.launch(share=True)
 

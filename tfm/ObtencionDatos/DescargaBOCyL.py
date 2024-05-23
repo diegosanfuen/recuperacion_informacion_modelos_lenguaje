@@ -5,6 +5,39 @@ import datetime
 import string
 from urllib.parse import urlparse, urlunparse
 import re
+from pathlib import Path
+import logging, os, yaml, time
+
+os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
+
+# Abrir y leer el archivo YAML
+with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config.yml', 'r') as file:
+    config = yaml.safe_load(file)
+
+PATH_BASE = Path(config['ruta_base'])
+directorio_proyecto = os.path.dirname(Path(PATH_BASE) / config['scrapping']['ruta'])
+date_today = datetime.datetime.today().strftime("%Y_%m_%d")
+
+# Configuración básica del logger
+log_level = None
+match config['logs_config']['level']:
+    case 'DEBUG':
+        log_level = logging.DEBUG
+    case 'WARN':
+        log_level = logging.WARNING
+    case 'WARNING':
+        log_level = logging.WARNING
+    case 'ERROR':
+        log_level = logging.ERROR
+    case _:
+        log_level = logging.INFO
+
+logging.basicConfig(filename=PATH_BASE / config['logs_config']['ruta_salida_logs'] / f'logs_{date_today}.log',
+                    level=log_level,
+                    format=config['logs_config']['format'])
+
+# Creamos el logger
+logger = logging.getLogger()
 
 class DescargaBOCyL:
     """
@@ -24,11 +57,22 @@ class DescargaBOCyL:
         """
         # Obtiene la fecha y hora actual
         self.fecha_actual = datetime.datetime.now()
-        self.url_patron = string.Template("https://bocyl.jcyl.es/boletin.do?fechaBoletin=$dia/$mes/$anio#I.B._AUTORIDADES_Y_PERSONAL")
-        self.dominio = "https://bocyl.jcyl.es"
+        self.url_patron = string.Template(config['scrapping']['fuentes']['BOCYL']['patron'])
+        self.dominio = config['scrapping']['fuentes']['BOCYL']['url']
         self.dataset_bocyls = pd.DataFrame({'url':[], 
                                           'titulo':[],
                                           'texto':[]})
+        logger.info("-------------------------------------------------------------------------------------")
+        logger.info("-----------------------------------OBTENCION DE DATOS BOCYL-----------------------------")
+        logger.info("-------------------------------------------------------------------------------------")
+
+        self.folder_paquete = config['scrapping']['ruta']
+        self.folder_data = config['scrapping']['descarga_datos']
+        self.folder_paquete = config['scrapping']['ruta']
+        self.name_file_output = config["scrapping"]["fuentes"]["BOCYL"]["fichero_csv"]
+        self.separator_name = config["scrapping"]["fuentes"]["separador"]
+        self.limit = config["scrapping"]["fuentes"]["limitacion_descargas"]
+        self.time_wait = config["scrapping"]["fuentes"]["tiempo_entre_descargas"]
 
     def quitar_etiquetas_html(self, cadena_html: str) -> str:
         """
@@ -217,5 +261,35 @@ class DescargaBOCyL:
         MiClase.obtener_dataset_final()
         Salida: Dataset Completo
         """        
-        return self.dataset_bocyls          
-        
+        return self.dataset_bocyls
+
+    def guardar_dataset_final(self):
+        """
+        Guarda en formato CSV en la ruta indicada en el fichero de configuracion
+        MiClase.guardar_dataset_final()
+        """
+        self.dataset_bocyls.to_csv(
+            f'{directorio_proyecto}/{self.folder_paquete}/{self.folder_data}/{self.name_file_output}',
+            sep=self.separator_name)
+
+    def initialize_download(self):
+        """
+        Método que ejecuta toda la cadena de procesos para descargase los BOCyLs y guardarlo en
+        formato csv en la ruta y con las configuraciones del config.xml
+
+        Ejemplo de uso de la clase
+        MiObjeto = DescargaBOCyL
+        MiObjeto.initialize_download()
+        """
+        i = 0
+
+        while True:
+            self.establecer_offset(i)
+            if (self.generar_dataset() > self.limit):
+                break
+            time.sleep(self.time_wait)
+            i += 1
+        self.guardar_dataset_final()
+
+
+

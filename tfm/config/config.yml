@@ -35,8 +35,18 @@ scrapping:
     campo_texto:
       - texto
   fuentes:
-    boe: "https://www.boe.es/"
-    bocyl: "https://bocyl.jcyl.es/"
+    BOE:
+      url: "https://www.boe.es/"
+      patron: "https://www.boe.es/boe/dias/$anio/$mes/$dia/index.php?s=2B"
+      fichero_csv: "csv_boes_oferta_publica.csv"
+    BOCYL:
+      url: "https://bocyl.jcyl.es/"
+      patron: "https://bocyl.jcyl.es/boletin.do?fechaBoletin=$dia/$mes/$anio#I.B._AUTORIDADES_Y_PERSONAL"
+      fichero_csv: "csv_bocyls_oferta_publica.csv"
+    limitacion_descargas: 10
+    tiempo_entre_descargas: 1
+    separador: "|"
+
 
 # Modelo LLM principal
 llm_oepia:

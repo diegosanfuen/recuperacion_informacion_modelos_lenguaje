@@ -52,19 +52,25 @@ class carga():
         self.ruta_db = Path(config['ruta_base']) / Path(config['vectorial_database']['ruta']) / Path(config['vectorial_database']['serialized_database'])
         logger.debug(f'Leemos la configuracion Ruta de la Base de datos: {self.ruta_db }')
         self.cargar_db_Vectorial()
+        logger.info("-------------------------------------------------------------------------------------")
+        logger.info("-----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------")
+        logger.info("-------------------------------------------------------------------------------------")
 
     def cargar_db_Vectorial(self):
         try:
             with open(self.ruta_db / Path(config['vectorial_database']['file_vector_index']), 'rb') as archivo:
                 self.vector_index = pkl.load(archivo)
+            logger.info("Retriver cargado")
         except Exception as e:
             logger.error(f'Un Error se produjo al intentar leer la base de datos de embbedings vector Index: {e}')
 
         try:
             with open(self.ruta_db / Path(config['vectorial_database']['file_retriever']), 'rb') as archivo:
                 self.retriever = pkl.load(archivo)
+            logger.info("Retriver cargado")
         except Exception as e:
             logger.error(f'Un Error se produjo al intentar guardar la base de datos de embbedings tipo retriever: {e}')
+
 
     def getRetriver(self):
         return self.retriever

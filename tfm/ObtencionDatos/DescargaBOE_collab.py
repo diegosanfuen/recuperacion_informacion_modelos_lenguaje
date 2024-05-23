@@ -8,10 +8,10 @@ import re
 from pathlib import Path
 import logging, os, yaml, time
 
-os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
+os.environ['PROJECT_ROOT'] = r'/content/recuperacion_informacion_modelos_lenguaje/tfm'
 
 # Abrir y leer el archivo YAML
-with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config.yml', 'r') as file:
+with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config_collab.yml', 'r') as file:
     config = yaml.safe_load(file)
 
 PATH_BASE = Path(config['ruta_base'])
@@ -267,4 +267,3 @@ class DescargaBOE:
                 break
             time.sleep(self.time_wait)
             i += 1
-        self.guardar_dataset_final()

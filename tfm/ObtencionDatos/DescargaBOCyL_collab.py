@@ -8,10 +8,10 @@ import re
 from pathlib import Path
 import logging, os, yaml, time
 
-os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
+os.environ['PROJECT_ROOT'] = r'/content/recuperacion_informacion_modelos_lenguaje/tfm'
 
 # Abrir y leer el archivo YAML
-with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config.yml', 'r') as file:
+with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config_collab.yml', 'r') as file:
     config = yaml.safe_load(file)
 
 PATH_BASE = Path(config['ruta_base'])
@@ -39,15 +39,16 @@ logging.basicConfig(filename=PATH_BASE / config['logs_config']['ruta_salida_logs
 # Creamos el logger
 logger = logging.getLogger()
 
-class DescargaBOE:
+class DescargaBOCyL:
     """
-    Clase que permite la descarga del BOE en lo referente a las Resoluciones relacionadas con las convocatorias de Oposiciones
+    Clase que permite la descarga del BOCyL en lo referente a las Resoluciones relacionadas con las convocatorias de Oposiciones
     Para instanciar la clase:
-    MiClase = DescsargaBOE()
+    MiClase = DescargaBOCyL()
     Para fijar el Offset
     MiClase.establecer_offset(offset)
     """
 
+    
     def __init__(self):
         """
         Generador de la clase no recibe parámetros
@@ -56,9 +57,9 @@ class DescargaBOE:
         """
         # Obtiene la fecha y hora actual
         self.fecha_actual = datetime.datetime.now()
-        self.url_patron = string.Template(config['scrapping']['fuentes']['BOE']['patron'])
-        self.dominio = config['scrapping']['fuentes']['BOE']['url']
-        self.dataset_boes = pd.DataFrame({'url':[],
+        self.url_patron = string.Template(config['scrapping']['fuentes']['BOCYL']['patron'])
+        self.dominio = config['scrapping']['fuentes']['BOCYL']['url']
+        self.dataset_bocyls = pd.DataFrame({'url':[], 
                                           'titulo':[],
                                           'texto':[]})
         logger.info("-------------------------------------------------------------------------------------")
@@ -68,7 +69,7 @@ class DescargaBOE:
         self.folder_paquete = config['scrapping']['ruta']
         self.folder_data = config['scrapping']['descarga_datos']
         self.folder_paquete = config['scrapping']['ruta']
-        self.name_file_output = config["scrapping"]["fuentes"]["BOE"]["fichero_csv"]
+        self.name_file_output = config["scrapping"]["fuentes"]["BOCYL"]["fichero_csv"]
         self.separator_name = config["scrapping"]["fuentes"]["separador"]
         self.limit = config["scrapping"]["fuentes"]["limitacion_descargas"]
         self.time_wait = config["scrapping"]["fuentes"]["tiempo_entre_descargas"]
@@ -82,14 +83,14 @@ class DescargaBOE:
         self.quitar_etiquetas_html(Texto)
         """
         # Parsear la cadena HTML
-        soup = BeautifulSoup(cadena_html, 'html.parser')
+        soup = BeautifulSoup(cadena_html, 'html.parser')    
         # Obtener solo el texto sin etiquetas HTML
         texto = soup.get_text(separator='')
         texto = texto.replace('[', '')
         texto = texto.replace(']', '')
         return texto
-
-
+    
+    
 
     def establecer_offset(self, offset: int):
         """
@@ -98,77 +99,93 @@ class DescargaBOE:
         Si instanciamos
         MiClase.establecer_offset(5)
         Inspeccionaremos los BOES de hace 5 días
-        Entrada: Offset Es un etero
+        Entrada: Offset Es un entero
         Salida: Variables internas de la clase (URLS de los BOES)
         """
-        fecha_calculada = self.fecha_actual - datetime.timedelta(days=offset)
+        fecha_calculada = self.fecha_actual - datetime.timedelta(days=offset)      
         anio = fecha_calculada.year
         mes = str(fecha_calculada.month).zfill(2)
         dia = str(fecha_calculada.day).zfill(2)
         fecha = {'anio': anio,
                  'mes': mes,
-                 'dia': dia}
+                 'dia': dia}        
         self.url_busqueda = self.url_patron.substitute(anio=fecha['anio'],
                                                        mes=fecha['mes'],
-                                                       dia=fecha['dia'])
+                                                       dia=fecha['dia'])       
+
+
 
     def buscar_urls_xmls(self):
         """
         Con los parámetros obtenidos de establecer_offset, localizamos las URLS
-        de las disposiciones relativas a las ofertas de empelo público es decir
+        de las disposiciones relativas a las ofertas de empelo público es decir 
         Sección II B del BOE
         Uso
         self.buscar_urls_xmls()
         """
-
+        
         url = self.url_busqueda
-        parsed_url = urlparse(url)
-
-        dominio = parsed_url.netloc
-
+        parsed_url = urlparse(url)        
+        
+        dominio = parsed_url.netloc                
+        
         response = requests.get(url)
-        html_content = response.content
-
-        soup = BeautifulSoup(html_content, 'html.parser')
-
-        titulo_buscado = "Otros formatos"
-
-        enlaces_con_titulo = soup.find_all('a', string=titulo_buscado)
-
+        html_content = response.content        
+        
+        soup = BeautifulSoup(html_content, 'html.parser')       
+        
+        regex = re.compile(".*otros formatos.*")
+               
+        enlaces_con_titulo = []
+        for enlace in soup.find_all('a'):
+            if regex.search(str(enlace)):
+                enlaces_con_titulo.append(enlace)
+        
         lista_urls = []
         for enlace in enlaces_con_titulo:
-            url_obtenida = f'https://{dominio}{enlace["href"]}'
+            # Realizamos una serie de transformaciones a la URL
+            href_transformado = str(enlace["href"]).replace(
+                'html', 'xml').replace(
+                'do', 'xml')
+            
+            url_obtenida = f'https://{dominio}/{href_transformado}'
 
             parsed_url = urlparse(url_obtenida)
+    
             parsed_url_lista = list(parsed_url)
-            parsed_url_lista[2] = 'diario_boe/xml.php'
-
+            path_url = parsed_url_lista[2].split('/')
+            path_url[1] = 'boletines'
+            parsed_url_lista[2] = "/".join(path_url)
+        
             # Convertir la lista de nuevo a un objeto ParseResult
             parsed_url_modificada = urlparse(urlunparse(parsed_url_lista))
-            lista_urls.append(urlunparse(parsed_url_modificada))
-
+            url_obtenida = urlunparse(parsed_url_modificada)
+            lista_urls.append(url_obtenida)
+        
         self.lista_urls = lista_urls
+        
 
     def obtener_lista_xmls(self):
         """
         Con los parámetros obtenidos de establecer_offset, localizamos los XMLs
-        de las disposiciones relativas a las ofertas de empelo público es decir
+        de las disposiciones relativas a las ofertas de empelo público es decir 
         Sección II B del BOE
         Uso
         self.obtener_lista_xmls()
         """
         lista_respuestas = []
         for url in self.lista_urls:
-            # url = 'https://www.boe.es/diario_boe/xml.php?id=BOE-A-2021-10344'
+            #url = 'https://bocyl.jcyl.es/boletines/2024/04/29/xml/BOCYL-D-29042024-1.xml'
             headers = {'accept': 'application/xml;q=0.9, */*;q=0.8'}
             response = requests.get(url, headers=headers)
             lista_respuestas.append(response.text)
         self.lista_xmls = lista_respuestas
-
+    
+    
     def obtener_lista_titulos(self):
         """
         Con los parámetros obtenidos de establecer_offset, localizamos los titulos
-        de las disposiciones relativas a las ofertas de empelo público es decir
+        de las disposiciones relativas a las ofertas de empelo público es decir 
         Sección II B del BOE
         Uso
         self.obtener_lista_titulos()
@@ -179,27 +196,30 @@ class DescargaBOE:
             titulo = soup.find("titulo")
             lista_titulos.append(titulo.get_text())
         self.lista_titulos = lista_titulos
-
+        
+    
     def obtener_lista_textos(self):
         """
         Con los parámetros obtenidos de establecer_offset, localizamos los textos
-        de las disposiciones relativas a las ofertas de empelo público es decir
-        Sección II B del BOE
+        de las disposiciones relativas a las ofertas de empelo público es decir 
+        Sección I B del BOCyL
         Uso
         self.obtener_lista_textos()
         """
         lista_textos = []
         for XML in self.lista_xmls:
             textos = ""
-            soup = BeautifulSoup(XML, "xml")
-            text = soup.find_all("texto")
+            soup = BeautifulSoup(XML, "xml") 
+            text = soup.find_all("texto")           
             lista_textos.append(str(text))
         self.lista_textos = lista_textos
+
+    
 
     def obtener_lista_urls_pdf(self):
         """
         Con los parámetros obtenidos de establecer_offset, localizamos las urls pdfs
-        de las disposiciones relativas a las ofertas de empelo público es decir
+        de las disposiciones relativas a las ofertas de empelo público es decir 
         Sección II B del BOE
         Uso
         self.obtener_lista_urls_pdf()
@@ -207,15 +227,16 @@ class DescargaBOE:
         lista_urls_pdf = []
         for XML in self.lista_xmls:
             textos = ""
-            soup = BeautifulSoup(XML, "xml")
-            url_pdf = soup.find_all("url_pdf")
+            soup = BeautifulSoup(XML, "xml") 
+            url_pdf = soup.find_all("url_pdf")           
             lista_urls_pdf.append(f'{self.dominio}{str(self.quitar_etiquetas_html(str(url_pdf)))}')
         self.lista_urls_pdf = lista_urls_pdf
+
 
     def generar_dataset(self) -> int:
         """
         Con los parámetros obtenidos de establecer_offset, generamos el dataset pandas
-        de las disposiciones relativas a las ofertas de empelo público es decir
+        de las disposiciones relativas a las ofertas de empelo público es decir 
         Sección II B del BOE
         Uso
         self.generar_dataset()
@@ -226,27 +247,28 @@ class DescargaBOE:
         self.obtener_lista_titulos()
         self.obtener_lista_textos()
         self.obtener_lista_urls_pdf()
-        dataset_capturado = pd.DataFrame({'url': self.lista_urls_pdf,
-                                          'titulo': self.lista_titulos,
-                                          'texto': self.lista_textos})
+        dataset_capturado = pd.DataFrame({'url':self.lista_urls_pdf, 
+                                          'titulo':self.lista_titulos,
+                                          'texto':self.lista_textos})
+        
+        self.dataset_bocyls = pd.concat([self.dataset_bocyls, dataset_capturado], ignore_index=True)
+        return self.dataset_bocyls.shape[0]
 
-        self.dataset_boes = pd.concat([self.dataset_boes, dataset_capturado], ignore_index=True)
-        return self.dataset_boes.shape[0]
 
     def obtener_dataset_final(self):
         """
         Finalmente devolvemos a la rutina principal el contenido del dataset completo
         MiClase.obtener_dataset_final()
         Salida: Dataset Completo
-        """
-        return self.dataset_boes
+        """        
+        return self.dataset_bocyls
 
     def guardar_dataset_final(self):
         """
         Guarda en formato CSV en la ruta indicada en el fichero de configuracion
         MiClase.guardar_dataset_final()
         """
-        self.dataset_boes.to_csv(
+        self.dataset_bocyls.to_csv(
             f'{directorio_proyecto}/{self.folder_paquete}/{self.folder_data}/{self.name_file_output}',
             sep=self.separator_name)
 
@@ -267,4 +289,6 @@ class DescargaBOE:
                 break
             time.sleep(self.time_wait)
             i += 1
-        self.guardar_dataset_final()
+
+
+

@@ -40,9 +40,7 @@ match config['logs_config']['level']:
     case _:
         log_level = logging.INFO
 
-logging.basicConfig(filename=Path(config['ruta_base']) /
-                             Path(config['logs_config']['ruta_salida_logs']) /
-                             f'logs_{date_today}.log',
+logging.basicConfig(filename=Path(config['ruta_base']) / Path(config['logs_config']['ruta_salida_logs']) / f'logs_{date_today}.log',
                     level=log_level,
                     format=config['logs_config']['format'])
 
@@ -102,16 +100,14 @@ class manejador_faiss():
             # Lee el archivo CSV y añádelo a la lista de DataFrames
             df = pd.read_csv(archivo, sep='|')
             dataframes.append(df)
+
         self.dataset = pd.concat(dataframes, ignore_index=True)
 
-        self.convertir_pandas_lista_documentos(self.dataset,
-                                               config['scrapping']['campos_metadata'],
-                                               config['scrapping']['campos_metadata'])
+        self.convertir_pandas_lista_documentos(self.dataset, config['scrapping']['campos_metadata'], config['scrapping']['campos_metadata'])
         self.generar_vector_store()
         self.persistir_bbdd_vectorial()
 
-
- if __name__ == '__main__':
+if __name__ == '__main__':
      BDVect = manejador_faiss()
      BDVect.inicialize_db_vect()
 

@@ -1,43 +1,48 @@
+# Ruta base
+ruta_base: "C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje"
+
 # Configuracion de los Logs
-ruta_salida_logs: "C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\logs"
+logs_config:
+  ruta_salida_logs: "\\tfm\\logs"
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+  level: "DEBUG"
 
 # Configuracion de la Base de Datos de Mensajes (Contexto)
 
 # Configuracion de Base de Datos Vectorial
 vectorial_database:
-  ruta: "C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\pruebas-faiss\\faiss"
-  file_indices: indices_faiss.index
-  file_json: metadata.json
+  ruta: "faiss"
+  serialized_database: "db"
+  file_retriever: "retriever.pkl"
+  file_vector_index: "vector_index.pkl"
+  parameters_tokenizador:
+    name_model_llm: llama3
+    name_model_tokenizador: llama3
+    return_tensors: pt
+    max_length: 512
+    truncation: true
+    padding: max_length
+    temperature: 0.0
 
-dataset_index:
-  campos_metadata:
-    - url
-    - titulo
-    - text_resume
-  campo_texto:
-    - text
+# WebScrapping
+scrapping:
+  ruta: "ObtencionDatos"
+  descarga_datos: "datos"
+  dataset_index:
+    campos_metadata:
+      - url
+      - titulo
+    campo_texto:
+      - texto
+  fuentes:
+    boe: "https://www.boe.es/"
+    bocyl: "https://bocyl.jcyl.es/"
 
-parameters_tokenizador:
-  name_model_llm: bert-base-uncased
-  name_model_tokenizador: bert-base-uncased
-  return_tensors: pt
-  max_length: 512
-  truncation: true
-  padding: max_length
-
-parameters_resume:
-  name_model_llm: "facebook/bart-large-cnn"
-  name_model_tokenizador: "facebook/bart-large-cnn"
-  return_tensors: pt
-  max_length: 1024
-  truncation: true
-  padding: max_length
-  resume:
-    max_length: 150
-    min_length: 40
-    length_penalty: 2.0
-    num_beams: 4
-    early_stopping: true
-    skip_special_tokens: true
+# Modelo LLM principal
+llm_oepia:
+  ruta: "OEPIA"
+  parameters_modelo:
+    llm_model: llama3
+    temperature: 0.0
 
 # Modelos:

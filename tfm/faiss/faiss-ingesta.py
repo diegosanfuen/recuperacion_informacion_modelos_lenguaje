@@ -24,6 +24,7 @@ warnings.filterwarnings("ignore", category=UserWarning, module="huggingface_hub.
 with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config.yml', 'r') as file:
     config = yaml.safe_load(file)
 
+PATH_BASE = Path(config['ruta_base'])
 date_today = datetime.datetime.today().strftime("%Y_%m_%d")
 
 # Configuración básica del logger
@@ -40,7 +41,7 @@ match config['logs_config']['level']:
     case _:
         log_level = logging.INFO
 
-logging.basicConfig(filename=Path(config['ruta_base']) / Path(config['logs_config']['ruta_salida_logs']) / f'logs_{date_today}.log',
+logging.basicConfig(filename=PATH_BASE / config['logs_config']['ruta_salida_logs'] / f'logs_{date_today}.log',
                     level=log_level,
                     format=config['logs_config']['format'])
 
@@ -52,9 +53,9 @@ class manejador_faiss():
     def __init__(self):
         logger.debug(f'Volcamos toda la informacion del fichero de configuracion: {config}')
         # Parametros externos configuracion
-        self.embedding_llm = OllamaEmbeddings(model=config['vectorial_database']['name_model_tokenizador'])
+        self.embedding_llm = OllamaEmbeddings(model=config['vectorial_database']['parameters_tokenizador']['name_model_tokenizador'])
         self.ruta_db = Path(config['ruta_base']) / Path(config['vectorial_database']['ruta']) / Path(config['vectorial_database']['serialized_database'])
-        logger.debug(f'Leemos la configuracion Ruta de la Base de datos: {self.ruta_base_datos}')
+        logger.debug(f'Leemos la configuracion Ruta de la Base de datos: {self.ruta_db }')
 
     def convertir_pandas_lista_documentos(self, dataframe, col_text, cols_metadata):
         # Lista para almacenar los documentos
@@ -93,8 +94,9 @@ class manejador_faiss():
 
     def inicialize_db_vect(self):
         # Leemos el contenido de la ruta de descarga del scrapper
-        path = config['ruta_base'] + '/' +  config['scrapping']['ruta'] + '/' + config['scrapping']['descarga_datos'] + '/*.csv'
-        archivos_csv = glob.glob(Path(path))
+        path_csv = Path(config['ruta_base']) / config['scrapping']['ruta'] / config['scrapping']['descarga_datos'] / '*.csv'
+        path_csv_str = str(path_csv)
+        archivos_csv = glob.glob(path_csv_str)
         dataframes = []
         for archivo in archivos_csv:
             # Lee el archivo CSV y añádelo a la lista de DataFrames
@@ -103,7 +105,9 @@ class manejador_faiss():
 
         self.dataset = pd.concat(dataframes, ignore_index=True)
 
-        self.convertir_pandas_lista_documentos(self.dataset, config['scrapping']['campos_metadata'], config['scrapping']['campos_metadata'])
+        self.convertir_pandas_lista_documentos(self.dataset,
+                                               config['scrapping']['dataset_index']['campo_texto'][0],
+                                               config['scrapping']['dataset_index']['campos_metadata'])
         self.generar_vector_store()
         self.persistir_bbdd_vectorial()
 

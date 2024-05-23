@@ -1,9 +1,9 @@
 # Ruta base
-ruta_base: "C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje"
+ruta_base: "C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm"
 
 # Configuracion de los Logs
 logs_config:
-  ruta_salida_logs: "\\tfm\\logs"
+  ruta_salida_logs: "logs"
   format: "%(asctime)s - %(levelname)s - %(message)s"
   level: "DEBUG"
 
@@ -11,7 +11,7 @@ logs_config:
 
 # Configuracion de Base de Datos Vectorial
 vectorial_database:
-  ruta: "faiss"
+  ruta: "Faiss"
   serialized_database: "db"
   file_retriever: "retriever.pkl"
   file_vector_index: "vector_index.pkl"

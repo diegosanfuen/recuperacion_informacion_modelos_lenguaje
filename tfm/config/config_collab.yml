@@ -1,9 +1,9 @@
 # Ruta base
-ruta_base: "/content/recuperacion_informacion_modelos_lenguaje"
+ruta_base: "/content/recuperacion_informacion_modelos_lenguaje/tfm"
 
 # Configuracion de los Logs
 logs_config:
-  ruta_salida_logs: "/tfm/logs"
+  ruta_salida_logs: "logs"
   format: "%(asctime)s - %(levelname)s - %(message)s"
   level: "DEBUG"
 

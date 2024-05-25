@@ -17,7 +17,7 @@ from langchain_core.documents import Document
 import gc
 
 # Introducir esta variable de entorno en el lanzador
-# os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
+os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
 
 sys.path.insert(0, os.environ['PROJECT_ROOT'])
 from sesiones import sesiones as ses

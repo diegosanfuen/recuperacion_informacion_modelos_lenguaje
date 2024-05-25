@@ -309,3 +309,84 @@
 2024-05-25 13:01:12,097 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
 2024-05-25 13:01:13,042 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
 2024-05-25 13:01:17,278 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 13:27:23,499 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 13:27:23,500 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 13:27:24,299 - INFO - Conexion establecida
+2024-05-25 13:27:24,306 - INFO - Consulta probada OK
+2024-05-25 13:28:35,911 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 13:28:35,912 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 13:28:36,232 - INFO - Conexion establecida
+2024-05-25 13:28:36,232 - INFO - Consulta probada OK
+2024-05-25 13:30:47,667 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 13:30:47,667 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 13:30:47,798 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2024-05-25 13:30:48,009 - INFO - Conexion establecida
+2024-05-25 13:30:48,009 - INFO - Consulta probada OK
+2024-05-25 13:30:48,013 - INFO - Loading faiss with AVX2 support.
+2024-05-25 13:30:48,110 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 13:30:48,192 - INFO - Retriver cargado
+2024-05-25 13:30:48,210 - INFO - Retriver cargado
+2024-05-25 13:30:48,210 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 13:30:48,210 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 13:30:48,210 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 13:30:48,220 - INFO - Retriver cargado
+2024-05-25 13:30:48,229 - INFO - Retriver cargado
+2024-05-25 13:30:48,769 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 13:30:48,801 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 13:30:49,506 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 13:30:50,048 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 13:30:52,675 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 13:30:53,139 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 13:30:54,358 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 13:30:56,034 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 13:30:59,317 - INFO - Conexion establecida
+2024-05-25 13:30:59,318 - INFO - Consulta ejecutada OK
+2024-05-25 13:31:41,127 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 13:31:41,127 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 13:31:41,457 - INFO - Conexion establecida
+2024-05-25 13:31:41,457 - INFO - Consulta probada OK
+2024-05-25 13:31:41,460 - INFO - Loading faiss with AVX2 support.
+2024-05-25 13:31:41,485 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 13:31:41,517 - INFO - Retriver cargado
+2024-05-25 13:31:41,526 - INFO - Retriver cargado
+2024-05-25 13:31:41,526 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 13:31:41,526 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 13:31:41,526 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 13:31:41,537 - INFO - Retriver cargado
+2024-05-25 13:31:41,546 - INFO - Retriver cargado
+2024-05-25 13:31:42,043 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 13:31:42,083 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 13:31:42,851 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2024-05-25 13:31:44,057 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 13:31:44,696 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 13:31:45,147 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 13:31:47,634 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 13:31:48,587 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 13:31:53,684 - INFO - Conexion establecida
+2024-05-25 13:31:53,685 - INFO - Consulta ejecutada OK
+2024-05-25 13:33:32,623 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 13:33:32,623 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 13:33:32,948 - INFO - Conexion establecida
+2024-05-25 13:33:32,948 - INFO - Consulta probada OK
+2024-05-25 13:33:32,952 - INFO - Loading faiss with AVX2 support.
+2024-05-25 13:33:32,975 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 13:33:33,008 - INFO - Retriver cargado
+2024-05-25 13:33:33,019 - INFO - Retriver cargado
+2024-05-25 13:33:33,019 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 13:33:33,019 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 13:33:33,019 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 13:33:33,029 - INFO - Retriver cargado
+2024-05-25 13:33:33,039 - INFO - Retriver cargado
+2024-05-25 13:33:33,542 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 13:33:33,576 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 13:33:33,797 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 13:33:34,337 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 13:33:34,542 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 13:33:35,100 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 13:33:36,707 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 13:33:48,038 - INFO - Conexion establecida
+2024-05-25 13:33:48,039 - INFO - Consulta ejecutada OK
+2024-05-25 13:36:04,967 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 13:36:04,967 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 13:36:05,290 - INFO - Conexion establecida
+2024-05-25 13:36:05,291 - INFO - Consulta probada OK

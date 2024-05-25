@@ -112,8 +112,8 @@ Question: {input}
 
 document_chain = create_stuff_documents_chain(llm, prompt_document)
 
-retriever_inst = fcg()
-retriever_faiss = retriever_inst.inialize_retriever()
+# retriever_inst = fcg()
+retriever_faiss = fcg().inialize_retriever()
 retrieval_chain = create_retrieval_chain(retriever_faiss, document_chain)
 
 chain = prompt_template | llm
@@ -124,10 +124,13 @@ def chat(pregunta):
         token = generate_token()
         response = "Sesión reseteada"
     else:
-        response = retrieval_chain.invoke({"input": pregunta, "context": sesiones.obtener_mensajes_por_sesion(token)})
-        sesiones.add_mensajes_por_sesion('1234567890acbd', str(HumanMessage(content=pregunta)))
-        sesiones.add_mensajes_por_sesion('1234567890acbd', str(AIMessage(content=response)))
-        print(str(AIMessage(content=response)))
+        try:
+            response = retrieval_chain.invoke({"input": pregunta, "context": sesiones.obtener_mensajes_por_sesion(token)})
+            sesiones.add_mensajes_por_sesion('1234567890acbd', str(HumanMessage(content=pregunta)))
+            sesiones.add_mensajes_por_sesion('1234567890acbd', str(AIMessage(content=response)))
+            logger.info(str(AIMessage(content=response)))
+        except Exception as e:
+            logger.error(f'Un Error se produjo al intentar invocar el LLM: {e}')
     return response
 
 

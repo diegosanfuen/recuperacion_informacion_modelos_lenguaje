@@ -78,31 +78,17 @@ def generate_token(length=32):
 token = generate_token()
 
 
-prompt_template = ChatPromptTemplate.from_messages(
-    [
-        (
-            "system",
-            f"""
-            Hola {assistant_name},
-            
-            Necesito tu ayuda para encontrar las mejores ofertas de empleo público que coincidan con mi perfil. Soy un ingeniero civil con 5 años de experiencia en gestión de infraestructuras y proyectos urbanos. Además, tengo una maestría en ingeniería ambiental y estoy particularmente interesado en roles que involucren la sostenibilidad y la planificación urbana.
-            
-            Por favor, identifica las oportunidades de empleo público más relevantes que se adapten a mi perfil.
-            Proporciona detalles sobre los requisitos y el proceso de solicitud para cada puesto.
-            Ofrece consejos sobre cómo mejorar mi aplicación y aumentar mis posibilidades de éxito.
-            Es importante que los resultados sean precisos y actualizados porque la competencia para puestos de empleo público es alta y los plazos de solicitud suelen ser estrictos. Agradezco tu ayuda en este proceso vital para mi carrera profesional.
-            """,
-        ),
-
-        MessagesPlaceholder(variable_name="chat_history"),
-        ("human", "{input}"),
-    ])
-
-prompt_document = ChatPromptTemplate.from_template("""
-Contesta las siguiente pregunta basandote en el contexto y en tu conocimiento interno.
-Otorga prioridad al contexto y si no estás seguro di que no sabes la respuesta.
-
-Otorga prioridad al contexo y a la base de datos proporcionada por RAG con Ofertas de empleo público cuando lo requieras
+prompt_template = ChatPromptTemplate.from_template("""
+Hola te llamas {{assistant_name}}, y eres un asistente chat,            
+Necesito tu ayuda para encontrar las mejores ofertas de empleo público que coincidan con mi perfil. 
+Por favor, identifica las oportunidades de empleo público más relevantes que se adapten a mi perfil.
+Proporciona detalles sobre los requisitos y el proceso de solicitud para cada puesto.
+Ofrece consejos sobre cómo mejorar mi aplicación y aumentar mis posibilidades de éxito.
+Cuando te pregunten por las ofertas públicas de empleo directamente otroga prioridad al los datos facilitados por la base de datos del RAG.
+Ejemplo de una pregunta:
+Soy un ingeniero civil con 5 años de experiencia en gestión de infraestructuras y proyectos urbanos. Además, tengo una maestría en ingeniería ambiental y estoy particularmente interesado en roles que involucren la sostenibilidad y la planificación urbana.
+Deberias facilitarle las ofertas de empleo público que coincidan con el perfil de Ingeniero ambiental y adecuadas para su perfil, en los casos que creas conveniente puedes ayudarte de las ofertas de empleo suministradas por el RAG.
+Es importante que los resultados sean precisos y actualizados porque la competencia para puestos de empleo público es alta y los plazos de solicitud suelen ser estrictos. Agradezco tu ayuda en este proceso vital para mi carrera profesional.
 
 <context>
 {context}
@@ -111,7 +97,7 @@ Otorga prioridad al contexo y a la base de datos proporcionada por RAG con Ofert
 Question: {input}
 """)
 
-document_chain = create_stuff_documents_chain(llm, prompt_document)
+document_chain = create_stuff_documents_chain(llm, prompt_template)
 
 retriever_inst = fcg()
 retriever_faiss = retriever_inst.inialize_retriever()
@@ -127,8 +113,8 @@ def chat(pregunta):
     else:
         try:
             response = retrieval_chain.invoke({"input": pregunta, "context": sesiones.obtener_mensajes_por_sesion(token)})
-            sesiones.add_mensajes_por_sesion('1234567890acbd', str(HumanMessage(content=pregunta)))
-            sesiones.add_mensajes_por_sesion('1234567890acbd', str(AIMessage(content=response)))
+            sesiones.add_mensajes_por_sesion(token, str(HumanMessage(content=pregunta)))
+            sesiones.add_mensajes_por_sesion(token, str(AIMessage(content=response['answer'])))
             logger.info(str(AIMessage(content=response)))
         except Exception as e:
             logger.error(f'Un Error se produjo al intentar invocar el LLM: {e}')

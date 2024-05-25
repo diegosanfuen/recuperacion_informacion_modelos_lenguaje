@@ -592,3 +592,95 @@
 2024-05-25 17:10:49,229 - INFO - Conexion establecida
 2024-05-25 17:10:49,229 - INFO - Consulta ejecutada OK
 2024-05-25 17:10:52,200 - ERROR - Un Error se produjo al intentar invocar el LLM: IndexFlat.search() missing 3 required positional arguments: 'k', 'distances', and 'labels'
+2024-05-25 18:24:43,757 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 18:24:43,757 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 18:24:44,501 - INFO - Conexion establecida
+2024-05-25 18:24:44,507 - INFO - Consulta probada OK
+2024-05-25 18:24:44,513 - INFO - Loading faiss with AVX2 support.
+2024-05-25 18:24:44,602 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 18:24:44,689 - INFO - Retriver cargado
+2024-05-25 18:24:44,709 - INFO - Retriver cargado
+2024-05-25 18:24:44,709 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 18:24:44,709 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 18:24:44,709 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 18:24:44,722 - INFO - Retriver cargado
+2024-05-25 18:24:44,733 - INFO - Retriver cargado
+2024-05-25 18:24:45,359 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 18:24:45,387 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 18:24:45,507 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 18:24:46,417 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 18:24:47,238 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 18:24:47,692 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 18:24:52,212 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 18:25:19,993 - INFO - Conexion establecida
+2024-05-25 18:25:19,994 - INFO - Consulta ejecutada OK
+2024-05-25 18:25:29,735 - ERROR - Un Error se produjo al intentar invocar el LLM: IndexFlat.search() missing 3 required positional arguments: 'k', 'distances', and 'labels'
+2024-05-25 18:31:14,319 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 18:31:14,319 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 18:31:14,684 - INFO - Conexion establecida
+2024-05-25 18:31:14,684 - INFO - Consulta probada OK
+2024-05-25 18:31:14,689 - INFO - Loading faiss with AVX2 support.
+2024-05-25 18:31:14,714 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 18:31:14,750 - INFO - Retriver cargado
+2024-05-25 18:31:14,761 - INFO - Retriver cargado
+2024-05-25 18:31:14,761 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 18:31:14,761 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 18:31:14,761 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 18:31:14,773 - INFO - Retriver cargado
+2024-05-25 18:31:14,782 - INFO - Retriver cargado
+2024-05-25 18:31:15,371 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 18:31:15,399 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 18:31:15,402 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 18:31:15,947 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 18:31:16,486 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 18:31:16,655 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 18:31:25,671 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 18:31:31,512 - INFO - Conexion establecida
+2024-05-25 18:31:31,512 - INFO - Consulta ejecutada OK
+2024-05-25 18:31:39,017 - ERROR - Un Error se produjo al intentar invocar el LLM: IndexFlat.search() missing 3 required positional arguments: 'k', 'distances', and 'labels'
+2024-05-25 19:06:12,042 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 19:06:12,042 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 19:06:12,414 - INFO - Conexion establecida
+2024-05-25 19:06:12,414 - INFO - Consulta probada OK
+2024-05-25 19:06:12,417 - INFO - Loading faiss with AVX2 support.
+2024-05-25 19:06:12,442 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 19:06:12,475 - INFO - Retriver cargado
+2024-05-25 19:06:12,485 - INFO - Retriver cargado
+2024-05-25 19:06:12,486 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 19:06:12,486 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 19:06:12,486 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 19:06:12,497 - INFO - Retriver cargado
+2024-05-25 19:06:12,506 - INFO - Retriver cargado
+2024-05-25 19:06:13,059 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 19:06:13,077 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 19:06:13,429 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 19:06:13,928 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 19:06:14,301 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 19:06:14,458 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 19:06:16,269 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 19:06:22,468 - INFO - Conexion establecida
+2024-05-25 19:06:22,469 - INFO - Consulta ejecutada OK
+2024-05-25 19:06:30,044 - ERROR - Un Error se produjo al intentar invocar el LLM: IndexFlat.search() missing 3 required positional arguments: 'k', 'distances', and 'labels'
+2024-05-25 19:23:00,091 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 19:23:00,091 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 19:23:00,381 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2024-05-25 19:23:00,677 - INFO - Conexion establecida
+2024-05-25 19:23:00,678 - INFO - Consulta probada OK
+2024-05-25 19:23:00,683 - INFO - Loading faiss with AVX2 support.
+2024-05-25 19:23:00,715 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 19:23:00,760 - INFO - Retriver cargado
+2024-05-25 19:23:00,779 - INFO - Retriver cargado
+2024-05-25 19:23:00,780 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 19:23:00,780 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 19:23:00,780 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 19:23:00,790 - INFO - Retriver cargado
+2024-05-25 19:23:00,798 - INFO - Retriver cargado
+2024-05-25 19:23:01,324 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 19:23:01,346 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 19:23:01,364 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 19:23:04,437 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 19:23:04,539 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 19:23:06,471 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 19:23:11,103 - INFO - Conexion establecida
+2024-05-25 19:23:11,103 - INFO - Consulta ejecutada OK
+2024-05-25 19:23:18,834 - ERROR - Un Error se produjo al intentar invocar el LLM: IndexFlat.search() missing 3 required positional arguments: 'k', 'distances', and 'labels'

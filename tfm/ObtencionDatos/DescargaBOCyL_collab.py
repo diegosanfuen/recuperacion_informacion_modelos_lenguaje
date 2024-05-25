@@ -8,6 +8,7 @@ import re
 from pathlib import Path
 import logging, os, yaml, time
 
+# Introducir esta variable de entorno en el lanzador
 # os.environ['PROJECT_ROOT'] = r'/content/recuperacion_informacion_modelos_lenguaje/tfm'
 
 # Abrir y leer el archivo YAML

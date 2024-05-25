@@ -1,44 +1,116 @@
 # OEPIA
-from tfm.sesiones import sesiones as ses
 
-import logging
-import gc
-
+import sys
+from pathlib import Path
+import os, yaml, time
+import datetime
 from langchain_community.llms import Ollama
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 import gradio as gr
+import logging
+import secrets
+import string
+import gc
 
-llm = Ollama(model='llama3')
-sesiones = ses.manejador_sesiones()
-mensaje = sesiones.obtener_mensajes_por_sesion('1234567890acbd')
+# Introducir esta variable de entorno en el lanzador
+# os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
+
+sys.path.insert(0, os.environ['PROJECT_ROOT'])
+from sesiones import sesiones as ses
+from faiss_opeia import carga as fcg
+
+# Abrir y leer el archivo YAML
+with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config.yml', 'r') as file:
+    config = yaml.safe_load(file)
+
+PATH_BASE = Path(config['ruta_base'])
+directorio_proyecto = os.path.dirname(Path(PATH_BASE) / config['llm_oepia']['ruta'])
+date_today = datetime.datetime.today().strftime("%Y_%m_%d")
+
+# Configuración básica del logger
+log_level = None
+match config['logs_config']['level']:
+    case 'DEBUG':
+        log_level = logging.DEBUG
+    case 'WARN':
+        log_level = logging.WARNING
+    case 'WARNING':
+        log_level = logging.WARNING
+    case 'ERROR':
+        log_level = logging.ERROR
+    case _:
+        log_level = logging.INFO
+
+logging.basicConfig(filename=PATH_BASE / config['logs_config']['ruta_salida_logs'] / f'logs_{date_today}.log',
+                    level=log_level,
+                    format=config['logs_config']['format'])
+
+# Creamos el logger
+logger = logging.getLogger()
+
+try:
+    modelo = config['llm_oepia']['parameters_modelo']['llm_model']
+    temperature = config['llm_oepia']['parameters_modelo']['temperature']
+    assistant_name = config['llm_oepia']['parameters_modelo']['nombre_asistente']
+    llm = Ollama(model=modelo,
+                 temperature=temperature)
+except Exception as e:
+    logger.error(f'Un Error se produjo al intentar cargar el modelo {modelo} : {e}')
+    exit()
+try:
+    sesiones = ses.manejador_sesiones()
+except Exception as e:
+    logger.error(f'Un Error se produjo al intentar cargar la base de datos de sesiones: {e}')
+    exit()
+
+def generate_token(length=32):
+    # Caracteres que pueden ser usados en el token
+    characters = string.ascii_letters + string.digits
+    # Generar el token
+    token = ''.join(secrets.choice(characters) for _ in range(length))
+    return token
+
+token = generate_token()
 
 
 prompt_template = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            """Eres un AI llamado OEPIA, respondes a preguntas con respuestas simples,
-            además debes contestar de vuelta preguntas acorde al contexto, eres especialista
-            en ofertas de empleo público, todas las respuestas las debes
-            de dar asocidas a dicho tema""",
+            f"""
+            Hola {assistant_name},
+            
+            Necesito tu ayuda para encontrar las mejores ofertas de empleo público que coincidan con mi perfil. Soy un ingeniero civil con 5 años de experiencia en gestión de infraestructuras y proyectos urbanos. Además, tengo una maestría en ingeniería ambiental y estoy particularmente interesado en roles que involucren la sostenibilidad y la planificación urbana.
+            
+            Por favor, identifica las oportunidades de empleo público más relevantes que se adapten a mi perfil.
+            Proporciona detalles sobre los requisitos y el proceso de solicitud para cada puesto.
+            Ofrece consejos sobre cómo mejorar mi aplicación y aumentar mis posibilidades de éxito.
+            Es importante que los resultados sean precisos y actualizados porque la competencia para puestos de empleo público es alta y los plazos de solicitud suelen ser estrictos. Agradezco tu ayuda en este proceso vital para mi carrera profesional.
+            """,
         ),
 
         MessagesPlaceholder(variable_name="chat_history"),
         ("human", "{input}"),
     ])
 
-chain = prompt_template | llm
+retriever_inst = fcg()
+retriever_faiss = retriever_inst.inialize_retriever()
+
+chain = prompt_template | retriever_faiss | llm
 
 def chat(pregunta):
-    response = chain.invoke({"input": pregunta, "chat_history": sesiones.obtener_mensajes_por_sesion('1234567890acbd')})
-    sesiones.add_mensajes_por_sesion('1234567890acbd', str(HumanMessage(content=pregunta)))
-    sesiones.add_mensajes_por_sesion('1234567890acbd', str(AIMessage(content=response)))
-    print(str(AIMessage(content=response)))
+    global token
+    if("resetea_sesion" in pregunta.lower()):
+        token = generate_token()
+        response = "Sesión reseteada"
+    else:
+        response = chain.invoke({"input": pregunta, "chat_history": sesiones.obtener_mensajes_por_sesion(token)})
+        sesiones.add_mensajes_por_sesion('1234567890acbd', str(HumanMessage(content=pregunta)))
+        sesiones.add_mensajes_por_sesion('1234567890acbd', str(AIMessage(content=response)))
+        print(str(AIMessage(content=response)))
     return response
 
-
-import gradio as gr
 
 history = ""
 
@@ -116,7 +188,7 @@ def procesar_respuesta(respuesta):
 
 
 def procesar_flag(texto_entrada, flag_option, flag_index):
-    print(f"Dato marcado: {data}")
+    print(f"Dato marcado: {texto_entrada.value}")
     print(f"Opción seleccionada para marcar: {flag_option}")
     print(f"Índice del dato marcado: {flag_index}")
 
@@ -136,8 +208,6 @@ iface = gr.Interface(
     flagging_options=["Incorrecto", "Irrelevante", "Ofensivo"],  # Opciones para el usuario al marcar
     flagging_dir="flagged_data",  # Directorio donde se guardarán los datos marcados
 )
-
-iface.submit_button = "Consultar"
 
 # Inicia la interfaz
 iface.launch(share=True)

@@ -128,7 +128,7 @@ with open(str(Path(config['vectorial_database']['ruta']) / config['vectorial_dat
 
 
 # Cargar el índice de FAISS
-index = faiss.read_index(r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\pruebas-faiss\faiss\indices.index')
+index = faiss.read_index(r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\pruebas-faiss_opeia\faiss_opeia\indices.index')
 
 # Cargar metadatos (opcional)
 with open(r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\pruebas-faiss\faiss\metadata.json', 'r') as f:

@@ -6,3 +6,233 @@
 2024-05-15 12:55:49,780 - INFO - Consulta ejecutada OK
 2024-05-15 12:55:49,784 - INFO - Conexion establecida
 2024-05-15 12:55:49,784 - INFO - Consulta ejecutada OK
+2024-05-25 11:28:02,683 - INFO - Conexion establecida
+2024-05-25 11:28:02,690 - INFO - Consulta probada OK
+2024-05-25 11:28:02,690 - INFO - Conexion establecida
+2024-05-25 11:28:02,691 - INFO - Consulta ejecutada OK
+2024-05-25 11:28:03,123 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2024-05-25 11:28:03,510 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 11:28:03,578 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 11:28:03,615 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 11:28:04,199 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 11:28:05,032 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 11:28:05,450 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 11:28:10,663 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 11:28:15,924 - INFO - Conexion establecida
+2024-05-25 11:28:15,925 - INFO - Consulta ejecutada OK
+2024-05-25 11:30:55,434 - INFO - Conexion establecida
+2024-05-25 11:30:55,445 - INFO - Consulta ejecutada OK
+2024-05-25 11:30:55,449 - INFO - Conexion establecida
+2024-05-25 11:30:55,450 - INFO - Consulta ejecutada OK
+2024-05-25 11:30:55,450 - INFO - Conexion establecida
+2024-05-25 11:30:55,451 - INFO - Consulta ejecutada OK
+2024-05-25 11:30:55,455 - INFO - Conexion establecida
+2024-05-25 11:30:55,456 - INFO - Consulta ejecutada OK
+2024-05-25 11:50:37,038 - INFO - Conexion establecida
+2024-05-25 11:50:37,039 - INFO - Consulta probada OK
+2024-05-25 11:50:37,039 - INFO - Conexion establecida
+2024-05-25 11:50:37,040 - INFO - Consulta ejecutada OK
+2024-05-25 11:50:37,876 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 11:50:37,897 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 11:50:38,321 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 11:50:38,470 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 11:50:39,085 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 11:50:39,701 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 11:50:42,565 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 11:51:59,694 - INFO - Conexion establecida
+2024-05-25 11:51:59,695 - INFO - Consulta probada OK
+2024-05-25 11:51:59,695 - INFO - Conexion establecida
+2024-05-25 11:51:59,696 - INFO - Consulta ejecutada OK
+2024-05-25 11:52:00,519 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 11:52:00,541 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 11:52:01,221 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 11:52:02,030 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 11:52:02,131 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 11:52:03,359 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 11:52:04,795 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 11:52:22,038 - INFO - Conexion establecida
+2024-05-25 11:52:22,040 - INFO - Consulta ejecutada OK
+2024-05-25 11:53:47,387 - INFO - Conexion establecida
+2024-05-25 11:53:47,393 - INFO - Consulta ejecutada OK
+2024-05-25 11:53:47,397 - INFO - Conexion establecida
+2024-05-25 11:53:47,398 - INFO - Consulta ejecutada OK
+2024-05-25 11:53:47,398 - INFO - Conexion establecida
+2024-05-25 11:53:47,399 - INFO - Consulta ejecutada OK
+2024-05-25 11:53:47,403 - INFO - Conexion establecida
+2024-05-25 11:53:47,403 - INFO - Consulta ejecutada OK
+2024-05-25 11:54:26,089 - INFO - Conexion establecida
+2024-05-25 11:54:26,089 - INFO - Consulta ejecutada OK
+2024-05-25 11:56:34,726 - INFO - Conexion establecida
+2024-05-25 11:56:34,731 - INFO - Consulta ejecutada OK
+2024-05-25 11:56:34,735 - INFO - Conexion establecida
+2024-05-25 11:56:34,736 - INFO - Consulta ejecutada OK
+2024-05-25 11:56:34,736 - INFO - Conexion establecida
+2024-05-25 11:56:34,737 - INFO - Consulta ejecutada OK
+2024-05-25 11:56:34,740 - INFO - Conexion establecida
+2024-05-25 11:56:34,741 - INFO - Consulta ejecutada OK
+2024-05-25 11:57:20,660 - INFO - Conexion establecida
+2024-05-25 11:57:20,661 - INFO - Consulta ejecutada OK
+2024-05-25 11:58:02,279 - INFO - Conexion establecida
+2024-05-25 11:58:02,285 - INFO - Consulta ejecutada OK
+2024-05-25 11:58:02,288 - INFO - Conexion establecida
+2024-05-25 11:58:02,288 - INFO - Consulta ejecutada OK
+2024-05-25 11:58:02,289 - INFO - Conexion establecida
+2024-05-25 11:58:02,291 - INFO - Consulta ejecutada OK
+2024-05-25 11:58:02,293 - INFO - Conexion establecida
+2024-05-25 11:58:02,294 - INFO - Consulta ejecutada OK
+2024-05-25 11:58:50,584 - INFO - Conexion establecida
+2024-05-25 11:58:50,584 - INFO - Consulta ejecutada OK
+2024-05-25 12:00:57,113 - INFO - Conexion establecida
+2024-05-25 12:00:57,120 - INFO - Consulta ejecutada OK
+2024-05-25 12:00:57,123 - INFO - Conexion establecida
+2024-05-25 12:00:57,124 - INFO - Consulta ejecutada OK
+2024-05-25 12:00:57,124 - INFO - Conexion establecida
+2024-05-25 12:00:57,126 - INFO - Consulta ejecutada OK
+2024-05-25 12:00:57,127 - INFO - Conexion establecida
+2024-05-25 12:00:57,128 - INFO - Consulta ejecutada OK
+2024-05-25 12:01:21,989 - INFO - Conexion establecida
+2024-05-25 12:01:21,990 - INFO - Consulta ejecutada OK
+2024-05-25 12:02:00,837 - INFO - Conexion establecida
+2024-05-25 12:02:00,839 - INFO - Consulta ejecutada OK
+2024-05-25 12:02:00,842 - INFO - Conexion establecida
+2024-05-25 12:02:00,843 - INFO - Consulta ejecutada OK
+2024-05-25 12:02:00,843 - INFO - Conexion establecida
+2024-05-25 12:02:00,845 - INFO - Consulta ejecutada OK
+2024-05-25 12:02:00,848 - INFO - Conexion establecida
+2024-05-25 12:02:00,848 - INFO - Consulta ejecutada OK
+2024-05-25 12:04:04,838 - INFO - Conexion establecida
+2024-05-25 12:04:04,840 - INFO - Consulta ejecutada OK
+2024-05-25 12:04:49,054 - INFO - Conexion establecida
+2024-05-25 12:04:49,061 - INFO - Consulta ejecutada OK
+2024-05-25 12:04:49,065 - INFO - Conexion establecida
+2024-05-25 12:04:49,065 - INFO - Consulta ejecutada OK
+2024-05-25 12:04:49,066 - INFO - Conexion establecida
+2024-05-25 12:04:49,067 - INFO - Consulta ejecutada OK
+2024-05-25 12:04:49,070 - INFO - Conexion establecida
+2024-05-25 12:04:49,071 - INFO - Consulta ejecutada OK
+2024-05-25 12:11:08,797 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2024-05-25 12:12:28,775 - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2024-05-25 12:12:50,404 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 12:12:50,404 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 12:12:51,497 - INFO - Conexion establecida
+2024-05-25 12:12:51,497 - INFO - Consulta probada OK
+2024-05-25 12:12:51,498 - INFO - Conexion establecida
+2024-05-25 12:12:51,499 - INFO - Consulta ejecutada OK
+2024-05-25 12:12:51,499 - ERROR - Un Error se produjo al intentar leer la base de datos de embbedings vector Index: [Errno 2] No such file or directory: 'C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\faiss_opeia\\db\\vector_index.pkl'
+2024-05-25 12:12:51,505 - INFO - Loading faiss with AVX2 support.
+2024-05-25 12:12:51,609 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 12:12:51,703 - INFO - Retriver cargado
+2024-05-25 12:12:51,703 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:12:51,703 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 12:12:51,703 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:14:28,045 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 12:14:28,045 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 12:14:28,710 - INFO - Conexion establecida
+2024-05-25 12:14:28,710 - INFO - Consulta probada OK
+2024-05-25 12:14:28,711 - INFO - Conexion establecida
+2024-05-25 12:14:28,711 - INFO - Consulta ejecutada OK
+2024-05-25 12:14:28,712 - ERROR - Un Error se produjo al intentar leer la base de datos de embbedings vector Index: [Errno 2] No such file or directory: 'C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\faiss_opeia\\db\\vector_index.pkl'
+2024-05-25 12:14:28,716 - INFO - Loading faiss with AVX2 support.
+2024-05-25 12:14:28,769 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 12:14:28,831 - INFO - Retriver cargado
+2024-05-25 12:14:28,831 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:14:28,831 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 12:14:28,831 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:14:56,543 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 12:14:56,543 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 12:14:57,191 - INFO - Conexion establecida
+2024-05-25 12:14:57,192 - INFO - Consulta probada OK
+2024-05-25 12:14:57,192 - INFO - Conexion establecida
+2024-05-25 12:14:57,192 - INFO - Consulta ejecutada OK
+2024-05-25 12:14:57,193 - ERROR - Un Error se produjo al intentar leer la base de datos de embbedings vector Index: [Errno 2] No such file or directory: 'C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\faiss_opeia\\db\\vector_index.pkl'
+2024-05-25 12:14:57,198 - INFO - Loading faiss with AVX2 support.
+2024-05-25 12:14:57,237 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 12:14:57,296 - INFO - Retriver cargado
+2024-05-25 12:14:57,296 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:14:57,296 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 12:14:57,296 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:15:37,147 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 12:15:37,148 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 12:15:37,824 - INFO - Conexion establecida
+2024-05-25 12:15:37,824 - INFO - Consulta probada OK
+2024-05-25 12:15:37,825 - INFO - Conexion establecida
+2024-05-25 12:15:37,825 - INFO - Consulta ejecutada OK
+2024-05-25 12:15:37,826 - ERROR - Un Error se produjo al intentar leer la base de datos de embbedings vector Index: [Errno 2] No such file or directory: 'C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\faiss_opeia\\db\\vector_index.pkl'
+2024-05-25 12:15:37,829 - INFO - Loading faiss with AVX2 support.
+2024-05-25 12:15:37,871 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 12:15:37,931 - INFO - Retriver cargado
+2024-05-25 12:15:37,931 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:15:37,931 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 12:15:37,931 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:16:05,581 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 12:16:05,581 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 12:16:06,237 - INFO - Conexion establecida
+2024-05-25 12:16:06,237 - INFO - Consulta probada OK
+2024-05-25 12:16:06,238 - INFO - Conexion establecida
+2024-05-25 12:16:06,238 - INFO - Consulta ejecutada OK
+2024-05-25 12:16:06,239 - ERROR - Un Error se produjo al intentar leer la base de datos de embbedings vector Index: [Errno 2] No such file or directory: 'C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\faiss_opeia\\db\\vector_index.pkl'
+2024-05-25 12:16:06,242 - INFO - Loading faiss with AVX2 support.
+2024-05-25 12:16:06,286 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 12:16:06,344 - INFO - Retriver cargado
+2024-05-25 12:16:06,345 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:16:06,345 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 12:16:06,345 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:16:06,345 - ERROR - Un Error se produjo al intentar leer la base de datos de embbedings vector Index: [Errno 2] No such file or directory: 'C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\faiss_opeia\\db\\vector_index.pkl'
+2024-05-25 12:16:06,367 - INFO - Retriver cargado
+2024-05-25 12:16:07,184 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 12:16:07,226 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 12:16:08,016 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 12:16:08,323 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 12:16:08,713 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 12:16:10,061 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 12:16:15,285 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 12:16:29,095 - INFO - Conexion establecida
+2024-05-25 12:16:29,097 - INFO - Consulta ejecutada OK
+2024-05-25 12:19:29,319 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 12:19:29,319 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 12:19:30,002 - INFO - Conexion establecida
+2024-05-25 12:19:30,003 - INFO - Consulta probada OK
+2024-05-25 12:19:30,004 - INFO - Conexion establecida
+2024-05-25 12:19:30,004 - INFO - Consulta ejecutada OK
+2024-05-25 12:19:30,005 - ERROR - Un Error se produjo al intentar leer la base de datos de embbedings vector Index: [Errno 2] No such file or directory: 'C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\faiss_opeia\\db\\vector_index.pkl'
+2024-05-25 12:19:30,009 - INFO - Loading faiss with AVX2 support.
+2024-05-25 12:19:30,053 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 12:19:30,112 - INFO - Retriver cargado
+2024-05-25 12:19:30,112 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:19:30,112 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 12:19:30,112 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:19:30,112 - ERROR - Un Error se produjo al intentar leer la base de datos de embbedings vector Index: [Errno 2] No such file or directory: 'C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\faiss_opeia\\db\\vector_index.pkl'
+2024-05-25 12:19:30,135 - INFO - Retriver cargado
+2024-05-25 12:19:31,019 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 12:19:31,038 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 12:19:31,054 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 12:19:31,746 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 12:19:32,523 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 12:19:34,270 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 12:19:36,399 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 12:19:52,617 - INFO - Conexion establecida
+2024-05-25 12:19:52,619 - INFO - Consulta ejecutada OK
+2024-05-25 12:22:51,793 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 12:22:51,794 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 12:22:52,383 - INFO - Conexion establecida
+2024-05-25 12:22:52,384 - INFO - Consulta probada OK
+2024-05-25 12:22:52,384 - INFO - Conexion establecida
+2024-05-25 12:22:52,385 - INFO - Consulta ejecutada OK
+2024-05-25 12:22:52,386 - ERROR - Un Error se produjo al intentar leer la base de datos de embbedings vector Index: [Errno 2] No such file or directory: 'C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\faiss_opeia\\db\\vector_index.pkl'
+2024-05-25 12:22:52,390 - INFO - Loading faiss with AVX2 support.
+2024-05-25 12:22:52,421 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 12:22:52,468 - INFO - Retriver cargado
+2024-05-25 12:22:52,468 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:22:52,468 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 12:22:52,468 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 12:22:52,468 - ERROR - Un Error se produjo al intentar leer la base de datos de embbedings vector Index: [Errno 2] No such file or directory: 'C:\\PROYECTOS\\PyCharm\\pythonrun\\recuperacion_informacion_modelos_lenguaje\\tfm\\faiss_opeia\\db\\vector_index.pkl'
+2024-05-25 12:22:52,483 - INFO - Retriver cargado
+2024-05-25 12:22:53,408 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 12:22:53,439 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 12:22:53,993 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 12:22:54,600 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 12:22:55,391 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 12:22:56,088 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 12:22:58,847 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 12:23:42,740 - INFO - Conexion establecida
+2024-05-25 12:23:42,742 - INFO - Consulta ejecutada OK

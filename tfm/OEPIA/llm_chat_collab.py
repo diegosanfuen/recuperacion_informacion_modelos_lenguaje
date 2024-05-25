@@ -11,7 +11,11 @@ import gradio as gr
 import logging
 import secrets
 import string
+from langchain.chains import create_retrieval_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_core.documents import Document
 import gc
+
 
 # Añade la ruta deseada al inicio de sys.path para priorizarla
 # ruta_deseada = "/content/recuperacion_informacion_modelos_lenguaje"
@@ -98,10 +102,27 @@ prompt_template = ChatPromptTemplate.from_messages(
         ("human", "{input}"),
     ])
 
+prompt_document = ChatPromptTemplate.from_template("""
+Contesta las siguiente pregunta basandote en el contexto y en tu conocimiento interno.
+Otorga prioridad al contexto y si no estás seguro di que no sabes la respuesta.
+
+Otorga prioridad al contexo y a la base de datos proporcionada por RAG con Ofertas de empleo público cuando lo requieras
+
+<context>
+{context}
+</context>
+
+Question: {input}
+""")
+
+document_chain = create_stuff_documents_chain(llm, prompt_document)
+
 retriever_inst = fcg.carga()
 retriever_faiss = retriever_inst.inialize_retriever()
+retrieval_chain = create_retrieval_chain(retriever_faiss, document_chain)
 
-chain = prompt_template | retriever_faiss | llm
+
+chain = prompt_template | document_chain | llm
 
 def chat(pregunta):
     global token

@@ -22,7 +22,7 @@ import gc
 
 sys.path.insert(0, os.environ['PROJECT_ROOT'])
 from sesiones import sesiones as ses
-from faiss_opeia import carga as fcg
+from faiss_opeia import carga_collab as fcg
 
 # Abrir y leer el archivo YAML
 with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config_collab.yml', 'r') as file:

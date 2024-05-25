@@ -14,7 +14,7 @@ vectorial_database:
   ruta: "faiss_opeia"
   serialized_database: "db"
   file_retriever: "retriever.pkl"
-  file_vector_index: "vector_index.pkl"
+  file_vector_index: "bbdd_vecrtorial.pkl"
   parameters_tokenizador:
     name_model_llm: llama3
     name_model_tokenizador: llama3

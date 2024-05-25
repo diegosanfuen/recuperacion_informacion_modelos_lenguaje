@@ -69,6 +69,10 @@ class carga():
     def getRetriver(self):
         return self.retriever
 
+    def inialize_retriever(self):
+        self.cargar_db_Vectorial()
+        return self.getRetriver()
+
 if __name__ == '__main__':
      BDVect = carga()
      retriever = BDVect.getRetriver()

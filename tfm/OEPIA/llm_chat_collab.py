@@ -26,7 +26,7 @@ os.environ['PROJECT_ROOT'] = r'/content/recuperacion_informacion_modelos_lenguaj
 sys.path.insert(0, os.environ['PROJECT_ROOT'])
 
 from sesiones import sesiones as ses
-from faiss_opeia import carga_collab as fcg
+from FaissOPEIACollab import carga as fcg
 
 # Abrir y leer el archivo YAML
 with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config_collab.yml', 'r') as file:
@@ -117,8 +117,8 @@ Question: {input}
 
 document_chain = create_stuff_documents_chain(llm, prompt_document)
 
-# retriever_inst = fcg()
-retriever_faiss = fcg().inialize_retriever()
+retriever_inst = fcg()
+retriever_faiss = retriever_inst.inialize_retriever()
 retrieval_chain = create_retrieval_chain(retriever_faiss, document_chain)
 
 chain = prompt_template | llm
@@ -136,6 +136,8 @@ def chat(pregunta):
             logger.info(str(AIMessage(content=response)))
         except Exception as e:
             logger.error(f'Un Error se produjo al intentar invocar el LLM: {e}')
+            print(e)
+            response = "Ha habido un error con el proceso ver los registros de errores"
     return response
 
 

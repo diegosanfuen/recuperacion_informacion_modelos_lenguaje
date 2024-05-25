@@ -21,7 +21,7 @@ os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_infor
 
 sys.path.insert(0, os.environ['PROJECT_ROOT'])
 from sesiones import sesiones as ses
-from faiss_opeia import carga as fcg
+from FaissOPEIA import carga as fcg
 
 # Abrir y leer el archivo YAML
 with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config.yml', 'r') as file:
@@ -45,6 +45,7 @@ match config['logs_config']['level']:
     case _:
         log_level = logging.INFO
 
+print(PATH_BASE / config['logs_config']['ruta_salida_logs'] / f'logs_{date_today}.log')
 logging.basicConfig(filename=PATH_BASE / config['logs_config']['ruta_salida_logs'] / f'logs_{date_today}.log',
                     level=log_level,
                     format=config['logs_config']['format'])
@@ -112,8 +113,8 @@ Question: {input}
 
 document_chain = create_stuff_documents_chain(llm, prompt_document)
 
-# retriever_inst = fcg()
-retriever_faiss = fcg().inialize_retriever()
+retriever_inst = fcg()
+retriever_faiss = retriever_inst.inialize_retriever()
 retrieval_chain = create_retrieval_chain(retriever_faiss, document_chain)
 
 chain = prompt_template | llm
@@ -131,6 +132,8 @@ def chat(pregunta):
             logger.info(str(AIMessage(content=response)))
         except Exception as e:
             logger.error(f'Un Error se produjo al intentar invocar el LLM: {e}')
+            print(e)
+            response = "Ha habido un error con el proceso ver los registros de errores"
     return response
 
 

@@ -1,4 +1,4 @@
 nombre_paquete = "FaissOPEIACollab"
 
-from ingesta_collab import ingesta
-from carga_collab import carga
+from FaissOPEIACollab.ingesta import ingesta
+from FaissOPEIACollab.carga import carga

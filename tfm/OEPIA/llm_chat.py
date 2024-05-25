@@ -112,12 +112,11 @@ Question: {input}
 
 document_chain = create_stuff_documents_chain(llm, prompt_document)
 
-retriever_inst = fcg.carga()
+retriever_inst = fcg()
 retriever_faiss = retriever_inst.inialize_retriever()
 retrieval_chain = create_retrieval_chain(retriever_faiss, document_chain)
 
-
-chain = prompt_template | document_chain | llm
+chain = prompt_template | llm
 
 def chat(pregunta):
     global token
@@ -125,7 +124,7 @@ def chat(pregunta):
         token = generate_token()
         response = "Sesión reseteada"
     else:
-        response = chain.invoke({"input": pregunta, "chat_history": sesiones.obtener_mensajes_por_sesion(token)})
+        response = retrieval_chain.invoke({"input": pregunta, "context": sesiones.obtener_mensajes_por_sesion(token)})
         sesiones.add_mensajes_por_sesion('1234567890acbd', str(HumanMessage(content=pregunta)))
         sesiones.add_mensajes_por_sesion('1234567890acbd', str(AIMessage(content=response)))
         print(str(AIMessage(content=response)))

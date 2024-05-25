@@ -390,3 +390,33 @@
 2024-05-25 13:36:04,967 - INFO - NumExpr defaulting to 8 threads.
 2024-05-25 13:36:05,290 - INFO - Conexion establecida
 2024-05-25 13:36:05,291 - INFO - Consulta probada OK
+2024-05-25 13:45:50,964 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 13:45:50,964 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 13:45:51,292 - INFO - Conexion establecida
+2024-05-25 13:45:51,293 - INFO - Consulta probada OK
+2024-05-25 13:48:27,590 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 13:48:27,590 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 13:48:27,936 - INFO - Conexion establecida
+2024-05-25 13:48:27,937 - INFO - Consulta probada OK
+2024-05-25 13:49:41,963 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-25 13:49:41,963 - INFO - NumExpr defaulting to 8 threads.
+2024-05-25 13:49:42,306 - INFO - Conexion establecida
+2024-05-25 13:49:42,307 - INFO - Consulta probada OK
+2024-05-25 13:49:42,310 - INFO - Loading faiss with AVX2 support.
+2024-05-25 13:49:42,332 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-25 13:49:42,365 - INFO - Retriver cargado
+2024-05-25 13:49:42,375 - INFO - Retriver cargado
+2024-05-25 13:49:42,375 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 13:49:42,375 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-25 13:49:42,375 - INFO - -------------------------------------------------------------------------------------
+2024-05-25 13:49:42,386 - INFO - Retriver cargado
+2024-05-25 13:49:42,396 - INFO - Retriver cargado
+2024-05-25 13:49:42,945 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-25 13:49:42,973 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-25 13:49:43,120 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-25 13:49:44,165 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-25 13:49:44,206 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-25 13:49:45,398 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-25 13:49:46,146 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-25 13:50:02,099 - INFO - Conexion establecida
+2024-05-25 13:50:02,099 - INFO - Consulta ejecutada OK

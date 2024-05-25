@@ -22,7 +22,7 @@ import gc
 # sys.path.insert(0, ruta_deseada)
 
 # Introducir esta variable de entorno en el lanzador
-# os.environ['PROJECT_ROOT'] = r'/content/recuperacion_informacion_modelos_lenguaje/tfm'
+os.environ['PROJECT_ROOT'] = r'/content/recuperacion_informacion_modelos_lenguaje/tfm'
 
 sys.path.insert(0, os.environ['PROJECT_ROOT'])
 from sesiones import sesiones as ses

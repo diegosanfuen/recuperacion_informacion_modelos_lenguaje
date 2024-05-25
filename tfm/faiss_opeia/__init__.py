@@ -8,8 +8,8 @@ sys.path.insert(0, root_path / nombre_paquete)
 
 # Importamos los módulos que queremos que estén disponibles
 if os.name == 'nt':
-    from faiss_opeia.ingesta import ingesta
-    from faiss_opeia.carga import carga
+    from .ingesta import ingesta
+    from .carga import carga
 else:
-    from faiss_opeia.ingesta_collab import ingesta
-    from faiss_opeia.carga_collab import carga
+    from .ingesta_collab import ingesta
+    from .carga_collab import carga

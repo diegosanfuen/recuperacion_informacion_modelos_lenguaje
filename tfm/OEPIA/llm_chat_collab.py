@@ -98,7 +98,7 @@ prompt_template = ChatPromptTemplate.from_messages(
         ("human", "{input}"),
     ])
 
-retriever_inst = fcg()
+retriever_inst = fcg.carga()
 retriever_faiss = retriever_inst.inialize_retriever()
 
 chain = prompt_template | retriever_faiss | llm

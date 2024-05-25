@@ -11,5 +11,5 @@ if os.name == 'nt':
     from faiss_opeia.ingesta import ingesta
     from faiss_opeia.carga import carga
 else:
-    from faiss_opeia.ingesta import ingesta_collab
-    from faiss_opeia.carga import carga_collab
+    from faiss_opeia.ingesta_collab import ingesta
+    from faiss_opeia.carga_collab import carga

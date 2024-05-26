@@ -684,3 +684,226 @@
 2024-05-25 19:23:11,103 - INFO - Conexion establecida
 2024-05-25 19:23:11,103 - INFO - Consulta ejecutada OK
 2024-05-25 19:23:18,834 - ERROR - Un Error se produjo al intentar invocar el LLM: IndexFlat.search() missing 3 required positional arguments: 'k', 'distances', and 'labels'
+2024-05-26 12:54:39,041 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-26 12:54:39,042 - INFO - NumExpr defaulting to 8 threads.
+2024-05-26 12:54:40,020 - INFO - Conexion establecida
+2024-05-26 12:54:40,021 - INFO - Consulta probada OK
+2024-05-26 12:54:40,028 - INFO - Loading faiss with AVX2 support.
+2024-05-26 12:54:40,155 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-26 12:54:40,407 - INFO - Retriver cargado
+2024-05-26 12:54:40,440 - INFO - Retriver cargado
+2024-05-26 12:54:40,440 - INFO - -------------------------------------------------------------------------------------
+2024-05-26 12:54:40,441 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-26 12:54:40,441 - INFO - -------------------------------------------------------------------------------------
+2024-05-26 12:54:40,468 - INFO - Retriver cargado
+2024-05-26 12:54:40,485 - INFO - Retriver cargado
+2024-05-26 12:54:41,283 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-26 12:54:41,334 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-26 12:54:41,914 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-26 12:54:42,461 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-26 12:54:42,955 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-26 12:54:43,903 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-26 12:54:49,134 - INFO - HTTP Request: HEAD https://1e15a7dcae6df8b73b.gradio.live "HTTP/1.1 200 OK"
+2024-05-26 12:54:50,756 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-26 12:54:55,074 - INFO - Conexion establecida
+2024-05-26 12:54:55,075 - INFO - Consulta ejecutada OK
+2024-05-26 12:55:09,181 - ERROR - Un Error se produjo al intentar invocar el LLM: IndexFlat.search() missing 3 required positional arguments: 'k', 'distances', and 'labels'
+2024-05-26 12:56:53,893 - INFO - Conexion establecida
+2024-05-26 12:56:53,893 - INFO - Consulta ejecutada OK
+2024-05-26 16:55:06,552 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-26 16:55:06,605 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-26 16:55:09,396 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-26 16:55:11,081 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-26 16:55:11,820 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-26 16:55:15,713 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-26 16:55:16,494 - INFO - HTTP Request: HEAD https://210f3a3973451892a2.gradio.live "HTTP/1.1 200 OK"
+2024-05-26 16:55:18,610 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-26 16:56:20,839 - INFO - HTTP Request: GET http://127.0.0.1:7861/startup-events "HTTP/1.1 200 OK"
+2024-05-26 16:56:20,874 - INFO - HTTP Request: HEAD http://127.0.0.1:7861/ "HTTP/1.1 200 OK"
+2024-05-26 16:56:22,511 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-26 16:56:22,610 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-26 16:56:22,830 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-26 16:56:24,113 - ERROR - Un Error se produjo al intentar invocar el LLM: name 'sesiones' is not defined
+2024-05-26 16:56:26,096 - INFO - HTTP Request: HEAD https://53dbe21b1351af3161.gradio.live "HTTP/1.1 200 OK"
+2024-05-26 16:56:27,900 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-26 16:56:45,981 - ERROR - Un Error se produjo al intentar invocar el LLM: name 'sesiones' is not defined
+2024-05-26 16:57:27,957 - INFO - Conexion establecida
+2024-05-26 16:57:27,959 - INFO - Consulta probada OK
+2024-05-26 16:57:29,238 - INFO - HTTP Request: GET http://127.0.0.1:7862/startup-events "HTTP/1.1 200 OK"
+2024-05-26 16:57:29,251 - INFO - HTTP Request: HEAD http://127.0.0.1:7862/ "HTTP/1.1 200 OK"
+2024-05-26 16:57:29,990 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-26 16:57:30,809 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-26 16:57:30,857 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-26 16:57:34,086 - INFO - HTTP Request: HEAD https://457f039bcbc68fcd0e.gradio.live "HTTP/1.1 200 OK"
+2024-05-26 16:57:35,703 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-26 16:57:44,631 - ERROR - Un Error se produjo al intentar invocar el LLM: name 'token' is not defined
+2024-05-26 16:58:10,909 - INFO - HTTP Request: GET http://127.0.0.1:7863/startup-events "HTTP/1.1 200 OK"
+2024-05-26 16:58:10,921 - INFO - HTTP Request: HEAD http://127.0.0.1:7863/ "HTTP/1.1 200 OK"
+2024-05-26 16:58:12,794 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-26 16:58:14,329 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-26 16:58:14,414 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-26 16:58:23,233 - INFO - HTTP Request: HEAD https://a4df3d338f95fe536b.gradio.live "HTTP/1.1 200 OK"
+2024-05-26 16:58:25,428 - INFO - Conexion establecida
+2024-05-26 16:58:25,428 - INFO - Consulta ejecutada OK
+2024-05-26 16:58:27,233 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-26 17:02:40,877 - INFO - Conexion establecida
+2024-05-26 17:02:40,885 - INFO - Consulta ejecutada OK
+2024-05-26 17:02:40,894 - INFO - Conexion establecida
+2024-05-26 17:02:40,894 - INFO - Consulta ejecutada OK
+2024-05-26 17:02:40,895 - INFO - Conexion establecida
+2024-05-26 17:02:40,896 - INFO - Consulta ejecutada OK
+2024-05-26 17:02:40,898 - INFO - Conexion establecida
+2024-05-26 17:02:40,899 - INFO - Consulta ejecutada OK
+2024-05-26 17:02:40,899 - ERROR - Un Error se produjo al intentar invocar el LLM: 2 validation errors for AIMessage
+content
+  str type expected (type=type_error.str)
+content
+  value is not a valid list (type=type_error.list)
+2024-05-26 17:16:24,800 - INFO - Conexion establecida
+2024-05-26 17:16:24,805 - INFO - Consulta ejecutada OK
+2024-05-26 17:16:24,813 - INFO - Conexion establecida
+2024-05-26 17:16:24,814 - INFO - Consulta ejecutada OK
+2024-05-26 17:17:26,273 - INFO - Conexion establecida
+2024-05-26 17:17:26,277 - INFO - Consulta ejecutada OK
+2024-05-26 17:17:26,285 - INFO - Conexion establecida
+2024-05-26 17:17:26,285 - INFO - Consulta ejecutada OK
+2024-05-26 17:17:31,596 - INFO - HTTP Request: GET http://127.0.0.1:7864/startup-events "HTTP/1.1 200 OK"
+2024-05-26 17:17:31,629 - INFO - HTTP Request: HEAD http://127.0.0.1:7864/ "HTTP/1.1 200 OK"
+2024-05-26 17:17:32,897 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-26 17:17:33,110 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-26 17:17:33,810 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-26 17:17:35,778 - INFO - Conexion establecida
+2024-05-26 17:17:35,779 - INFO - Consulta ejecutada OK
+2024-05-26 17:17:37,921 - INFO - HTTP Request: HEAD https://b5468900ffa25e331a.gradio.live "HTTP/1.1 200 OK"
+2024-05-26 17:17:39,452 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-26 17:21:44,485 - INFO - Conexion establecida
+2024-05-26 17:21:44,492 - INFO - Consulta ejecutada OK
+2024-05-26 17:21:44,498 - INFO - Conexion establecida
+2024-05-26 17:21:44,498 - INFO - Consulta ejecutada OK
+2024-05-26 17:21:44,499 - INFO - Conexion establecida
+2024-05-26 17:21:44,500 - INFO - Consulta ejecutada OK
+2024-05-26 17:21:44,503 - INFO - Conexion establecida
+2024-05-26 17:21:44,504 - INFO - Consulta ejecutada OK
+2024-05-26 17:21:44,504 - ERROR - Un Error se produjo al intentar invocar el LLM: 2 validation errors for AIMessage
+content
+  str type expected (type=type_error.str)
+content
+  value is not a valid list (type=type_error.list)
+2024-05-26 23:05:39,551 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-26 23:05:39,551 - INFO - NumExpr defaulting to 8 threads.
+2024-05-26 23:05:41,050 - INFO - Conexion establecida
+2024-05-26 23:05:41,051 - INFO - Consulta probada OK
+2024-05-26 23:05:41,062 - INFO - Loading faiss with AVX2 support.
+2024-05-26 23:05:41,171 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-26 23:05:41,470 - INFO - Retriver cargado
+2024-05-26 23:05:41,500 - INFO - Retriver cargado
+2024-05-26 23:05:41,501 - INFO - -------------------------------------------------------------------------------------
+2024-05-26 23:05:41,501 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-26 23:05:41,501 - INFO - -------------------------------------------------------------------------------------
+2024-05-26 23:05:41,516 - INFO - Retriver cargado
+2024-05-26 23:05:41,531 - INFO - Retriver cargado
+2024-05-26 23:05:42,396 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-26 23:05:42,402 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-26 23:05:42,448 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-26 23:05:43,006 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-26 23:05:43,735 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-26 23:05:43,778 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-26 23:05:47,103 - INFO - HTTP Request: HEAD https://31207e5e4b8500287f.gradio.live "HTTP/1.1 200 OK"
+2024-05-26 23:05:48,536 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-26 23:06:11,380 - INFO - Conexion establecida
+2024-05-26 23:06:11,380 - INFO - Consulta ejecutada OK
+2024-05-26 23:06:23,904 - ERROR - Un Error se produjo al intentar invocar el LLM: IndexFlat.search() missing 3 required positional arguments: 'k', 'distances', and 'labels'
+2024-05-26 23:09:29,129 - INFO - Conexion establecida
+2024-05-26 23:09:29,130 - INFO - Consulta ejecutada OK
+2024-05-26 23:18:05,829 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-26 23:18:05,829 - INFO - NumExpr defaulting to 8 threads.
+2024-05-26 23:24:08,315 - INFO - Loading faiss with AVX2 support.
+2024-05-26 23:24:08,369 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-26 23:32:33,401 - INFO - Conexion establecida
+2024-05-26 23:32:33,401 - ERROR - Ocurrió un error al intentar probar la consulta
+Traceback (most recent call last):
+  File "C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\sesiones\sesiones.py", line 38, in probar_connection
+    cursor = conn.execute('SELECT * FROM sesiones limit 1').fetchall()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: sesiones
+2024-05-26 23:32:34,200 - INFO - HTTP Request: GET http://127.0.0.1:7861/startup-events "HTTP/1.1 200 OK"
+2024-05-26 23:32:34,212 - INFO - HTTP Request: HEAD http://127.0.0.1:7861/ "HTTP/1.1 200 OK"
+2024-05-26 23:32:34,792 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-26 23:32:34,890 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-26 23:32:35,507 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-26 23:32:37,351 - INFO - HTTP Request: HEAD https://7181e260c87512ff0b.gradio.live "HTTP/1.1 200 OK"
+2024-05-26 23:32:38,683 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-26 23:32:55,871 - INFO - Conexion establecida
+2024-05-26 23:32:55,873 - ERROR - Ocurrió un error al obtener datos para la sesion kEVIBG8g9DdUoKIFBJgHhJgyIAfPdKwY
+Traceback (most recent call last):
+  File "C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\sesiones\sesiones.py", line 47, in obtener_mensajes_por_sesion
+    res = conn.execute(f"SELECT * FROM sesiones where id_session='{id_session}';").fetchall()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: sesiones
+2024-05-26 23:36:52,577 - INFO - Conexion establecida
+2024-05-26 23:36:52,578 - ERROR - Ocurrió un error al insertar los datos para la sesion kEVIBG8g9DdUoKIFBJgHhJgyIAfPdKwY
+Traceback (most recent call last):
+  File "C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\sesiones\sesiones.py", line 65, in add_mensajes_por_sesion
+    cursor.execute(consulta, (id_session, prompt))
+sqlite3.OperationalError: no such table: sesiones
+2024-05-26 23:36:52,578 - INFO - Conexion establecida
+2024-05-26 23:36:52,579 - ERROR - Ocurrió un error al obtener datos para la sesion kEVIBG8g9DdUoKIFBJgHhJgyIAfPdKwY
+Traceback (most recent call last):
+  File "C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\sesiones\sesiones.py", line 75, in add_mensajes_por_sesion
+    res = conn.execute(f"SELECT * FROM sesiones where id_session='{id_session}';").fetchall()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: sesiones
+2024-05-26 23:36:52,579 - INFO - Conexion establecida
+2024-05-26 23:36:52,580 - ERROR - Ocurrió un error al insertar los datos para la sesion kEVIBG8g9DdUoKIFBJgHhJgyIAfPdKwY
+Traceback (most recent call last):
+  File "C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\sesiones\sesiones.py", line 65, in add_mensajes_por_sesion
+    cursor.execute(consulta, (id_session, prompt))
+sqlite3.OperationalError: no such table: sesiones
+2024-05-26 23:36:52,580 - INFO - Conexion establecida
+2024-05-26 23:36:52,581 - ERROR - Ocurrió un error al obtener datos para la sesion kEVIBG8g9DdUoKIFBJgHhJgyIAfPdKwY
+Traceback (most recent call last):
+  File "C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\sesiones\sesiones.py", line 75, in add_mensajes_por_sesion
+    res = conn.execute(f"SELECT * FROM sesiones where id_session='{id_session}';").fetchall()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: sesiones
+2024-05-26 23:36:52,581 - ERROR - Un Error se produjo al intentar invocar el LLM: 2 validation errors for AIMessage
+content
+  str type expected (type=type_error.str)
+content
+  value is not a valid list (type=type_error.list)
+2024-05-26 23:39:24,309 - INFO - Conexion establecida
+2024-05-26 23:39:24,311 - ERROR - Ocurrió un error al insertar los datos para la sesion kEVIBG8g9DdUoKIFBJgHhJgyIAfPdKwY
+Traceback (most recent call last):
+  File "C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\sesiones\sesiones.py", line 65, in add_mensajes_por_sesion
+    cursor.execute(consulta, (id_session, prompt))
+sqlite3.OperationalError: no such table: sesiones
+2024-05-26 23:39:24,313 - INFO - Conexion establecida
+2024-05-26 23:39:24,314 - ERROR - Ocurrió un error al obtener datos para la sesion kEVIBG8g9DdUoKIFBJgHhJgyIAfPdKwY
+Traceback (most recent call last):
+  File "C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm\sesiones\sesiones.py", line 75, in add_mensajes_por_sesion
+    res = conn.execute(f"SELECT * FROM sesiones where id_session='{id_session}';").fetchall()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: sesiones
+2024-05-26 23:45:10,317 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-26 23:45:10,317 - INFO - NumExpr defaulting to 8 threads.
+2024-05-26 23:45:11,027 - INFO - Conexion establecida
+2024-05-26 23:45:11,028 - INFO - Consulta probada OK
+2024-05-26 23:45:11,035 - INFO - Loading faiss with AVX2 support.
+2024-05-26 23:45:11,079 - INFO - Successfully loaded faiss with AVX2 support.
+2024-05-26 23:45:11,143 - INFO - Retriver cargado
+2024-05-26 23:45:11,166 - INFO - Retriver cargado
+2024-05-26 23:45:11,166 - INFO - -------------------------------------------------------------------------------------
+2024-05-26 23:45:11,166 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-26 23:45:11,166 - INFO - -------------------------------------------------------------------------------------
+2024-05-26 23:45:11,185 - INFO - Retriver cargado
+2024-05-26 23:45:11,200 - INFO - Retriver cargado
+2024-05-26 23:45:11,943 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-26 23:45:11,989 - INFO - HTTP Request: GET http://127.0.0.1:7862/startup-events "HTTP/1.1 200 OK"
+2024-05-26 23:45:12,021 - INFO - HTTP Request: HEAD http://127.0.0.1:7862/ "HTTP/1.1 200 OK"
+2024-05-26 23:45:12,451 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-26 23:45:13,303 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-26 23:45:13,374 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-26 23:45:15,524 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-26 23:45:24,600 - INFO - Conexion establecida
+2024-05-26 23:45:24,600 - INFO - Consulta ejecutada OK
+2024-05-26 23:45:34,200 - ERROR - Un Error se produjo al intentar invocar el LLM: IndexFlat.search() missing 3 required positional arguments: 'k', 'distances', and 'labels'

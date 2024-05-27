@@ -124,7 +124,7 @@ def chat(pregunta):
             logger.error(f'Un Error se produjo al intentar invocar el LLM: {e}')
             print(e)
             response = "Ha habido un error con el proceso ver los registros de errores"
-    return answer)
+    return answer
 
 
 history = ""

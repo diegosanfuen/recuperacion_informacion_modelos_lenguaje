@@ -12,6 +12,7 @@ import secrets
 import string
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
+import re
 
 # Introducir esta variable de entorno en el lanzador
 os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
@@ -104,7 +105,7 @@ retrieval_chain = create_retrieval_chain(retriever_faiss, document_chain)
 
 def chat(pregunta):
     global token
-    if("resetea_sesion" in pregunta.lower()):
+    if("<resetea_sesion>" in pregunta.lower()):
         token = generate_token()
         answer = "Sesión reseteada"
     else:
@@ -124,6 +125,23 @@ def chat(pregunta):
 
 history = ""
 
+def format_links(text):
+    # Esta función busca URLs en el texto y las reemplaza por etiquetas HTML <a>
+    url_pattern = r'https?://[^\s<>"]+|www\.[^\s<>"]+'
+    formatted_text = re.sub(url_pattern, lambda
+        url: f'<a href="{url.group(0)}" target="_blank" style="color: blue;">{url.group(0)}</a>', text)
+    return formatted_text
+
+with gr.Blocks() as iface:
+    with gr.Row():
+        texto_entrada = gr.Textbox(label="Ingresa tu mensaje", placeholder="Escribe aquí...", lines=10)
+        historial_previo = gr.Textbox(label="Historial", value="", visible=False)  # Campo oculto para mantener el historial
+
+    texto_entrada.change(fn=format_links, inputs=texto_entrada, outputs=historial_previo)
+
+# Define los componentes de la interfaz de Gradio
+# texto_entrada = gr.Textbox(label="Ingresa tu mensaje", placeholder="Escribe aquí...", lines=10)
+# historial_previo = gr.Textbox(label="Historial", value="", visible=False)  # Campo oculto para mantener el historial
 
 # Suponemos que esta función es la que maneja la comunicación con el modelo LLM
 def interactuar_con_llm(texto, historial_previo):
@@ -144,11 +162,6 @@ def interactuar_con_llm(texto, historial_previo):
     # Retorna el historial actualizado para mostrarlo en la salida
     history = nuevo_historial
     return nuevo_historial
-
-
-# Define los componentes de la interfaz de Gradio
-texto_entrada = gr.Textbox(label="Ingresa tu mensaje", placeholder="Escribe aquí...", lines=10)
-historial_previo = gr.Textbox(label="Historial", value="", visible=False)  # Campo oculto para mantener el historial
 
 css = """
 <style>
@@ -203,6 +216,8 @@ def procesar_flag(texto_entrada, flag_option, flag_index):
     print(f"Índice del dato marcado: {flag_index}")
 
 
+
+
 # Crea la interfaz de Gradio
 iface = gr.Interface(
     fn=interactuar_con_llm,
@@ -218,6 +233,9 @@ iface = gr.Interface(
     flagging_options=["Incorrecto", "Irrelevante", "Ofensivo"],  # Opciones para el usuario al marcar
     flagging_dir="flagged_data",  # Directorio donde se guardarán los datos marcados
 )
+
+
+
 
 # Inicia la interfaz
 iface.launch(share=True)

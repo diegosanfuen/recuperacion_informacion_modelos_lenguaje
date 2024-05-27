@@ -80,7 +80,7 @@ token = generate_token()
 
 
 prompt_template = ChatPromptTemplate.from_template("""
-Hola te llamas {{assistant_name}}, y eres un asistente chat,            
+Hola te llamas OEPIA, y eres un asistente chat,            
 Necesito tu ayuda para encontrar las mejores ofertas de empleo público que coincidan con mi perfil. 
 Por favor, identifica las oportunidades de empleo público más relevantes que se adapten a mi perfil.
 Proporciona detalles sobre los requisitos y el proceso de solicitud para cada puesto.
@@ -109,7 +109,7 @@ chain = prompt_template | llm
 
 def chat(pregunta):
     global token
-    if("resetea_sesion" in pregunta.lower()):
+    if("<resetea_sesion>" in pregunta.lower()):
         token = generate_token()
         answer = "Sesión reseteada"
     else:

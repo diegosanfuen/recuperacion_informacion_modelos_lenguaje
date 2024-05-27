@@ -1363,3 +1363,113 @@ ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
 2024-05-27 10:46:37,576 - INFO - Conexion establecida
 2024-05-27 10:46:37,577 - INFO - Consulta ejecutada OK
 2024-05-27 10:46:37,577 - INFO - <class 'str'>
+2024-05-27 11:28:41,709 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-27 11:28:41,709 - INFO - NumExpr defaulting to 8 threads.
+2024-05-27 11:28:42,410 - INFO - Conexion establecida
+2024-05-27 11:28:42,410 - INFO - Consulta probada OK
+2024-05-27 11:28:42,565 - INFO - Loading faiss with AVX2 support.
+2024-05-27 11:28:42,565 - INFO - Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2024-05-27 11:28:42,565 - INFO - Loading faiss.
+2024-05-27 11:28:42,646 - INFO - Successfully loaded faiss.
+2024-05-27 11:28:42,682 - INFO - Retriver cargado
+2024-05-27 11:28:42,705 - INFO - Retriver cargado
+2024-05-27 11:28:42,705 - INFO - -------------------------------------------------------------------------------------
+2024-05-27 11:28:42,706 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-27 11:28:42,706 - INFO - -------------------------------------------------------------------------------------
+2024-05-27 11:28:42,723 - INFO - Retriver cargado
+2024-05-27 11:28:42,737 - INFO - Retriver cargado
+2024-05-27 11:28:43,234 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-27 11:28:43,632 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-27 11:28:44,177 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-27 11:29:10,478 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-27 11:29:10,478 - INFO - NumExpr defaulting to 8 threads.
+2024-05-27 11:29:10,888 - INFO - Conexion establecida
+2024-05-27 11:29:10,888 - INFO - Consulta probada OK
+2024-05-27 11:29:10,986 - INFO - Loading faiss with AVX2 support.
+2024-05-27 11:29:10,986 - INFO - Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2024-05-27 11:29:10,986 - INFO - Loading faiss.
+2024-05-27 11:29:11,009 - INFO - Successfully loaded faiss.
+2024-05-27 11:29:11,029 - INFO - Retriver cargado
+2024-05-27 11:29:11,042 - INFO - Retriver cargado
+2024-05-27 11:29:11,043 - INFO - -------------------------------------------------------------------------------------
+2024-05-27 11:29:11,043 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-27 11:29:11,043 - INFO - -------------------------------------------------------------------------------------
+2024-05-27 11:29:11,058 - INFO - Retriver cargado
+2024-05-27 11:29:11,072 - INFO - Retriver cargado
+2024-05-27 11:29:11,567 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-27 11:29:12,062 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-27 11:29:12,489 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-27 11:29:28,409 - INFO - Note: NumExpr detected 16 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-05-27 11:29:28,409 - INFO - NumExpr defaulting to 8 threads.
+2024-05-27 11:29:28,736 - INFO - Conexion establecida
+2024-05-27 11:29:28,736 - INFO - Consulta probada OK
+2024-05-27 11:29:28,836 - INFO - Loading faiss with AVX2 support.
+2024-05-27 11:29:28,840 - INFO - Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2024-05-27 11:29:28,840 - INFO - Loading faiss.
+2024-05-27 11:29:28,865 - INFO - Successfully loaded faiss.
+2024-05-27 11:29:28,887 - INFO - Retriver cargado
+2024-05-27 11:29:28,901 - INFO - Retriver cargado
+2024-05-27 11:29:28,901 - INFO - -------------------------------------------------------------------------------------
+2024-05-27 11:29:28,901 - INFO - -----------------------------------CARGA DE LA BBD VECTORIAL-----------------------------
+2024-05-27 11:29:28,901 - INFO - -------------------------------------------------------------------------------------
+2024-05-27 11:29:28,916 - INFO - Retriver cargado
+2024-05-27 11:29:28,932 - INFO - Retriver cargado
+2024-05-27 11:29:29,567 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-27 11:29:29,708 - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2024-05-27 11:29:29,739 - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2024-05-27 11:29:29,765 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-05-27 11:29:29,996 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-27 11:29:30,176 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-05-27 11:29:30,666 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-27 11:29:30,688 - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2024-05-27 11:29:30,771 - INFO - HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+2024-05-27 11:29:38,186 - INFO - HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+2024-05-27 11:29:39,164 - INFO - Conexion establecida
+2024-05-27 11:29:39,164 - INFO - Consulta ejecutada OK
+2024-05-27 11:32:54,682 - INFO - Conexion establecida
+2024-05-27 11:32:54,684 - INFO - Consulta ejecutada OK
+2024-05-27 11:32:54,688 - INFO - Conexion establecida
+2024-05-27 11:32:54,688 - INFO - Consulta ejecutada OK
+2024-05-27 11:32:54,688 - INFO - Conexion establecida
+2024-05-27 11:32:54,689 - INFO - Consulta ejecutada OK
+2024-05-27 11:32:54,691 - INFO - Conexion establecida
+2024-05-27 11:32:54,692 - INFO - Consulta ejecutada OK
+2024-05-27 11:32:54,692 - INFO - <class 'str'>
+2024-05-27 11:33:57,705 - INFO - Conexion establecida
+2024-05-27 11:33:57,706 - INFO - Consulta ejecutada OK
+2024-05-27 11:39:27,209 - INFO - Conexion establecida
+2024-05-27 11:39:27,217 - INFO - Consulta ejecutada OK
+2024-05-27 11:39:27,221 - INFO - Conexion establecida
+2024-05-27 11:39:27,221 - INFO - Consulta ejecutada OK
+2024-05-27 11:39:27,222 - INFO - Conexion establecida
+2024-05-27 11:39:27,223 - INFO - Consulta ejecutada OK
+2024-05-27 11:39:27,226 - INFO - Conexion establecida
+2024-05-27 11:39:27,226 - INFO - Consulta ejecutada OK
+2024-05-27 11:39:27,226 - INFO - <class 'str'>
+2024-05-27 11:40:17,725 - INFO - Conexion establecida
+2024-05-27 11:40:17,726 - INFO - Consulta ejecutada OK
+2024-05-27 11:44:40,060 - INFO - Conexion establecida
+2024-05-27 11:44:40,068 - INFO - Consulta ejecutada OK
+2024-05-27 11:44:40,072 - INFO - Conexion establecida
+2024-05-27 11:44:40,073 - INFO - Consulta ejecutada OK
+2024-05-27 11:44:40,073 - INFO - Conexion establecida
+2024-05-27 11:44:40,074 - INFO - Consulta ejecutada OK
+2024-05-27 11:44:40,077 - INFO - Conexion establecida
+2024-05-27 11:44:40,078 - INFO - Consulta ejecutada OK
+2024-05-27 11:44:40,078 - INFO - <class 'str'>
+2024-05-27 11:45:26,930 - INFO - Conexion establecida
+2024-05-27 11:45:26,930 - INFO - Consulta ejecutada OK
+2024-05-27 11:49:35,104 - INFO - Conexion establecida
+2024-05-27 11:49:35,111 - INFO - Consulta ejecutada OK
+2024-05-27 11:49:35,115 - INFO - Conexion establecida
+2024-05-27 11:49:35,115 - INFO - Consulta ejecutada OK
+2024-05-27 11:49:35,116 - INFO - Conexion establecida
+2024-05-27 11:49:35,117 - INFO - Consulta ejecutada OK
+2024-05-27 11:49:35,120 - INFO - Conexion establecida
+2024-05-27 11:49:35,120 - INFO - Consulta ejecutada OK
+2024-05-27 11:49:35,120 - INFO - <class 'str'>
+2024-05-27 11:53:50,090 - INFO - Conexion establecida
+2024-05-27 11:53:50,090 - INFO - Consulta ejecutada OK

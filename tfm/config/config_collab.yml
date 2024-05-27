@@ -31,7 +31,7 @@ vectorial_database:
 
 # WebScrapping
 scrapping:
-  ruta: "ObtencionDatos"
+  ruta: "ObtencionDatosCollab"
   descarga_datos: "datos"
   dataset_index:
     campos_metadata:

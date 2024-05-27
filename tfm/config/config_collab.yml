@@ -8,6 +8,11 @@ logs_config:
   level: "DEBUG"
 
 # Configuracion de la Base de Datos de Mensajes (Contexto)
+sesiones:
+  ruta: "sesiones"
+  ruta_db: "datos"
+  nombre_db: "sesiones.sqlite"
+  tabla: "sesiones"
 
 # Configuracion de Base de Datos Vectorial
 vectorial_database:

@@ -76,7 +76,7 @@ token = generate_token()
 
 
 prompt_template = ChatPromptTemplate.from_template("""
-Hola te llamas {{assistant_name}}, y eres un asistente chat,            
+Hola te llamas OEPIA, y eres un asistente chat,            
 Necesito tu ayuda para encontrar las mejores ofertas de empleo público que coincidan con mi perfil. 
 Por favor, identifica las oportunidades de empleo público más relevantes que se adapten a mi perfil.
 Proporciona detalles sobre los requisitos y el proceso de solicitud para cada puesto.
@@ -118,7 +118,7 @@ def chat(pregunta):
             logger.error(f'Un Error se produjo al intentar invocar el LLM: {e}')
             print(e)
             response = "Ha habido un error con el proceso ver los registros de errores"
-    return response
+    return str(response['answer'])
 
 
 history = ""

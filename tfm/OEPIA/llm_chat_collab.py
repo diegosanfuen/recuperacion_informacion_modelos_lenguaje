@@ -163,7 +163,7 @@ def interactuar_con_llm(texto, historial_previo):
         <details>
             <summary>Historial</summary>
             <div class="content">
-                <p>{respuesta}</p>
+                <p>{history}</p>
             </div>
         </details>
     </div>
@@ -171,7 +171,7 @@ def interactuar_con_llm(texto, historial_previo):
 
     # Si es la primera interacción, no añade una línea en blanco al inicio
     if historial_previo:
-        nuevo_historial = f"\n<h3><u>USUARIO:</h3></u><pre> {texto_limpio}</pre>\n\n<h3><u>OEPIA:</u></h3> <div><p>{respuesta}</p></div>\n\n" + html_wrapper
+        nuevo_historial = f"\n<h3><u>USUARIO:</h3></u><pre> {texto_limpio}</pre>\n\n<h3><u>OEPIA:</u></h3> <div><p>{respuesta}</p></div>\n\n" + "<br><br>" html_wrapper
     else:
         nuevo_historial = f"\n<h3><u>USUARIO:</u></h3><pre> {texto_limpio}</pre>\n\n<h3><u>OEPIA:</u></h3> <div><p>{respuesta}</p></div>\n\n"
 

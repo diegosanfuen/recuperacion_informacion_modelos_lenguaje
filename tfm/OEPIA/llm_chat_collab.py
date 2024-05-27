@@ -5,7 +5,6 @@ from pathlib import Path
 import os, yaml, time
 import datetime
 from langchain_community.llms import Ollama
-from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 import gradio as gr
 import logging
@@ -13,8 +12,6 @@ import secrets
 import string
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain_core.documents import Document
-import gc
 
 
 # Añade la ruta deseada al inicio de sys.path para priorizarla
@@ -93,6 +90,7 @@ Ejemplo de una pregunta:
 Soy un ingeniero civil con 5 años de experiencia en gestión de infraestructuras y proyectos urbanos. Además, tengo una maestría en ingeniería ambiental y estoy particularmente interesado en roles que involucren la sostenibilidad y la planificación urbana.
 Deberias facilitarle las ofertas de empleo público que coincidan con el perfil de Ingeniero ambiental y adecuadas para su perfil, en los casos que creas conveniente puedes ayudarte de las ofertas de empleo suministradas por el RAG.
 Es importante que los resultados sean precisos y actualizados porque la competencia para puestos de empleo público es alta y los plazos de solicitud suelen ser estrictos. Agradezco tu ayuda en este proceso vital para mi carrera profesional.
+No te inventes información ni rellenes los datos vacios. Como eres un chat amigable :) también tienes la capacidad de reponder a preguntas no relaccionadas con las ofertas de empleo público.
 
 <context>
 {context}
@@ -116,10 +114,11 @@ def chat(pregunta):
         response = "Sesión reseteada"
     else:
         try:
-            response = retrieval_chain.invoke({"input": pregunta, "context": sesiones.obtener_mensajes_por_sesion(token)})
-            sesiones.add_mensajes_por_sesion(token, str(HumanMessage(content=pregunta)))
-            sesiones.add_mensajes_por_sesion(token, str(AIMessage(content=response['answer'])))
-            logger.info(str(AIMessage(content=response)))
+            response = retrieval_chain.invoke({"input": pregunta,
+                                               "context": str(sesiones.obtener_mensajes_por_sesion(token))})
+            sesiones.add_mensajes_por_sesion(token, str(pregunta))
+            sesiones.add_mensajes_por_sesion(token, str(response['answer']))
+            logger.info(str(str))
         except Exception as e:
             logger.error(f'Un Error se produjo al intentar invocar el LLM: {e}')
             print(e)

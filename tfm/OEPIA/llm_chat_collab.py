@@ -23,7 +23,7 @@ import os, sys
 os.environ['PROJECT_ROOT'] = r'/content/recuperacion_informacion_modelos_lenguaje/tfm'
 sys.path.insert(0, os.environ['PROJECT_ROOT'])
 
-from sesiones import sesiones_collab as ses
+from SesionesCollab import sesiones as ses
 from FaissOPEIACollab import carga as fcg
 
 # Abrir y leer el archivo YAML

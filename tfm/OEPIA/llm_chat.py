@@ -18,7 +18,7 @@ import re
 os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
 
 sys.path.insert(0, os.environ['PROJECT_ROOT'])
-from sesiones import sesiones as ses
+from SesionesW import sesiones as ses
 from FaissOPEIA import carga as fcg
 
 # Abrir y leer el archivo YAML

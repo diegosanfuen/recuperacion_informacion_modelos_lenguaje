@@ -1,5 +1,4 @@
 import sqlite3
-import hashlib
 import logging
 import os, sys, yaml
 from pathlib import Path
@@ -32,7 +31,7 @@ match config['logs_config']['level']:
     case _:
         log_level = logging.INFO
 
-print(PATH_BASE / config['logs_config']['ruta_salida_logs'] / f'logs_{date_today}.log')
+
 logging.basicConfig(filename=PATH_BASE / config['logs_config']['ruta_salida_logs'] / f'logs_{date_today}.log',
                     level=log_level,
                     format=config['logs_config']['format'])

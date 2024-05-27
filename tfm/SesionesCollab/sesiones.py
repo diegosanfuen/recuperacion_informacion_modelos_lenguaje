@@ -49,8 +49,7 @@ class manejador_sesiones():
         self.conexion = self.obtener_db_conexion()
         self.probar_connection()
         self.conexion.close()
-        self.path_db = directorio_proyecto / config['sesiones']['ruta_db']
-        self.tabla_sesiones = directorio_proyecto / config['sesiones']['tabla']
+
 
     def obtener_db_conexion(self):
         try:

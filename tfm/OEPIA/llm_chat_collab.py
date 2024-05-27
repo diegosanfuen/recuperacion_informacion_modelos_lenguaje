@@ -111,19 +111,20 @@ def chat(pregunta):
     global token
     if("resetea_sesion" in pregunta.lower()):
         token = generate_token()
-        response = "Sesión reseteada"
+        answer = "Sesión reseteada"
     else:
         try:
             response = retrieval_chain.invoke({"input": pregunta,
                                                "context": str(sesiones.obtener_mensajes_por_sesion(token))})
+            answer = str(response['answer'])
             sesiones.add_mensajes_por_sesion(token, str(pregunta))
-            sesiones.add_mensajes_por_sesion(token, str(response['answer']))
+            sesiones.add_mensajes_por_sesion(token, answer)
             logger.info(str(str))
         except Exception as e:
             logger.error(f'Un Error se produjo al intentar invocar el LLM: {e}')
             print(e)
             response = "Ha habido un error con el proceso ver los registros de errores"
-    return str(response['answer'])
+    return answer)
 
 
 history = ""

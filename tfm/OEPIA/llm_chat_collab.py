@@ -161,7 +161,7 @@ def interactuar_con_llm(texto, historial_previo):
     html_wrapper = f"""
     <div class="container">
         <details>
-            <summary>Historial</summary>
+            <summary>Historial {datetime.datetime.today().strftime('%H:%M:%S')}</summary>
             <div class="content">
                 <p>{history}</p>
             </div>

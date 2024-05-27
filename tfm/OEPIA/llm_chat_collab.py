@@ -12,6 +12,7 @@ import secrets
 import string
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
+import re
 
 
 # Añade la ruta deseada al inicio de sys.path para priorizarla
@@ -80,17 +81,19 @@ token = generate_token()
 
 
 prompt_template = ChatPromptTemplate.from_template("""
-Hola te llamas OEPIA, y eres un asistente chat,            
-Necesito tu ayuda para encontrar las mejores ofertas de empleo público que coincidan con mi perfil. 
-Por favor, identifica las oportunidades de empleo público más relevantes que se adapten a mi perfil.
-Proporciona detalles sobre los requisitos y el proceso de solicitud para cada puesto.
-Ofrece consejos sobre cómo mejorar mi aplicación y aumentar mis posibilidades de éxito.
-Cuando te pregunten por las ofertas públicas de empleo directamente otroga prioridad al los datos facilitados por la base de datos del RAG.
+Te OEPIA, y eres un asistente chat, tienes las siguientes misiones importantes:            
+* Ayudar al usuario para encontrar las mejores ofertas de empleo público que coincidan con mi perfil. pero para ello tienes acceso a una base de datos provista por FAISS.
+* Deberás de identificar las oportunidades de empleo público más relevantes que se adapten al perfil de usuario, localizando ofertas de la base de datos provista por FAISS.
+* Proporciona detalles sobre los requisitos y el proceso de solicitud para cada puesto.
+* Ofrece consejos sobre cómo mejorar mi aplicación y aumentar mis posibilidades de éxito.
+* Cuando te pregunten por las ofertas públicas de empleo directamente otroga prioridad al los datos facilitados por la base de datos del RAG.
+
 Ejemplo de una pregunta:
 Soy un ingeniero civil con 5 años de experiencia en gestión de infraestructuras y proyectos urbanos. Además, tengo una maestría en ingeniería ambiental y estoy particularmente interesado en roles que involucren la sostenibilidad y la planificación urbana.
 Deberias facilitarle las ofertas de empleo público que coincidan con el perfil de Ingeniero ambiental y adecuadas para su perfil, en los casos que creas conveniente puedes ayudarte de las ofertas de empleo suministradas por el RAG.
-Es importante que los resultados sean precisos y actualizados porque la competencia para puestos de empleo público es alta y los plazos de solicitud suelen ser estrictos. Agradezco tu ayuda en este proceso vital para mi carrera profesional.
-No te inventes información ni rellenes los datos vacios. Como eres un chat amigable :) también tienes la capacidad de reponder a preguntas no relaccionadas con las ofertas de empleo público.
+
+* Es importante que los resultados sean precisos y actualizados porque la competencia para puestos de empleo público es alta y los plazos de solicitud suelen ser estrictos. Agradezco tu ayuda en este proceso vital para mi carrera profesional.
+* No te inventes información ni rellenes los datos vacios. Como eres un chat amigable :) también tienes la capacidad de reponder a preguntas no relaccionadas con las ofertas de empleo público.
 
 <context>
 {context}
@@ -112,6 +115,9 @@ def chat(pregunta):
     if("<resetea_sesion>" in pregunta.lower()):
         token = generate_token()
         answer = "Sesión reseteada"
+    elif("<ver_historial>" in pregunta.lower()):
+        answer = sesiones.obtener_mensajes_por_sesion(token)
+
     else:
         try:
             response = retrieval_chain.invoke({"input": pregunta,
@@ -129,6 +135,23 @@ def chat(pregunta):
 
 history = ""
 
+def format_links(text):
+    # Esta función busca URLs en el texto y las reemplaza por etiquetas HTML <a>
+    url_pattern = r'https?://[^\s<>"]+|www\.[^\s<>"]+'
+    formatted_text = re.sub(url_pattern, lambda
+        url: f'<a href="{url.group(0)}" target="_blank" style="color: blue;">{url.group(0)}</a>', text)
+    return formatted_text
+
+with gr.Blocks() as iface:
+    with gr.Row():
+        texto_entrada = gr.Textbox(label="Ingresa tu mensaje", placeholder="Escribe aquí...", lines=10)
+        historial_previo = gr.Textbox(label="Historial", value="", visible=False)  # Campo oculto para mantener el historial
+
+    texto_entrada.change(fn=format_links, inputs=texto_entrada, outputs=historial_previo)
+
+# Define los componentes de la interfaz de Gradio
+# texto_entrada = gr.Textbox(label="Ingresa tu mensaje", placeholder="Escribe aquí...", lines=10)
+# historial_previo = gr.Textbox(label="Historial", value="", visible=False)  # Campo oculto para mantener el historial
 
 # Suponemos que esta función es la que maneja la comunicación con el modelo LLM
 def interactuar_con_llm(texto, historial_previo):
@@ -139,21 +162,26 @@ def interactuar_con_llm(texto, historial_previo):
 
     # Simula la respuesta del modelo LLM
     respuesta = chat(texto_limpio)
+    html_wrapper = f"""
+    <div class="container">
+        <details>
+            <summary>Historial</summary>
+            <div class="content">
+                <p>{respuesta}</p>
+            </div>
+        </details>
+    </div>
+    """
 
     # Si es la primera interacción, no añade una línea en blanco al inicio
     if historial_previo:
-        nuevo_historial = f"\nUSUARIO: {texto_limpio}\n\nOEPIA: {respuesta}" + f"\n\n{'*' * 50}\n\n" + historial_previo
+        nuevo_historial = f"\n<p>USUARIO: {texto_limpio}</p>\n\n<p>OEPIA: {respuesta}</p>\n\n" + html_wrapper
     else:
-        nuevo_historial = f"USUARIO: {texto_limpio}\n\nOEPIA: {respuesta}"
+        nuevo_historial = f"\n<p>USUARIO: {texto_limpio}</p>\n\n<p>OEPIA: {respuesta}</p>\n\n"
 
     # Retorna el historial actualizado para mostrarlo en la salida
     history = nuevo_historial
     return nuevo_historial
-
-
-# Define los componentes de la interfaz de Gradio
-texto_entrada = gr.Textbox(label="Ingresa tu mensaje", placeholder="Escribe aquí...", lines=10)
-historial_previo = gr.Textbox(label="Historial", value="", visible=False)  # Campo oculto para mantener el historial
 
 css = """
 <style>
@@ -208,11 +236,13 @@ def procesar_flag(texto_entrada, flag_option, flag_index):
     print(f"Índice del dato marcado: {flag_index}")
 
 
+
+
 # Crea la interfaz de Gradio
 iface = gr.Interface(
     fn=interactuar_con_llm,
     inputs=[texto_entrada, historial_previo],
-    outputs=gr.Textbox(label="Historial de la conversación", lines=10, interactive=False),
+    outputs=gr.HTML(label="Historial de la conversación"),
     title="OEPIA: La IA especializada en ofertas de Empleo Público",
     description="Escribe un mensaje y presiona 'Submit' para interactuar con el modelo de lenguaje.",
     live=False,  # Desactiva la actualización en tiempo real
@@ -223,6 +253,9 @@ iface = gr.Interface(
     flagging_options=["Incorrecto", "Irrelevante", "Ofensivo"],  # Opciones para el usuario al marcar
     flagging_dir="flagged_data",  # Directorio donde se guardarán los datos marcados
 )
+
+
+
 
 # Inicia la interfaz
 iface.launch(share=True)

@@ -43,7 +43,7 @@ match config['logs_config']['level']:
     case _:
         log_level = logging.INFO
 
-print(PATH_BASE / config['logs_config']['ruta_salida_logs'] / f'logs_{date_today}.log')
+
 logging.basicConfig(filename=PATH_BASE / config['logs_config']['ruta_salida_logs'] / f'logs_{date_today}.log',
                     level=log_level,
                     format=config['logs_config']['format'])
@@ -119,7 +119,6 @@ def chat(pregunta):
             logger.info(str(str))
         except Exception as e:
             logger.error(f'Un Error se produjo al intentar invocar el LLM: {e}')
-            print(e)
             response = "Ha habido un error con el proceso ver los registros de errores"
     return answer
 

@@ -32,7 +32,6 @@ match config['logs_config']['level']:
     case _:
         log_level = logging.INFO
 
-print(PATH_BASE / config['logs_config']['ruta_salida_logs'] / f'logs_{date_today}.log')
 logging.basicConfig(filename=PATH_BASE / config['logs_config']['ruta_salida_logs'] / f'logs_{date_today}.log',
                     level=log_level,
                     format=config['logs_config']['format'])
@@ -44,11 +43,13 @@ logger = logging.getLogger()
 class manejador_sesiones():
     def __init__(self):
         self.id_session = 0
+        self.directorio_proyecto = Path(PATH_BASE) / config['sesiones']['ruta']
+        self.path_db = self.directorio_proyecto / config['sesiones']['ruta_db']
+        self.tabla_sesiones =  config['sesiones']['tabla']
         self.conexion = self.obtener_db_conexion()
         self.probar_connection()
         self.conexion.close()
-        self.path_db = directorio_proyecto / config['sesiones']['ruta_db']
-        self.tabla_sesiones = directorio_proyecto / config['sesiones']['tabla']
+
 
     def obtener_db_conexion(self):
         try:

@@ -44,6 +44,9 @@ logger = logging.getLogger()
 class manejador_sesiones():
     def __init__(self):
         self.id_session = 0
+        self.directorio_proyecto = Path(PATH_BASE) / config['sesiones']['ruta']
+        self.path_db = self.directorio_proyecto / config['sesiones']['ruta_db']
+        self.tabla_sesiones =  config['sesiones']['tabla']
         self.conexion = self.obtener_db_conexion()
         self.probar_connection()
         self.conexion.close()

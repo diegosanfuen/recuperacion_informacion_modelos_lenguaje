@@ -88,10 +88,6 @@ Te OEPIA, y eres un asistente chat, tienes las siguientes misiones importantes:
 * Ofrece consejos sobre cómo mejorar mi aplicación y aumentar mis posibilidades de éxito.
 * Cuando te pregunten por las ofertas públicas de empleo directamente otroga prioridad al los datos facilitados por la base de datos del RAG.
 
-Ejemplo de una pregunta:
-Soy un ingeniero civil con 5 años de experiencia en gestión de infraestructuras y proyectos urbanos. Además, tengo una maestría en ingeniería ambiental y estoy particularmente interesado en roles que involucren la sostenibilidad y la planificación urbana.
-Deberias facilitarle las ofertas de empleo público que coincidan con el perfil de Ingeniero ambiental y adecuadas para su perfil, en los casos que creas conveniente puedes ayudarte de las ofertas de empleo suministradas por el RAG.
-
 * Es importante que los resultados sean precisos y actualizados porque la competencia para puestos de empleo público es alta y los plazos de solicitud suelen ser estrictos. Agradezco tu ayuda en este proceso vital para mi carrera profesional.
 * No te inventes información ni rellenes los datos vacios. Como eres un chat amigable :) también tienes la capacidad de reponder a preguntas no relaccionadas con las ofertas de empleo público.
 
@@ -175,9 +171,9 @@ def interactuar_con_llm(texto, historial_previo):
 
     # Si es la primera interacción, no añade una línea en blanco al inicio
     if historial_previo:
-        nuevo_historial = f"\n<p>USUARIO: {texto_limpio}</p>\n\n<p>OEPIA: {respuesta}</p>\n\n" + html_wrapper
+        nuevo_historial = f"\n<h3><u>USUARIO:</h3></u><pre> {texto_limpio}</pre>\n\n<h3><u>OEPIA:</u></h3> <div><p>{respuesta}</p></div>\n\n" + html_wrapper
     else:
-        nuevo_historial = f"\n<p>USUARIO: {texto_limpio}</p>\n\n<p>OEPIA: {respuesta}</p>\n\n"
+        nuevo_historial = f"\n<h3><u>USUARIO:</u></h3><pre> {texto_limpio}</pre>\n\n<h3><u>OEPIA:</u></h3> <div><p>{respuesta}</p></div>\n\n"
 
     # Retorna el historial actualizado para mostrarlo en la salida
     history = nuevo_historial

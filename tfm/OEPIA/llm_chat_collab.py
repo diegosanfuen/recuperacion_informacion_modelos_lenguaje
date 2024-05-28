@@ -27,8 +27,6 @@ from FaissOPEIA import carga as fcg
 from OEPIA.Utiles import Prompts as prompts
 from OEPIA.Utiles import Utiles as utls
 
-from SesionesCollab import sesiones as ses
-from FaissOPEIACollab import carga as fcg
 
 # Abrir y leer el archivo YAML
 with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config_collab.yml', 'r') as file:

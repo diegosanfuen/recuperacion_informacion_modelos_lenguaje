@@ -192,6 +192,9 @@ agent_executor = AgentExecutor.from_agent_and_tools(
   return_messages=True,
 )
 
+llmApp = retrieval_chain | agent_executor
+
+
 
 def chat(pregunta):
     global token
@@ -214,7 +217,7 @@ def chat(pregunta):
 
     else:
         try:
-            response = retrieval_chain.invoke({"input": pregunta,
+            response = llmApp.invoke({"input": pregunta,
                                                "context": str(sesiones.obtener_mensajes_por_sesion(token))})
             answer = str(response['answer'])
             sesiones.add_mensajes_por_sesion(token, str(pregunta))

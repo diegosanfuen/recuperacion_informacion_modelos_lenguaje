@@ -23,7 +23,7 @@ import os, sys
 os.environ['PROJECT_ROOT'] = r'/content/recuperacion_informacion_modelos_lenguaje/tfm'
 sys.path.insert(0, os.environ['PROJECT_ROOT'])
 from SesionesCollab.sesiones import ManejadorSesiones as ses
-from FaissOPEIA import carga as fcg
+from FaissOPEIACollab import carga as fcg
 from OEPIA.Utiles import Prompts as prompts
 from OEPIA.Utiles import Utiles as utls
 

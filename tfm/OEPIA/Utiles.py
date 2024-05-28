@@ -1,3 +1,8 @@
+import requests
+import pdfplumber
+import io
+
+
 class Prompts:
 
     @staticmethod
@@ -81,4 +86,20 @@ class Utiles:
                 }
             
             </style>
-        """
+    """
+    @staticmethod
+    def obtener_boe_texto(url):
+        response = requests.get(url)
+
+        # Asegurarse de que la solicitud fue exitosa
+        if response.status_code == 200:
+            # Abrir el PDF desde un stream de bytes
+            with pdfplumber.open(io.BytesIO(response.content)) as pdf:
+                text = ''
+                # Extraer texto de cada página
+                for page in pdf.pages:
+                    text += page.extract_text() + "\n"
+        else:
+            print("Error al descargar el archivo")
+        return text
+

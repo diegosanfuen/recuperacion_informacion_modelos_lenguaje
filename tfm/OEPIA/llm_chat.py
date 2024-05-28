@@ -1,5 +1,4 @@
 # OEPIA
-
 import sys
 from pathlib import Path
 import os, yaml, time
@@ -10,8 +9,20 @@ import gradio as gr
 import logging
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
-import re
 
+import re
+from dotenv import load_dotenv # Esta librería nos permite cargar las variables de ambiente en memoria
+from langchain.agents import Tool
+from typing import Sequence, Any
+from langchain.agents.agent import Agent, AgentOutputParser
+from langchain.agents.react.output_parser import ReActOutputParser
+from langchain.tools.base import BaseTool
+from langchain.schema.prompt_template import BasePromptTemplate
+from langchain.prompts.prompt import PromptTemplate
+from langchain.agents import AgentExecutor
+
+
+load_dotenv() # Realizamos la carga de las variables de ambiente
 # Introducir esta variable de entorno en el lanzador
 os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
 
@@ -20,6 +31,7 @@ from Sesiones.sesiones import ManejadorSesiones as ses
 from FaissOPEIA import carga as fcg
 from OEPIA.Utiles import Prompts as prompts
 from OEPIA.Utiles import Utiles as utls
+obtener_boe_texto = utls.obtener_boe_texto
 
 
 # Abrir y leer el archivo YAML
@@ -76,6 +88,111 @@ retriever_inst = fcg()
 retriever_faiss = retriever_inst.inialize_retriever()
 retrieval_chain = create_retrieval_chain(retriever_faiss, document_chain)
 
+HERRAMIENTAS = [
+  Tool(
+    name="ObtenerTextBOE",
+    func=obtener_boe_texto,
+    description="Trae el texto del BOE dado una URL al PDF que contiene la oferta de empleo",
+  )
+]
+
+AGENTE_FEW_SHOT_EJEMPLOS = [
+    """
+    Question: ¿Obtén el BOE del enlace que te paso?
+    Thought: Necesito localizar la url proporcionada por el usuario, la localizamos y es 
+    https://www.boe.es/boe/dias/2024/05/02/pdfs/BOE-A-2024-8838.pdf
+    Action: ObtenerTextBOE["https://www.boe.es/boe/dias/2024/05/02/pdfs/BOE-A-2024-8838.pdf"]
+    Observation: "texto del BOE": Resolución de 25 de abril de 2024, del Instituto de la Cinematografía y ....    
+    Action: Finish["El BOE contiene: Resolución de 25 de abril de 2024, del Instituto de la Cinematografía y ...."]
+    """
+]
+
+AGENTE_FEW_SHOT_EJEMPLOS.extend([
+    """
+    Question: Descarga el BOE del texto anterior
+    Thought: Necesito localizar del contexto la url proporcionada por el usuario, la localizamos y es 
+    https://www.boe.es/boe/dias/2024/05/02/pdfs/BOE-A-2024-8838.pdf
+    Action: ObtenerTextBOE["https://www.boe.es/boe/dias/2024/05/02/pdfs/BOE-A-2024-8838.pdf"]
+    Observation: "texto del BOE": Resolución de 25 de abril de 2024, del Instituto de la Cinematografía y ....    
+    Action: Finish["El BOE contiene: Resolución de 25 de abril de 2024, del Instituto de la Cinematografía y ...."]
+""",
+    """
+    Question: Descarga el enlace al documento proporcionado 
+    Thought: Necesito localizar la url proporcionada por el usuario, la localizamos y es 
+    https://www.boe.es/boe/dias/2024/05/02/pdfs/BOE-A-2024-8838.pdf
+    Action: ObtenerTextBOE["https://www.boe.es/boe/dias/2024/05/02/pdfs/BOE-A-2024-8838.pdf"]
+    Observation: "texto del BOE": Resolución de 25 de abril de 2024, del Instituto de la Cinematografía y ....    
+    Action: Finish["El BOE contiene: Resolución de 25 de abril de 2024, del Instituto de la Cinematografía y ...."]
+    """,
+])
+
+SUFIJO ="""
+    \nEres un sistema inteligente realizando una serie de pensamientos y ejecutando acciones para poder responder la pregunta del usuario.
+    Cada acción es una llamada a una función: ObtenerTextBOE(url: str): str
+    Por favor, entrega la respuesta sin usar caracteres que puedan causar problemas de parsing como comillas dobles o comillas simples o comas.
+    Puedes usar la función cuando consideres necesario. Cada acción se realiza por separado. Contesta siempre en castellano. 
+    Después sigue procesando la petición del usuario con las demás ordenes
+    
+    Vamos a empezar
+    
+    Question: {input}
+    {agent_scratchpad}
+"""
+
+PROMPT_AGENTE = PromptTemplate.from_examples(
+  examples=AGENTE_FEW_SHOT_EJEMPLOS,
+  suffix=SUFIJO,
+  input_variables=["input", "agent_scratchpad"],
+)
+
+class ReActAgent(Agent):
+  """
+  Agente customizado para el caso de uso de la implementación de la estrategia ReAct
+  """
+
+  @classmethod
+  def _get_default_output_parser(cls, **kwargs: Any) -> AgentOutputParser:
+    return ReActOutputParser()
+
+  @classmethod
+  def create_prompt(cls, tools: Sequence[BaseTool]) -> BasePromptTemplate:
+    return PROMPT_AGENTE
+
+  @classmethod
+  def _validate_tools(cls, tools: Sequence[BaseTool]) -> None:
+    if len(tools) != 1:
+      raise ValueError("The number of tools is invalid.")
+
+  @property
+  def _agent_type(self) -> str:
+    return "react"
+
+  @property
+  def finish_tool_name(self) -> str:
+    return "Finish"
+
+  @property
+  def observation_prefix(self) -> str:
+    return f"Observation: "
+
+  @property
+  def llm_prefix(self) -> str:
+    return f"Thought: "
+
+# Creamos una instancia de nuestro agente
+agent = ReActAgent.from_llm_and_tools(
+  llm,
+  HERRAMIENTAS,
+)
+agent_executor = AgentExecutor.from_agent_and_tools(
+  agent=agent,
+  tools=HERRAMIENTAS,
+  verbose=True,
+  handle_parsing_errors=True,
+  max_iterations=20,
+  return_messages=True,
+)
+
 
 def chat(pregunta):
     global token
@@ -88,8 +205,7 @@ def chat(pregunta):
 
     elif ("usa el agente para" in pregunta.lower()):
         try:
-            response = retrieval_chain.invoke({"input": pregunta,
-                                               "context": str(sesiones.obtener_mensajes_por_sesion(token))})
+            response = agent_executor.run(pregunta + " " + str(sesiones.obtener_mensajes_por_sesion(token)))
             answer = str(response['answer'])
             sesiones.add_mensajes_por_sesion(token, str(pregunta))
             sesiones.add_mensajes_por_sesion(token, answer)

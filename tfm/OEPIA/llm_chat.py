@@ -232,7 +232,7 @@ def procesar_flag(texto_entrada, flag_option, flag_index):
 iface = gr.Interface(
     fn=interactuar_con_llm,
     inputs=[texto_entrada, historial_previo],
-    outputs=gr.HTML(label="Historial de la conversación"),
+    outputs=gr.Markdown(label="Historial de la conversación"),
     title="OEPIA: La IA especializada en ofertas de Empleo Público",
     description="Escribe un mensaje y presiona 'Submit' para interactuar con el modelo de lenguaje.",
     live=False,  # Desactiva la actualización en tiempo real

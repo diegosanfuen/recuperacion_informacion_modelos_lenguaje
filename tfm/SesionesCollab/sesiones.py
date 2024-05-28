@@ -1,4 +1,5 @@
 import sqlite3
+import string, secrets
 import logging
 import os, sys, yaml
 from pathlib import Path
@@ -40,7 +41,7 @@ logging.basicConfig(filename=PATH_BASE / config['logs_config']['ruta_salida_logs
 logger = logging.getLogger()
 
 
-class manejador_sesiones():
+class ManejadorSesiones():
     def __init__(self):
         self.id_session = 0
         self.directorio_proyecto = Path(PATH_BASE) / config['sesiones']['ruta']
@@ -49,6 +50,14 @@ class manejador_sesiones():
         self.conexion = self.obtener_db_conexion()
         self.probar_connection()
         self.conexion.close()
+
+    @staticmethod
+    def generate_token(length=32):
+        # Caracteres que pueden ser usados en el token
+        characters = string.ascii_letters + string.digits
+        # Generar el token
+        token = ''.join(secrets.choice(characters) for _ in range(length))
+        return token
 
 
     def obtener_db_conexion(self):

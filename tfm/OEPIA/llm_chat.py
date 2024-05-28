@@ -18,8 +18,10 @@ import re
 os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
 
 sys.path.insert(0, os.environ['PROJECT_ROOT'])
-from SesionesW import sesiones as ses
+from SesionesW.sesiones import ManejadorSesiones as ses
 from FaissOPEIA import carga as fcg
+from OEPIA.Utiles import Prompts as prompts
+
 
 # Abrir y leer el archivo YAML
 with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config.yml', 'r') as file:
@@ -61,41 +63,15 @@ except Exception as e:
     logger.error(f'Un Error se produjo al intentar cargar el modelo {modelo} : {e}')
     exit()
 try:
-    sesiones = ses.manejador_sesiones()
+    sesiones = ses()
 except Exception as e:
     logger.error(f'Un Error se produjo al intentar cargar la base de datos de sesiones: {e}')
     exit()
 
-def generate_token(length=32):
-    # Caracteres que pueden ser usados en el token
-    characters = string.ascii_letters + string.digits
-    # Generar el token
-    token = ''.join(secrets.choice(characters) for _ in range(length))
-    return token
 
-token = generate_token()
-
-
-prompt_template = ChatPromptTemplate.from_template("""
-Te llamas OEPIA, y eres un asistente chat, tienes las siguientes misiones importantes:            
-* Ayudar al usuario para encontrar las mejores ofertas de empleo público que coincidan con mi perfil. pero para ello tienes acceso a una base de datos provista por FAISS.
-* Deberás de identificar las oportunidades de empleo público más relevantes que se adapten al perfil de usuario, localizando ofertas de la base de datos provista por FAISS.
-* Proporciona detalles sobre los requisitos y el proceso de solicitud para cada puesto.
-* Ofrece consejos sobre cómo mejorar mi aplicación y aumentar mis posibilidades de éxito.
-* Cuando te pregunten por las ofertas públicas de empleo directamente otroga prioridad al los datos facilitados por la base de datos del RAG.
-
-* Es importante que los resultados sean precisos y actualizados porque la competencia para puestos de empleo público es alta y los plazos de solicitud suelen ser estrictos. Agradezco tu ayuda en este proceso vital para mi carrera profesional.
-* No te inventes información ni rellenes los datos vacios. Como eres un chat amigable :) también tienes la capacidad de reponder a preguntas no relaccionadas con las ofertas de empleo público.
-
-<context>
-{context}
-</context>
-
-Question: {input}
-""")
-
+token = ses.generate_token()
+prompt_template = ChatPromptTemplate.from_template(prompts.obtenerPROMPTTemplatePrincipalOEPIA())
 document_chain = create_stuff_documents_chain(llm, prompt_template)
-
 retriever_inst = fcg()
 retriever_faiss = retriever_inst.inialize_retriever()
 retrieval_chain = create_retrieval_chain(retriever_faiss, document_chain)
@@ -106,8 +82,20 @@ def chat(pregunta):
     if("<resetea_sesion>" in pregunta.lower()):
         token = generate_token()
         answer = "Sesión reseteada"
+
     elif("<ver_historial>" in pregunta.lower()):
         answer = sesiones.obtener_mensajes_por_sesion(token)
+
+    elif ("usa el agente para" in pregunta.lower()):
+        try:
+            response = retrieval_chain.invoke({"input": pregunta,
+                                               "context": str(sesiones.obtener_mensajes_por_sesion(token))})
+            answer = str(response['answer'])
+            sesiones.add_mensajes_por_sesion(token, str(pregunta))
+            sesiones.add_mensajes_por_sesion(token, answer)
+            logger.info(str(str))
+        except Exception as e:
+            logger.error(f'Un Error se produjo al intentar invocar el LLM: {e}')
 
     else:
         try:
@@ -119,7 +107,7 @@ def chat(pregunta):
             logger.info(str(str))
         except Exception as e:
             logger.error(f'Un Error se produjo al intentar invocar el LLM: {e}')
-            response = "Ha habido un error con el proceso ver los registros de errores"
+
     return answer
 
 

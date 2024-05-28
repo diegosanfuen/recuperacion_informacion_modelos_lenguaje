@@ -1,6 +1,6 @@
 # Definimos una variable
-nombre_paquete = "ObtenerDatos"
+nombre_paquete = "OEPIA"
 
 # Importamos los módulos que queremos que estén disponibles
-from DescargaBOE import DescargaBOE
-from DescargaBOCyL import DescargaBOCyL
+from OEPIA.Utiles import Prompts
+from OEPIA.Utiles import Utiles

@@ -65,3 +65,7 @@ llm_oepia:
     nombre_asistente: "OPEIA"
 
 
+# Agentes
+agentePDF:
+  ruta: "AgentePDFCollab"
+

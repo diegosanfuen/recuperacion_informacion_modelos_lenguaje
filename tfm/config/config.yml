@@ -64,4 +64,8 @@ llm_oepia:
     temperature: 0.0
     nombre_asistente: "OPEIA"
 
-# Modelos:
+
+# Agentes
+agentePDF:
+  ruta: "AgentePDF"
+

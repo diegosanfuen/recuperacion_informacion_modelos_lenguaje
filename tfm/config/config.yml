@@ -9,7 +9,7 @@ logs_config:
 
 # Configuracion de la Base de Datos de Mensajes (Contexto)
 sesiones:
-  ruta: "SesionesW"
+  ruta: "Sesiones"
   ruta_db: "datos"
   nombre_db: "sesiones.sqlite"
   tabla: "sesiones"

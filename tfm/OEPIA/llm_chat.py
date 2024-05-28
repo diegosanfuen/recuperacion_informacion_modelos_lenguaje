@@ -8,8 +8,6 @@ from langchain_community.llms import Ollama
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 import gradio as gr
 import logging
-import secrets
-import string
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 import re
@@ -18,9 +16,10 @@ import re
 os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
 
 sys.path.insert(0, os.environ['PROJECT_ROOT'])
-from SesionesW.sesiones import ManejadorSesiones as ses
+from Sesiones.sesiones import ManejadorSesiones as ses
 from FaissOPEIA import carga as fcg
 from OEPIA.Utiles import Prompts as prompts
+from OEPIA.Utiles import Utiles as utls
 
 
 # Abrir y leer el archivo YAML
@@ -53,6 +52,7 @@ logging.basicConfig(filename=PATH_BASE / config['logs_config']['ruta_salida_logs
 # Creamos el logger
 logger = logging.getLogger()
 
+CSS = utls.obtenerCSSOEPIAInterfaz()
 try:
     modelo = config['llm_oepia']['parameters_modelo']['llm_model']
     temperature = config['llm_oepia']['parameters_modelo']['temperature']
@@ -161,44 +161,7 @@ def interactuar_con_llm(texto, historial_previo):
     history = nuevo_historial
     return nuevo_historial
 
-css = """
-<style>
-    .gr-textbox { 
-        width: 100%; 
-    }
 
-    .interface-container {
-        background-color: #000; 
-        border-radius: 30px; 
-    }
-    button {
-        background-color: #4CAF50; 
-        color: dark-blue; 
-        padding: 10px; 
-        border: none; 
-        border-radius: 20px; 
-    }
-
-    input[type='text'], textarea {
-        border: 2px solid #ddd; 
-        padding: 8px; 
-        font-size: 16px; 
-        font-color: dark-gray
-    }
-    label {
-        color: #555; 
-        font-weight: bold; 
-        margin-bottom: 5px; 
-    }
-
-    .output-container {
-        background-color: #DDD; 
-        padding: 15px; 
-        border-radius: 5px; 
-    }
-
-</style>
-"""
 
 
 # Esta función podría contener la lógica de postprocesamiento
@@ -224,7 +187,7 @@ iface = gr.Interface(
     title="OEPIA: La IA especializada en ofertas de Empleo Público",
     description="Escribe un mensaje y presiona 'Submit' para interactuar con el modelo de lenguaje.",
     live=False,  # Desactiva la actualización en tiempo real
-    css=css,
+    css=CSS,
     article="Explicacion del proyecto",
     thumbnail=True,
     allow_flagging="manual",  # Permite marcar manualmente las entradas

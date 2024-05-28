@@ -41,3 +41,44 @@ class Utiles:
 
             Question: {input}
             """
+
+    @staticmethod
+    def obtenerCSSOEPIAInterfaz():
+        return """
+            <style>
+                .gr-textbox { 
+                    width: 100%; 
+                }
+            
+                .interface-container {
+                    background-color: #000; 
+                    border-radius: 30px; 
+                }
+                button {
+                    background-color: #4CAF50; 
+                    color: dark-blue; 
+                    padding: 10px; 
+                    border: none; 
+                    border-radius: 20px; 
+                }
+            
+                input[type='text'], textarea {
+                    border: 2px solid #ddd; 
+                    padding: 8px; 
+                    font-size: 16px; 
+                    font-color: dark-gray
+                }
+                label {
+                    color: #555; 
+                    font-weight: bold; 
+                    margin-bottom: 5px; 
+                }
+            
+                .output-container {
+                    background-color: #DDD; 
+                    padding: 15px; 
+                    border-radius: 5px; 
+                }
+            
+            </style>
+        """

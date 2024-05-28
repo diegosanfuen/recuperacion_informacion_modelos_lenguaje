@@ -1,5 +1,5 @@
 # Definimos una variable
-nombre_paquete = "SesionesW"
+nombre_paquete = "Sesiones"
 
 # Importamos los módulos que queremos que estén disponibles
-from SesionesW.sesiones import ManejadorSesiones
+from Sesiones.sesiones import ManejadorSesiones

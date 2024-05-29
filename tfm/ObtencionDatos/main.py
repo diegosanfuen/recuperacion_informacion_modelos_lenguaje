@@ -2,7 +2,7 @@
 from DescargaBOE import DescargaBOE
 from DescargaBOCyL import DescargaBOCyL
 import os, datetime
-import time, logging, yaml
+import  logging, yaml
 from pathlib import Path
 
 # Obtener la ruta del script actual

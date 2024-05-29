@@ -37,8 +37,9 @@ scrapping:
     campos_metadata:
       - url
       - titulo
-    campo_texto:
       - texto
+    campo_texto:
+      - resumen
   fuentes:
     BOE:
       url: "https://www.boe.es/"
@@ -48,12 +49,13 @@ scrapping:
       url: "https://bocyl.jcyl.es/"
       patron: "https://bocyl.jcyl.es/boletin.do?fechaBoletin=$dia/$mes/$anio#I.B._AUTORIDADES_Y_PERSONAL"
       fichero_csv: "csv_bocyls_oferta_publica.csv"
-    limitacion_descargas: 200
+    limitacion_descargas: 100
     tiempo_entre_descargas: 1
     separador: "|"
   headers:
     accept: "application/xml;q=0.9, */*;q=0.8"
   timeout: 10
+  n_sentences_summary: 4
 
 
 # Modelo LLM principal

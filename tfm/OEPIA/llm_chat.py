@@ -128,11 +128,12 @@ AGENTE_FEW_SHOT_EJEMPLOS.extend([
 ])
 
 SUFIJO ="""
-    \nEres un sistema inteligente realizando una serie de pensamientos y ejecutando acciones para poder responder la pregunta del usuario.
+    Eres un sistema inteligente realizando una serie de pensamientos y ejecutando acciones para poder responder la pregunta del usuario.
     Cada acción es una llamada a una función: ObtenerTextBOE(url: str): str
     Por favor, entrega la respuesta sin usar caracteres que puedan causar problemas de parsing como comillas dobles o comillas simples o comas.
     Puedes usar la función cuando consideres necesario. Cada acción se realiza por separado. Contesta siempre en castellano. 
-    Después sigue procesando la petición del usuario con las demás ordenes
+    Después sigue procesando la petición del usuario con las demás órdenes.”””
+
     
     Vamos a empezar
     

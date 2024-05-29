@@ -7,6 +7,19 @@ from urllib.parse import urlparse, urlunparse
 import re
 from pathlib import Path
 import logging, os, yaml, time
+import nltk
+
+
+# Continuar con el resto de tu código de sumy después de esta descarga
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.lsa import LsaSummarizer as Summarizer
+from sumy.nlp.stemmers import Stemmer
+from sumy.utils import get_stop_words
+
+# Idioma del texto
+language = "spanish"
+
 
 os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
 
@@ -60,7 +73,8 @@ class DescargaBOE:
         self.dominio = config['scrapping']['fuentes']['BOE']['url']
         self.dataset_boes = pd.DataFrame({'url':[],
                                           'titulo':[],
-                                          'texto':[]})
+                                          'texto':[],
+                                          'resumen':[]})
         logger.info("-------------------------------------------------------------------------------------")
         logger.info("-----------------------------------OBTENCION DE DATOS BOCYL-----------------------------")
         logger.info("-------------------------------------------------------------------------------------")
@@ -74,6 +88,12 @@ class DescargaBOE:
         self.time_wait = config["scrapping"]["fuentes"]["tiempo_entre_descargas"]
         self.headers = config['scrapping']['headers']
         self.timeout = config['scrapping']['timeout']
+
+        # Idioma del texto
+        self.language = "spanish"
+
+        # Número de oraciones en el resumen
+        self.num_sentences = config['scrapping']['n_sentences_summary']
 
     def quitar_etiquetas_html(self, cadena_html: str) -> str:
         """
@@ -89,9 +109,36 @@ class DescargaBOE:
         texto = soup.get_text(separator='')
         texto = texto.replace('[', '')
         texto = texto.replace(']', '')
+        texto = re.sub('<.*?>', '', texto)
         return texto
 
+    def generar_resumen(self, texto: str) -> str:
+        """
+        Genera un resumen del texto teniendo en cuenta la parametrizacion n_sentences_summary y lo devuelve como salida
+        :param texto: Texto a resumir
+        :return: Texto resumido
+        self.generar_resumen(texto)
+        """
 
+        # Inicializar el parser
+        parser = PlaintextParser.from_string(texto, Tokenizer(self.language))
+        stemmer = Stemmer(self.language)
+
+        # Inicializar el sumarizador
+        summarizer = Summarizer(stemmer)
+        summarizer.stop_words = get_stop_words(language)
+
+        # Generar el resumen
+        summary = summarizer(parser.document, self.num_sentences)
+
+        texto_resumido = ""
+        for sentence in summary:
+            if texto_resumido == "":
+                texto_resumido = str(sentence)
+            else:
+                texto_resumido = texto_resumido + "\n" + str(sentence)
+
+        return texto_resumido
 
     def establecer_offset(self, offset: int):
         """
@@ -100,7 +147,7 @@ class DescargaBOE:
         Si instanciamos
         MiClase.establecer_offset(5)
         Inspeccionaremos los BOES de hace 5 días
-        Entrada: Offset Es un etero
+        Entrada: Offset Es un entero
         Salida: Variables internas de la clase (URLS de los BOES)
         """
         fecha_calculada = self.fecha_actual - datetime.timedelta(days=offset)
@@ -234,9 +281,17 @@ class DescargaBOE:
         dataset_capturado = pd.DataFrame({'url': self.lista_urls_pdf,
                                           'titulo': self.lista_titulos,
                                           'texto': self.lista_textos})
+        dataset_capturado['texto'] = dataset_capturado['texto'].apply(self.quitar_etiquetas_html)
+        dataset_capturado['resumenW'] = dataset_capturado['texto'].apply(self.generar_resumen)
+        texto_separador = "\nURL: "
+        dataset_capturado['resumen'] = dataset_capturado.apply(lambda row: f"{row['resumenW']}{texto_separador}{row['url']}", axis=1)
+        dataset_capturado.drop('resumenW', axis=1, inplace=True)
 
         self.dataset_boes = pd.concat([self.dataset_boes, dataset_capturado], ignore_index=True)
         return self.dataset_boes.shape[0]
+
+
+
 
     def obtener_dataset_final(self):
         """

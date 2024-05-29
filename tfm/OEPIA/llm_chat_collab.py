@@ -188,7 +188,7 @@ agent_executor = AgentExecutor.from_agent_and_tools(
   tools=HERRAMIENTAS,
   verbose=True,
   handle_parsing_errors=True,
-  max_iterations=20,
+  max_iterations=7,
   return_messages=True,
 )
 

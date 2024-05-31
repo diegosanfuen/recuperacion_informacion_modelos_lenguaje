@@ -7,8 +7,7 @@ from urllib.parse import urlparse, urlunparse
 import re
 from pathlib import Path
 import logging, os, yaml, time
-import nltk
-
+import warnings
 
 # Continuar con el resto de tu código de sumy después de esta descarga
 from sumy.parsers.plaintext import PlaintextParser
@@ -72,10 +71,10 @@ class DescargaBOCyL:
         self.fecha_actual = datetime.datetime.now()
         self.url_patron = string.Template(config['scrapping']['fuentes']['BOCYL']['patron'])
         self.dominio = config['scrapping']['fuentes']['BOCYL']['url']
-        self.dataset_bocyls = pd.DataFrame({'url':[],
-                                            'titulo':[],
-                                            'texto':[],
-                                            'texto':[]})
+        self.dataset_bocyls = pd.DataFrame({'url': [],
+                                            'titulo': [],
+                                            'resumen': [],
+                                            })
         logger.info("-------------------------------------------------------------------------------------")
         logger.info("-----------------------------------OBTENCION DE DATOS BOCYL-----------------------------")
         logger.info("-------------------------------------------------------------------------------------")
@@ -105,7 +104,7 @@ class DescargaBOCyL:
         self.quitar_etiquetas_html(Texto)
         """
         # Parsear la cadena HTML
-        soup = BeautifulSoup(cadena_html, 'html.parser')    
+        soup = BeautifulSoup(cadena_html, 'html.parser')
         # Obtener solo el texto sin etiquetas HTML
         texto = soup.get_text(separator='')
         texto = texto.replace('[', '')
@@ -129,8 +128,11 @@ class DescargaBOCyL:
         summarizer = Summarizer(stemmer)
         summarizer.stop_words = get_stop_words(language)
 
-        # Generar el resumen
-        summary = summarizer(parser.document, self.num_sentences)
+        try:
+            # Generar el resumen
+            summary = summarizer(parser.document, self.num_sentences)
+        except Exception as e:
+            logger.error(f"Hubo un problema al realizar el resumen {e}")
 
         texto_resumido = ""
         for sentence in summary:
@@ -151,16 +153,16 @@ class DescargaBOCyL:
         Entrada: Offset Es un entero
         Salida: Variables internas de la clase (URLS de los BOES)
         """
-        fecha_calculada = self.fecha_actual - datetime.timedelta(days=offset)      
+        fecha_calculada = self.fecha_actual - datetime.timedelta(days=offset)
         anio = fecha_calculada.year
         mes = str(fecha_calculada.month).zfill(2)
         dia = str(fecha_calculada.day).zfill(2)
         fecha = {'anio': anio,
                  'mes': mes,
-                 'dia': dia}        
+                 'dia': dia}
         self.url_busqueda = self.url_patron.substitute(anio=fecha['anio'],
                                                        mes=fecha['mes'],
-                                                       dia=fecha['dia'])       
+                                                       dia=fecha['dia'])
 
 
 
@@ -174,15 +176,16 @@ class DescargaBOCyL:
         """
         
         url = self.url_busqueda
-        parsed_url = urlparse(url)        
-        
-        dominio = parsed_url.netloc                
-        
+        parsed_url = urlparse(url)
+
+        dominio = parsed_url.netloc
+        dominio = dominio[:-1]
+
         response = requests.get(url)
-        html_content = response.content        
-        
-        soup = BeautifulSoup(html_content, 'html.parser')       
-        
+        html_content = response.content
+
+        soup = BeautifulSoup(html_content, 'html.parser')
+
         regex = re.compile(".*otros formatos.*")
                
         enlaces_con_titulo = []

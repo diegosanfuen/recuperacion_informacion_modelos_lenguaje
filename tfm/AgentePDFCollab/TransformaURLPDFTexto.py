@@ -4,8 +4,12 @@ import io, datetime
 import os, logging, yaml
 from pathlib import Path
 
+
 class TransformaURLPDFTexto:
-    os.environ['PROJECT_ROOT'] = r'/content/recuperacion_informacion_modelos_lenguaje/tfm'
+    """
+
+    """
+    os.environ['PROJECT_ROOT'] = r'/content/content/tfm-oepia'
 
     # Abrir y leer el archivo YAML
     with open(Path(os.getenv('PROJECT_ROOT')) / 'config/config.yml', 'r') as file:

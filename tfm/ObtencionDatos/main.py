@@ -4,10 +4,14 @@ from DescargaBOCyL import DescargaBOCyL
 import os, datetime
 import  logging, yaml
 from pathlib import Path
+import warnings
+# Suprimir el UserWarning específico emitido por el algoritmo LSA
+warnings.filterwarnings("ignore", message="Number of words (.*) is lower than number of sentences (.*)")
+
 
 # Obtener la ruta del script actual
 ruta_script = os.path.abspath("__file__")
-os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
+# os.environ['PROJECT_ROOT'] = r'C:\PROYECTOS\PyCharm\pythonrun\recuperacion_informacion_modelos_lenguaje\tfm'
 
 
 # Abrir y leer el archivo YAML

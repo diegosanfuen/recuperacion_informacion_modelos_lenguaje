@@ -1,13 +1,12 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import datetime
+import datetime, sys
 import string
 from urllib.parse import urlparse, urlunparse
 import re
 from pathlib import Path
 import logging, os, yaml, time
-import warnings
 
 # Continuar con el resto de tu código de sumy después de esta descarga
 from sumy.parsers.plaintext import PlaintextParser
@@ -142,6 +141,7 @@ class DescargaBOE:
 
         return texto_resumido
 
+
     def establecer_offset(self, offset: int):
         """
         Método que estalece el OFFSET definido como el número de días a partir de la fecha
@@ -211,11 +211,10 @@ class DescargaBOE:
         """
         lista_respuestas = []
         for url in self.lista_urls:
-            # url = 'https://www.boe.es/diario_boe/xml.php?id=BOE-A-2021-10344'
             try:
                 response = requests.get(url, headers=self.headers, timeout=self.timeout)
-            except requests.exceptions.ConnectTimeout:
-                print("La conexión ha excedido el tiempo máximo de espera.")
+            except requests.exceptions.ConnectTimeout as e:
+                logger.error(f"La conexión ha excedido el tiempo máximo de espera. {e}")
 
             lista_respuestas.append(response.text)
         self.lista_xmls = lista_respuestas
@@ -267,6 +266,16 @@ class DescargaBOE:
             lista_urls_pdf.append(f'{self.dominio}{str(self.quitar_etiquetas_html(str(url_pdf)))}')
         self.lista_urls_pdf = lista_urls_pdf
 
+    def dividir_texto_en_chunks(self, texto,
+                                longitud_chunk=config["scrapping"]["max_chunk_length"]):
+        """
+        Divide el dataset en chunks de tamaño resumen longitud_chunk, para la ingesta por FAISS
+        :param texto: Texto a dividir
+        :param longitud_chunk: Tamaño del chunk
+        :return: Vector con los Chunks
+        """
+        return [texto[i:i + longitud_chunk] for i in range(0, len(texto), longitud_chunk)]
+
     def generar_dataset(self) -> int:
         """
         Con los parámetros obtenidos de establecer_offset, generamos el dataset pandas
@@ -285,16 +294,33 @@ class DescargaBOE:
                                           'titulo': self.lista_titulos,
                                           'texto': self.lista_textos})
         dataset_capturado['texto'] = dataset_capturado['texto'].apply(self.quitar_etiquetas_html)
-        dataset_capturado['resumenW'] = dataset_capturado['texto'].apply(self.generar_resumen)
+        # dataset_capturado['resumenW'] = dataset_capturado['texto'].apply(self.generar_recorte)
+
+        filas_expandidas = []
+        for index, row in dataset_capturado.iterrows():
+            chunks = self.dividir_texto_en_chunks(row['texto'])
+            for chunk in chunks:
+                nueva_fila = row.to_dict()
+                nueva_fila['resumenW'] = chunk
+                filas_expandidas.append(nueva_fila)
+
+        dataset_capturado = pd.DataFrame(filas_expandidas)
         texto_separador = "\nURL: "
-        dataset_capturado['resumen'] = dataset_capturado.apply(lambda row: f"{row['resumenW']}{texto_separador}{row['url']}", axis=1)
-        dataset_capturado.drop('resumenW', axis=1, inplace=True)
+        try:
+            dataset_capturado['resumen'] = dataset_capturado.apply(
+                lambda row: f"{row['resumenW']}{texto_separador}{row['url']}", axis=1)
+            dataset_capturado.drop('resumenW', axis=1, inplace=True)
+            dataset_capturado['texto'] = ['' for i in range(len(dataset_capturado))]
+        except Exception as e:
+            logger.error(f"No existen BOEs para el día de hoy {e}")
+            dataset_capturado = pd.DataFrame({'url': [],
+                                              'titulo': [],
+                                              'texto': [],
+                                              'resumen': [],
+                                            })
 
         self.dataset_boes = pd.concat([self.dataset_boes, dataset_capturado], ignore_index=True)
         return self.dataset_boes.shape[0]
-
-
-
 
     def obtener_dataset_final(self):
         """
@@ -309,8 +335,10 @@ class DescargaBOE:
         Guarda en formato CSV en la ruta indicada en el fichero de configuracion
         MiClase.guardar_dataset_final()
         """
+        fecha_actual = datetime.datetime.now()
+        sufijo_fecha = fecha_actual.strftime("%Y%m%d")
         self.dataset_boes.to_csv(
-            f'{directorio_proyecto}/{self.folder_paquete}/{self.folder_data}/{self.name_file_output}',
+            f'{directorio_proyecto}/{self.folder_paquete}/{self.folder_data}/{self.name_file_output}_{sufijo_fecha}.csv',
             sep=self.separator_name)
 
     def initialize_download(self):
@@ -322,6 +350,10 @@ class DescargaBOE:
         MiObjeto = DescargaBOCyL
         MiObjeto.initialize_download()
         """
+        if config['scrapping']['enabled_scapping'] == 0:
+            logger.info("La descarga via webscrapping fue deshabilitada")
+            sys.exit()
+
         i = 0
 
         while True:

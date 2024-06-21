@@ -1,5 +1,4 @@
-# Fuentes: https://api.python.langchain.com/en/latest/chains/langchain.chains.retrieval.create_retrieval_chain.html
-
+# Importamos librerias
 import pandas as pd
 from langchain_core.documents.base import Document
 from langchain_community.embeddings import OllamaEmbeddings
@@ -10,11 +9,7 @@ import yaml
 from pathlib import Path
 import logging, glob, os, datetime
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-
-os.environ['HF_HUB_DISABLE_SYMLINKS_WARNING'] = '1'
-os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
-os.environ['PYTHONUNBUFFERED'] = '1'
-os.environ['PROJECT_ROOT'] = r'/content/recuperacion_informacion_modelos_lenguaje/tfm'
+import shutil
 
 # Ignorar warnings específicos de huggingface_hub
 warnings.filterwarnings("ignore", category=FutureWarning, module="huggingface_hub.file_download")
@@ -50,15 +45,42 @@ logger = logging.getLogger()
 
 
 class ingesta():
+    """
+       Clase que gestiona la ingesta de datos hacia la base de datos vectorial de FAISS.
+
+       Esta clase está diseñada para crear y poblar una base de datos FAISS
+       utilizando datos vectoriales que se extraen de archivos CSV. Estos archivos
+       CSV son descargados y preparados por un módulo de obtención de datos externo.
+
+       Métodos:
+           convertir_pandas_lista_documentos(self, dataframe, col_text, cols_metadata):
+           Convierte los pandas dataframes obtenidos a partir de los CSVs en documentos
+           generar_vector_store(self): Genera los vectores con los documentos
+           persistir_bbdd_vectorial(self,): persiste la base de datos vectorial en disco
+           inicialize_db_vect(self,): Inicia todos los procesos en su orden
+           getRetriver(self,): Obtiene el Retreiver para probarlo
+
+    """
+
     def __init__(self):
         logger.debug(f'Volcamos toda la informacion del fichero de configuracion: {config}')
         # Parametros externos configuracion
-        self.embedding_llm = OllamaEmbeddings(model=config['vectorial_database']['parameters_tokenizador']['name_model_tokenizador'])
-        self.ruta_db = Path(config['ruta_base']) / Path(config['vectorial_database']['ruta']) / Path(config['vectorial_database']['serialized_database'])
-        logger.debug(f'Leemos la configuracion Ruta de la Base de datos: {self.ruta_db }')
+        self.embedding_llm = OllamaEmbeddings(
+            model=config['vectorial_database']['parameters_tokenizador']['name_model_tokenizador'])
+        self.ruta_db = Path(config['ruta_base']) / Path(config['vectorial_database']['ruta']) / Path(
+            config['vectorial_database']['serialized_database'])
+        logger.debug(f'Leemos la configuracion Ruta de la Base de datos: {self.ruta_db}')
 
-    def convertir_pandas_lista_documentos(self, dataframe, col_text, cols_metadata):
-        # Lista para almacenar los documentos
+    def convertir_pandas_lista_documentos(self, dataframe: pd,
+                                          col_text: str,
+                                          cols_metadata: list):
+        """
+        Convierte en docuemntos todos los csvs extraidos a través del webscrapping de las distintas fuentes.
+        :param dataframe: Dataframe (csvs leidos)
+        :param col_text: Campo a indexar
+        :param cols_metadata: Campos a la METADATA
+        :return:
+        """
         documentos = []
         # Iterar sobre cada fila del DataFrame
         for index, row in dataframe.iterrows():
@@ -74,12 +96,20 @@ class ingesta():
         self.documentos = documentos
 
     def generar_vector_store(self):
+        """
+        Gener los vectores usando el LLM configurado en el fichero config.xml
+        :return:
+        """
         text_splitter = RecursiveCharacterTextSplitter()
         documents_embd = text_splitter.split_documents(self.documentos)
         self.vector_index = FAISS.from_documents(documents_embd, self.embedding_llm)
         self.retriever = self.vector_index.as_retriever()
 
     def persistir_bbdd_vectorial(self):
+        """
+        Persiste la bbdd vectorial a través de un pickle no es la mejor opción pero la usé por portabilidad
+        :return:
+        """
         if os.path.exists(self.ruta_db):
             # Si existe, borra su contenido
             for filename in os.listdir(self.ruta_db):
@@ -95,7 +125,6 @@ class ingesta():
             # Si no existe, crea el directorio
             os.makedirs(self.ruta_db)
 
-
         try:
             with open(self.ruta_db / Path(config['vectorial_database']['file_vector_index']), 'wb') as archivo:
                 pkl.dump(self.vector_index, archivo)
@@ -109,8 +138,16 @@ class ingesta():
             logger.error(f'Un Error se produjo al intentar guardar la base de datos de embbedings tipo retriever: {e}')
 
     def inicialize_db_vect(self):
-        # Leemos el contenido de la ruta de descarga del scrapper
-        path_csv = Path(config['ruta_base']) / config['scrapping']['ruta'] / config['scrapping']['descarga_datos'] / '*.csv'
+        """
+        Inicializa la base de datos vectotrial a partir de los csv extraidos de la web
+        :return:
+        """
+        if config['vectorial_database']['enabled_ingest'] == 0:
+            logger.info("La ingesta de datos en la base de datos vectorial fue deshabilitada")
+            exit(0)
+
+        path_csv = Path(config['ruta_base']) / config['scrapping']['ruta'] / config['scrapping'][
+            'descarga_datos'] / '*.csv'
         path_csv_str = str(path_csv)
         archivos_csv = glob.glob(path_csv_str)
         dataframes = []
@@ -128,10 +165,17 @@ class ingesta():
         self.persistir_bbdd_vectorial()
 
     def getRetriver(self):
+        """
+        Obtiene el retreiver para probarlo.
+        :return:
+        """
         return self.retriever
 
-if __name__ == '__main__':
-     BDVect = ingesta()
-     BDVect.inicialize_db_vect()
-     retriever = BDVect.getRetriver()
 
+if __name__ == '__main__':
+    """
+    Método principal para probar la clase.
+    """
+    BDVect = ingesta()
+    BDVect.inicialize_db_vect()
+    retriever = BDVect.getRetriver()

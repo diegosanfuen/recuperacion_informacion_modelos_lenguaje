@@ -246,7 +246,6 @@ class ReActAgent(Agent):
 # Creamos una instancia de nuestro agente
 agent = ReActAgent.from_llm_and_tools(
     llm,
-    HERRAMIENTAS,
 )
 # Definimos el agente ejecutor
 agent_executor = AgentExecutor.from_agent_and_tools(

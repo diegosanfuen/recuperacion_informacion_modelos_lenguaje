@@ -28,10 +28,10 @@ load_dotenv()  # Realizamos la carga de las variables de ambiente
 # os.environ['PROJECT_ROOT'] = r'/content/tfm-oepia'
 
 sys.path.insert(0, os.environ['PROJECT_ROOT'])
-from Sesiones.sesiones import ManejadorSesiones as ses
-from FaissOPEIA import carga as fcg
-from OEPIA.Utiles import Prompts as prompts
-from OEPIA.Utiles import Utiles as utls
+from SesionesCollab.sesiones import ManejadorSesiones as ses
+from FaissOPEIACollab import carga as fcg
+from Utiles import Prompts as prompts
+from Utiles import Utiles as utls
 
 # Herramienta del Agente PDF
 obtener_boe_texto = utls.obtener_boe_texto

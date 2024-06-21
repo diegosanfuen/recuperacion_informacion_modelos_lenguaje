@@ -9,7 +9,7 @@ logs_config:
 
 # Configuracion de la Base de Datos de Mensajes (Contexto)
 sesiones:
-  ruta: "Sesiones" # Ruta despliegue módulo sesiones partiendo ruta base
+  ruta: "SesionesCollab" # Ruta despliegue módulo sesiones partiendo ruta base
   ruta_db: "datos" # Ruta donde almacenar la base de datos de sesiones partiendo RutaBase+RutaSesiones
   nombre_db: "sesiones.sqlite" # Nombre base de datos de sesiones
   tabla: "sesiones" # Nombre tabla de sesiones
@@ -17,7 +17,7 @@ sesiones:
 # Configuracion de Base de Datos Vectorial
 vectorial_database:
   enabled_ingest: 1 # Habilitado: 1 Deshabilitado: 0
-  ruta: "FaissOPEIA" # Ruta despliegue Módulo base de datos vectorial RAG
+  ruta: "FaissOPEIACollab" # Ruta despliegue Módulo base de datos vectorial RAG
   serialized_database: "db" # Ruta almacenamiento datos serializados RAG partiendo RutaBase+RutaModuloRAG
   file_retriever: "retriever.pkl" # Nombre del fichero de datos serializados Retriever
   file_vector_index: "bbdd_vecrtorial.pkl" # Nombre del fichero datos serializados bbdd_vectorial
@@ -33,7 +33,7 @@ vectorial_database:
 # WebScrapping
 scrapping:
   enabled_scapping: 1 # 1: Habilitado 0: Deshabilitado
-  ruta: "ObtencionDatos" # Ruta de despliegue del modulo de WebScrapping
+  ruta: "ObtencionDatosCollab" # Ruta de despliegue del modulo de WebScrapping
   descarga_datos: "datos" # Ruta de almacenamiento de datos
   dataset_index:
     campos_metadata: # Campos dataset metadata
